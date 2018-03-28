@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "君飞Internet版客户端", "ClientSetUp\Internet\InternetClientSetUp.vdproj", "{E39D6D4A-D565-4FF8-93E6-B701744E3C05}"
+EndProject
+Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E39D6D4A-D565-4FF8-93E6-B701744E3C05}.Debug|Default.ActiveCfg = Debug
+		{E39D6D4A-D565-4FF8-93E6-B701744E3C05}.Debug|Default.Build.0 = Debug
+		{E39D6D4A-D565-4FF8-93E6-B701744E3C05}.Release|Default.ActiveCfg = Release
+		{E39D6D4A-D565-4FF8-93E6-B701744E3C05}.Release|Default.Build.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

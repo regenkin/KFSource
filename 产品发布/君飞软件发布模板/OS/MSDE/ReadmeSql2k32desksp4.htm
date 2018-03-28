@@ -1,0 +1,2226 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML DIR="LTR"><HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=GB2312">
+<TITLE>Microsoft SQL Server 2000 Service Pack 4 - Desktop Engine (MSDE 2000)</TITLE>
+</HEAD>
+<BODY>
+
+<!-- Document last modified on  Monday, March 21, 2005 - 3:46 PM -->
+
+<Style TYPE="text/css">
+<!--
+
+/* Style sheet optimized for IE4x - Last updated 2/9/99 */
+/* changed h1-h4 font sizes */
+
+body    		{ color: #000000;
+		background: #FFFFFF;  			font-size: 70%;    				font-family: Verdana, Arial, Helvetica, Sans Serif }
+
+a:link	 	{ color: "#0000FF"; text-decoration:"underline";}
+
+a:visited 	{ color: "#660000"; text-decoration:"underline";}
+
+a:active, a:hover 	{ color: "#FF0000";  cursor:hand; text-decoration:"underline";}
+
+h1
+		{ font-size: 190%; 
+		margin-bottom:" .5em"; clear:both; }
+
+h2
+		{ font-size: 175%;  
+		margin-top: 1.5em;
+		margin-bottom:" .5em"; clear:both; }
+
+h3
+		{ font-size: 160%; 
+		margin-top: 1.2em;  
+		margin-bottom: ".5em"; clear:both; }
+
+h4
+		{ font-size: 145%; 
+		margin-bottom:" .5em"; clear:both; }
+
+h5
+		{ font-size: 115%;  
+		margin-top: 1.5em;
+		margin-bottom:" .5em"; clear:both; }
+
+h6
+		{ font-size: 110%; 
+		margin-top: 1.2em;  
+		margin-bottom: ".5em"; clear:both; }
+
+p
+		{ margin-top:" .6em"; 
+		margin-bottom: ".6em"; }
+			ol
+		{ margin-top: ".5em"; 
+		margin-bottom: 0; 
+		margin-left: "2.1em"; 
+		padding-left: "0em"; }
+	ul
+		{ margin-top: ".6em"; 			margin-bottom: 0;
+		list-style-type: disc;
+		margin-left: "1.5em";
+		padding-left: "0em"; }
+		li
+		{ margin-bottom: ".7em"; clear:both; }
+
+dd
+		{ margin-bottom: 0; 
+		margin-left: "1.5em"; }
+
+em
+		{ color: "#FF0000"; } 
+
+/* for defined terms, follow the "Document Conventions" listing in the Microsoft Manual of Style: */
+/* Keywords, functions, and anything else the user must enter exactly as shown are bold--add "font-weight: bold;" to the dt tag */
+/* Variables, book titles, and placeholders the user must provide are italic--add "font-style: italic;" to the dt tag */
+/* pre-defined arguments are bold and italic--add "font-weight: bold;" and "font-style: italic;" to the dt tag */
+
+dt
+		{ margin-top: "2em"; }
+
+pre
+		{ margin-top: "1.2em";
+		margin-bottom: "1.5em"; }
+
+code
+		{ font-family: Courier New; 
+		font-size: 115% }
+
+table
+		{ font-size: 100%;
+		margin-top: "1em"; 
+		margin-bottom: "1em"; 
+		cellpadding: "0.5em"; }
+		th
+		{ text-align: left;
+		background: #DDDDDD;
+		vertical-align: bottom;}
+		tr
+		{ vertical-align: top; }
+
+td
+		{ background: #EEEEEE;
+		vertical-align: top; }
+
+/* Alert text ID formats */
+
+#Alert_Note        { color: "#000000"; margin-left:" 1.5em"; margin-top:" 1em"; margin-bottom:"1em" }
+
+#Alert_Important { color: "#8B0000"; margin-left:" 1.5em"; margin-top:" 1em"; margin-bottom:"1em"  }
+
+#Alert_Warning  { color: "B22222"; margin-left:" 1.5em"; margin-top:" 1em"; margin-bottom:"1em"  }
+		  
+// -->
+</style>
+<!--Document last modified on Monday, March 21, 2005 at 3:46 PM-->
+<H1>Microsoft SQL Server 2000 Service Pack 4</H1>
+
+<H1>Desktop Engine (MSDE 2000)</H1>
+
+<H5>2005 年 3 月 29 日</H5>
+
+<P>&copy; 版权所有 Microsoft Corporation，2004。保留所有权利。</P>
+
+<P><P style="background-color: #C0FFFF">&nbsp;<BR>SQL Server 文档小组不能解答技术支持问题，但是欢迎您就本自述文档提出建议和意见。通过下面的链接可以快速并直接发送电子邮件反馈。在提交反馈时请使用英文书写。<BR><BR>要提交有关本文档的书面反馈，请单击此处：<A HREF="mailto:sqldocfb@microsoft.com?subject=MSDE 2000 SP4 readme file&body=---Please type comments here, leaving the subject line in place.---">提交反馈</A>。<BR>&nbsp;</P></P>
+
+<H1><A NAME="_contents_ar5q"></A>目录</H1>
+
+<P>1.0 <A HREF="#_introduction">简介</A></P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;1.1 <A HREF="#_1461463_hardware_and_software_requiremen_fzpy">系统要求</A></P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;1.2 <A HREF="#_planning_upgrades_to_msde_2000_sp4_d3jb">升级到 MSDE 2000 SP4 之前</A></P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;1.3 <A HREF="#_3467462_security_considerations_for_msde_d3jb">MSDE 2000 SP4 的安全注意事项</A></P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;1.4 <A HREF="#_1464_know_the_instance_name_fzpy">	确定实例名称</A></P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;1.5 <A HREF="#_verify_the_version_of_microsoft_data_acc_d3jb">验证 Microsoft 数据访问组件的版本</A></P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;1.6 <A HREF="#_identifying_the_current_version_of_sql_server_or_analysis_services">确定 MSDE 2000 的当前版本</A></P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;1.7 <A HREF="#_additional_information_about_sp4">有关 SP4 的其他信息</A></P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;1.8 <A HREF="#_updated_books_online_documentation_is_av_wluf">SQL Server 2000 联机丛书更新已可用</A></P>
+
+<P>2.0 <A HREF="#_acquiring_desktop_engine_sp4">可以找到并下载 MSDE 2000 SP4 的位置</A></P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;2.1 <A HREF="#_2461_choosing_the_correct_language_ar5q">选择正确的语言</A></P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;2.2 <A HREF="#_2462_downloading_msde_2000_sp4_gq59">下载 MSDE 2000 SP4</A></P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;2.3 <A HREF="#_2463_extracting_the_msde_2000_sp4_files_2y0t">解压缩 MSDE 2000 SP4 文件</A></P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;2.4 <A HREF="#_2464_download_and_extraction_phase_guide_0a8g">下载和解压缩阶段准则</A></P>
+
+<P>3.0 <A HREF="#_service_pack_installation">安装 Service Pack</A></P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;3.1 <A HREF="#_prepare_for_sp4_installation_wluf">准备安装 MSDE 2000 SP4</A></P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;3.2 <A HREF="#_install_desktop_engine_sp4">运行 MSDE 2000 SP4 安装程序</A></P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;3.3 <A HREF="#_restart_services">重新启动服务和应用程序</A></P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;3.4 <A HREF="#_installing_on_replicated_servers">在复制服务器上安装 MSDE 2000</A></P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;3.5 <A HREF="#_applying_sp4_to_read-only_databases_or_filegroups">将 MSDE 2000 SP4 应用于复制拓扑中的只读数据库或文件组</A></P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;3.6 <A HREF="#_34613_upgrading_the_catalog_of_linked_se_d3jb">升级链接服务器的目录</A></P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;3.7 <A HREF="#_uninstalling_sp4">卸载 MSDE 2000 SP4</A></P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;3.8 <A HREF="#_reapplying_sp4">重新应用 MSDE 2000 SP4</A></P>
+
+<P>4.0 <A HREF="#_additional_installation_considerations">其他安装注意事项</A></P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;4.1 <A HREF="#_3467467_redistributing_msde_2000_sp4_ar5q">再分发 MSDE 2000 SP4</A></P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;4.2 <A HREF="#_3467468_msde_2000_sp4_file_locations_gq59">MSDE 2000 SP4 文件位置</A></P>
+
+<P>5.0 <A HREF="#_documentation_notes">文档说明</A></P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;5.1 <A HREF="#_database_and_desktop_engine_enhancements">MSDE 2000 增强功能</A></P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;5.2 <A HREF="#_replication_enhancements">复制增强功能</A></P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;5.3 <A HREF="#_5464_sql_server_agent_enhancements_705">SQL Server 代理和共享工具增强功能</A></P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;5.4 <A HREF="#_sqlxml_enhancement_d3jb">XML 增强功能</A></P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;5.5 <A HREF="#_db-library_and_embedded_sql_for_c">用于 C 语言的 DB-Library 和嵌入式 SQL</A></P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;5.6 <A HREF="#_desktop_engine_setup_enhancements_wluf">MSDE 2000 安装程序增强功能</A></P>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;5.7 <A HREF="#_54610_supportability_enhancements_d3jb">可维护性增强功能</A></P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H1><A NAME="_introduction"></A>1.0 简介</H1>
+
+<P>本自述文件描述如何使用 Microsoft&reg; SQL Server&trade; 2000 Service Pack 4 (SP4) 的 SQL Server Desktop Engine (MSDE) 部分。使用 Desktop Engine SP4，可以将现有的 MSDE 实例升级到 MSDE 2000 SP4，也可以安装新的 MSDE 2000 SP4 实例。</P>
+
+<P>安装 SQL Server SP4 的一般过程如下：
+
+<OL>
+	<LI>确定是否可以使用 SP4，如果可以，确定需要安装 SP4 的哪一部分或哪些部分。确保查阅了本自述文件<A HREF="#_introduction">第 1.0 节</A>中的所有部分，然后再下载并安装 SP4。<BR><BR></LI>
+
+	<LI>下载并解压缩 Service Pack 安装文件。<A HREF="#_acquiring_desktop_engine_sp4">第 2.0 节</A>描述如何获取 SP4 安装文件。<BR><BR></LI>
+
+	<LI>准备要升级到 SP4 的实例。<A HREF="#_service_pack_installation">第 3.0 节</A>以及第 3.1 到 3.3 节详细描述在安装 SP4 之前的准备步骤。<BR><BR></LI>
+
+	<LI>安装 SP4。<A HREF="#_install_desktop_engine_sp4">第 3.2 节</A>详细描述运行 SP4 安装程序的选项。</LI>
+</OL>
+
+<P class=indent><B>说明</B>&nbsp;&nbsp;&nbsp;除非特别指定，否则，本自述文件中对 SQL Server 2000 Desktop Engine 的所有引用均是指 MSDE 2000 Release A。MSDE 2000 Release A 下载版的功能与 SQL Server 2000 Desktop Engine SP3a 相当，但是包括新的最终用户许可协议 (EULA)，赋予了用户不同于以前的 MSDE 2000 许可证所赋予的权利。</P>
+
+<P>SQL Server 2000 SP4 包含四个部分。使用每个部分可以将 SP4 应用于不同的 SQL Server 组件：
+
+<UL type=disc>
+	<LI><B>MSDE 2000 SP4</B> 更新 SQL Server 2000 MSDE 2000 和 MSDE 2000 Release A 的实例。由 MSDE 2000 SP4 更新的组件包括：
+<UL type=disc>
+	<LI>MSDE 2000 数据库引擎。<BR><BR></LI>
+
+	<LI>MSDE 2000 附带的数据库命令提示符实用工具，如 <B>osql</B> 和 <B>bcp</B> 实用工具。<BR><BR></LI>
+
+	<LI>数据库客户端连接组件，如用于 SQL Server 2000 的 Microsoft OLE DB 提供程序、SQL Server 2000 ODBC 驱动程序和客户端 Net-Library。<BR><BR></LI>
+
+	<LI>随 MSDE 2000 附带的复制和数据转换服务 (DTS) 的相应部分。</LI>
+</UL>
+</LI>
+
+	<LI><B>Database Components SP4</B> 更新 SQL Server 2000 企业版、标准版、开发版、企业评估版或个人版数据库引擎的实例。<BR><BR></LI>
+
+	<LI><B>Analysis Services SP4</B> 更新 SQL Server 2000 安装中 SQL Server 2000 Analysis Services 的各部分。<BR><BR></LI>
+
+		<LI><B>SQL Server 2000 SP4（64 位）</B>包含 SQL Server 2000（64 位）的所有更新，是 SQL Server 2000（64 位）的第一个 Service Pack。 </LI>
+</UL>
+
+<P>所有 SQL Server Service Pack 都是累积的。SQL Server SP4 包含 SP1、SP2、SP3 和 SP3a 中提供的修复程序。</P>
+
+<P>MSDE 2000 SP4 只能用于 SQL Server 2000 Desktop Engine 或 MSDE 2000 Release A 的实例。SQL Server 2000 SP4 的其他部分将 SP4 应用于其他 SQL Server 2000 组件，例如 Analysis Services 或数据库引擎。使用 Database Components SP4 和 Analysis Services SP4 的方式都有各自的自述文件进行描述。其他自述文件可以从此 <A HREF="http://go.microsoft.com/fwlink/?LinkId=36830" target=_blank>Microsoft 网站</A>获得。</P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H5>使用 MSDE 2000 SP4</H5>
+
+<P>MSDE 2000 的此 Service Pack 针对创建使用 MSDE 的可再分发应用程序的开发人员。MSDE 2000 SP4 可以用于执行下列操作：
+
+<UL type=disc>
+	<LI>将现有的 2000 MSDE 2000 或 MSDE 2000 Release A 实例升级到 MSDE 2000 SP4（前提是实例最初使用 MSDE 2000 安装程序进行安装）。<BR><BR></LI>
+
+	<LI>安装新的 MSDE 2000 SP4 实例（前提是您的 MSDE 2000 许可证允许您安装 MSDE 2000 实例）。<BR><BR></LI>
+
+	<LI>将 MSDE 1.0 实例升级到 MSDE 2000（前提是您的 MSDE 2000 许可证允许您运行 MSDE 2000 实例）。<BR><BR></LI>
+
+	<LI>为开发人员提供编写应用程序安装程序所需的文件，以便将 MSDE 2000 SP4 的实例作为应用程序安装的一部分进行安装。开发人员必须拥有随应用程序分发 MSDE 的许可证。<BR><BR></LI>
+
+	<LI>为开发人员提供所需的文件来构建修补程序模块，分发给其应用程序使用 MSDE 2000 合并模块安装了 MSDE 2000 实例的客户。</LI>
+</UL>
+
+<P>有关 MSDE 2000 许可的更多信息，请参见<A HREF="http://go.microsoft.com/fwlink/?LinkId=10253" target=_blank>使用 MSDE 2000</A>。如果尚未获得安装或运行 MSDE 2000 的许可证，可以通过在 <A HREF="http://go.microsoft.com/fwlink/?LinkId=33808" target=_blank>MSDE 2000 Release A 网页</A>上注册来获得。</P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H5>在开始安装 MSDE 2000 SP4 之前</H5>
+
+<P>要安装 MSDE 2000 SP4，请查阅本自述文件第 1 节和第 2 节中的资料，然后按照第 3 节中的说明操作，前提是符合下列条件：
+
+<UL type=disc>
+	<LI>已经确定可以对现有的 MSDE 实例应用 MSDE 2000 SP4。<BR><BR></LI>
+
+	<LI>准备安装新的 MSDE 2000 实例。<BR><BR></LI>
+
+	<LI>准备将 MSDE 2000 SP4 文件合并到应用程序的安装实用工具中。</LI>
+</UL>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H5>在升级和安装期间期望出现的情况</H5>
+
+<P>本自述文件的下列各节包含的示例是将现有的 MSDE 实例升级到 MSDE 2000 SP4 或安装新的 MSDE 2000 实例的最常见方案：
+
+<UL type=disc>
+	<LI>3.2.2 <A HREF="#_3467464_upgrading_existing_instances_of__fzpy">将现有的 MSDE 2000 实例升级到 MSDE2000 SP4</A><BR><BR></LI>
+
+	<LI>3.2.3 <A HREF="#_3467465_installing_a_new_instance_of_msd_cuy1">安装新的 MSDE 2000 SP4 实例</A><BR><BR></LI>
+
+	<LI>3.2.4 <A HREF="#_3467466_upgrading_msde_1460_to_msde_2000_238p">将 MSDE 1.0 升级到 MSDE 2000 SP4</A></LI>
+</UL>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H2><A NAME="_1461463_hardware_and_software_requiremen_fzpy"></A>1.1 系统要求</H2>
+
+<P>在尝试运行 MSDE 2000 SP4 安装程序之前，您的计算机必须满足下列硬件和软件要求。</P>
+
+<H5>硬件要求</H5>
+
+<P>下表列出了安装并运行 MSDE 2000 的硬件要求。</P>
+
+<TABLE border=1 cellpadding=2 cols=2 frame=box rules=rows width=595>
+
+<TR VALIGN="top">
+<TD width=50%><B>硬件</B></TD>
+<TD width=50%><B>最低要求</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=50%>计算机</TD>
+<TD width=50%>Intel Pentium 或兼容机，166 MHz 或更高</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=50%>内存 (RAM)</TD>
+<TD width=50%>Microsoft Windows XP 和 Windows 2003 Server 要求 128 MB
+<P>Windows 2000 要求最低 64 MB</P>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=50%>硬盘空间</TD>
+<TD width=50%>Microsoft Windows XP 和 Windows 2003 Server 要求 75 MB
+<P>Windows 2000 要求 100 MB</P>
+</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=50%>驱动器</TD>
+<TD width=50%>CD-ROM 驱动器（如果是从 CD-ROM 安装 MSDE 2000 SP4）</TD>
+</TR>
+</TABLE><BR>
+
+<P>MSDE 2000 没有硬件兼容性列表 (HCL)。如果计算机满足上表所列的最低要求，MSDE 2000 软件即可在经鉴定能够随 Windows 操作系统使用的硬件上运行。有关经鉴定能够随 Windows 操作系统使用的硬件的更多信息，请参见此 <A HREF="http://go.microsoft.com/fwlink/?LinkId=20287" target=_blank>Microsoft 网站</A>上的 Windows 硬件兼容性列表。</P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H5>操作系统要求</H5>
+
+<P>要使用 MSDE 2000，必须已安装下列操作系统之一：
+
+<UL type=disc>
+	<LI>Windows Server 2003 Standard Edition、Windows Server 2003 Enterprise Edition、Windows Server 2003 Datacenter Edition、Windows Server 2003 Web Edition。<BR><BR></LI>
+
+	<LI>Windows 2000 Server、Windows 2000 Advanced Server、Windows 2000 Datacenter Server。<BR><BR></LI>
+
+	<LI>Windows XP Professional、Windows XP Home Edition。<BR><BR></LI>
+
+	<LI>Windows 2000 Professional。</LI>
+</UL>
+
+<P class=indent><B>重要</B>&nbsp;&nbsp;&nbsp;Windows NT 4.0、Windows Millennium Edition 和 Windows 98 平台上不支持 SQL Server 2000 SP4。SQL Server 2000 SP4 最终发布之后的 12 个月内，Windows NT 4.0、Windows Millennium Edition 和 Windows 98 平台上安装的 SQL Server 2000 SP3a 可以继续得到关键热修复程序的支持。 </P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H5>软件要求和系统要求</H5>
+
+<P>如果要运行 MSDE 2000 安装程序，必须启用文件和打印机共享。</P>
+
+<P><B>确认文件和打印机共享已启用</B>
+
+<OL>
+	<LI>在“控制面板”中，双击“网络连接”<B></B>。<BR><BR></LI>
+
+	<LI>在“高级”<B></B>菜单中，单击“高级设置”<B></B>。<BR><BR></LI>
+
+	<LI>在“适配器和绑定”<B></B>选项卡上，确定选中了“Microsoft 网络的文件和打印机共享”<B></B>。</LI>
+</OL>
+
+<P>如果下列任一安全策略已被设置为“禁止安装”<B></B>，则 MSDE 2000 SP4 的安装将失败：
+
+<UL type=disc>
+	<LI>Windows XP 的本地安全策略“设备：未签名驱动程序的安装操作”。<B></B><BR><BR></LI>
+
+	<LI>Windows 2000 的本地安全策略“未签名非驱动程序的安装操作”。<B></B></LI>
+</UL>
+
+<P>如果使用“禁止安装”设置<B></B>，则必须在安装 MSDE 2000 SP4 之前将该设置更改为“默认继续”<B></B>。如有必要，可以在安装完成之后将该策略还原为以前的设置。</P>
+
+<P class=indent><B>说明</B>&nbsp;&nbsp;&nbsp;“禁止安装”不是这些安全策略的默认设置。<B></B></P>
+
+<P><B>设置安全策略</B>
+
+<OL>
+	<LI>在“控制面板”中，双击“管理工具”。<B></B><BR><BR></LI>
+
+	<LI>双击“本地安全策略”。<B></B><BR><BR></LI>
+
+	<LI>展开“本地策略”<B></B>。<BR><BR></LI>
+
+	<LI>选中“安全选项”<B></B>。<BR><BR></LI>
+
+	<LI>确保在安装 MSDE 2000 SP4 之前，右窗格中的下列选项被设置为“默认继续”<B></B>：
+<UL type=disc>
+	<LI>对于 Windows XP 和 Windows 2003：“设备：未签名驱动程序的安装操作”。<B></B><BR><BR></LI>
+
+	<LI>对于 Windows 2000：“未签名非驱动程序的安装操作”。<B></B></LI>
+</UL>
+</LI>
+</OL>
+
+<P>如果使用的是 Microsoft Windows Installer 2.0.2600.0 或更高版本，则只能从 CD-ROM 安装 MSDE 2000 SP4 的升级文件。如果需要升级 Windows 安装程序，MSDE 2000 SP4 应包含必要的文件。</P>
+
+<P class=label><B>升级 Windows 安装程序</B>
+
+<OL>
+	<LI>在 Windows 资源管理器中，浏览到 \MSDE\MSI 文件夹，该文件夹位于 SQL Server 2000 SP4 CD 上或从自解压缩 Service Pack 4 下载文件 SQL2000.MSDE-KB884525-SP4-x86-<I>LLL</I>.exe 将文件解压缩到的文件夹中，其中 <I>LLL</I> 因语言而异。<BR><BR></LI>
+
+	<LI>运行 InstMsi20.exe。<BR><BR></LI>
+
+	<LI>根据提示重新启动计算机。</LI>
+</OL>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H5>应用程序要求</H5>
+
+<P>如果某个应用程序正在使用您的 MSDE 实例，在升级到 MSDE 2000 SP4 之前，应询问应用程序提供商是否所有 MSDE 升级注意事项都适用于该应用程序。</P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H2><A NAME="_planning_upgrades_to_msde_2000_sp4_d3jb"></A>1.2 升级到 MSDE 2000 SP4 之前</H2>
+
+<P>本节描述在使用 MSDE 2000 SP4 将现有的 MSDE 实例升级到 MSDE 2000 SP4 之前，必须解决的问题以及必须执行的任务。</P>
+
+<P>在 Database Components SP4 实例上创建的数据库或数据库备份可以在早期版本的 SQL Server 2000 上附加或还原。但是，对复制拓扑中的数据库有一些限制。有关更多信息，请参见 1.2.3 <A HREF="#_1462463_considerations_for_an_instance_i_fzpy">复制拓扑或日志传送拓扑中实例的注意事项</A>。</P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H3><A NAME="_1462461_determine_if_you_can_apply_msde__d3jb"></A>1.2.1 确定是否可以将 MSDE 2000 SP4 应用于现有的 MSDE 2000 实例</H3>
+
+<P>将 MSDE 2000 SP4 应用于现有的 MSDE 2000 实例的过程因安装实例的方式而异。大多数应用程序通过下列方式之一安装 MSDE 2000：
+
+<UL type=disc>
+	<LI>运行 MSDE 2000 安装程序。可以使用 MSDE 2000 SP4 文件将通过这种方式安装的 MSDE 2000 实例升级到 SP4。MSDE 2000 安装实用工具可以从命令提示符运行，也可以通过应用程序的安装实用工具调用。<BR><BR></LI>
+
+	<LI>直接利用 MSDE 2000 合并模块。如果应用程序的安装实用工具使用 Windows 安装程序技术，则可以使用此安装方法。使用 MSDE 2000 SP4 文件无法升级通过这种方式安装的 MSDE 2000 实例。要进行升级，必须向应用程序供应商索取修补程序文件。MSDE 2000 SP4 提供合并模块以支持使用合并模块的现有应用程序。
+<P class=atl><B>说明</B>&nbsp;&nbsp;&nbsp;新应用程序的安装实用工具必须编写为调用 MSDE 2000 安装实用工具，而不是直接使用 MSDE 2000 合并模块。MSDE 2000 SP4 包含合并模块。但是，只有应用程序供应商才可以使用这些合并模块，这些供应商必须为最初通过直接利用合并模块的实用工具安装的 MSDE 实例构建修补程序文件。</p></LI>
+</UL>
+
+<P>如果计算机上有多个 MSDE 2000 实例，则必须逐个评估每个实例，以便确定是否可以应用 MSDE 2000 SP4。还必须对每个实例分别应用 SP4。</P>
+
+<P class=atl><B>说明</B>&nbsp;&nbsp;&nbsp;Microsoft 不支持在一台计算机上配置 16 个以上的 SQL Server 数据库引擎实例。包括以下实例：SQL Server 6.5、SQL Server 7.0、SQL Server 2000、MSDE 1.0 和 MSDE 2000。</p>
+<P>Microsoft 知识库文章 <A HREF="http://support.microsoft.com?kbid=311762" target=_blank>311762</A> 包含确定 MSDE 2000 实例安装方式的说明。按照文章 311762 中的过程进行操作之后，应注意以下事项：
+
+<UL type=disc>
+	<LI>如果信息表明实例是使用 MSDE 2000 安装程序文件 SqlRun01.msi 到 SqlRun16.msi 安装的，则可以使用 SQL Server 2000 SP4 下载文件升级 MSDE 2000 实例。<BR><BR></LI>
+
+	<LI>如果信息表明实例是通过 Microsoft 应用程序安装的，请参见此 <A HREF="http://go.microsoft.com/fwlink/?LinkId=14961" target=_blank>Microsoft 网站</A>上有关升级该 MSDE 2000 实例的说明。<BR><BR></LI>
+
+	<LI>知识库文章 311762 将指导您读取注册表项中 <B>ProductCode</B> 字段的值，并在已知值表中查找该值。如果注册表项中的值未在文章 311762 中列出，则表示实例是通过应用程序的安装实用工具安装的。不能使用 SQL Server 2000 SP4 的下载文件将 SP4 应用于此类 MSDE 实例。而是必须从编写应用程序的公司获取修补程序文件。如果编写应用程序的公司不是 Microsoft，必须向相应公司索取修补程序文件。如果编写应用程序的公司是 Microsoft，请参见以下网页，其中列出了 Microsoft 开发的 MSDE 应用程序（此页使用如何升级这些 MSDE 2000 实例的信息不断更新）：<A HREF="http://go.microsoft.com/fwlink/?LinkId=14961" target=_blank>Microsoft MSDE 应用程序网页</A><BR><BR></LI>
+
+	<LI>如果文章 311762 指明 <B>ProductCode</B> 值的原始包名称为 Sample.msi 或 SampleUpg.msi，请参见知识库文章 <A HREF="http://support.microsoft.com?kbid=314131" target=_blank>314131</A>，查看如何为此 MSDE 2000 实例构建修补程序的说明。</LI>
+</UL>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H3><A NAME="_1462462_determine_if_the_original_msde_2_wluf"></A>1.2.2 确定是否必须使用原始 MSDE 2000 安装文件</H3>
+
+<P>可以从硬盘、网络共享位置或 CD-ROM 运行 MSDE 2000 SP4 安装程序。如果从硬盘运行安装程序，则不必使用原始 MSDE 2000 安装文件。但是如果从网络共享位置或 CD 将 MSDE 2000 实例升级到 MSDE 2000 SP4，则最初用于安装 MSDE 2000 的文件必须在原始安装时文件所处的位置。如果最初是从 CD 进行的安装，则 MSDE 2000 SP4 安装程序在升级过程中将要求插入原始 CD。如果原始文件不在原始的网络共享位置，或者原始 CD-ROM 不可用，则必须将 MSDE 2000 SP4 文件复制到硬盘驱动器中，然后从硬盘驱动器中运行安装程序。</P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H3><A NAME="_1462463_considerations_for_an_instance_i_fzpy"></A>1.2.3 复制拓扑或日志传送拓扑中实例的注意事项</H3>
+
+<P>MSDE 2000 SP4 安装程序升级作为复制拓扑成员的用户数据库。此升级因素可能会影响复制的用户数据库的备份和还原功能。在安装 MSDE 2000 SP4 之前，确保复制数据库和文件组是可写的。</P>
+
+<P>有关将 SP4 应用于复制拓扑中的数据库的更多信息，请参见 3.4 <A HREF="#_installing_on_replicated_servers">在复制服务器上安装 MSDE 2000</A>。复制的其他备份和还原注意事项在 5.2.4 <A HREF="#_backup_and_restore_issues_for_merge_replication">合并复制的备份和还原问题</A>中详细描述。</P>
+
+<P class=indent><B>说明</B>&nbsp;&nbsp;&nbsp;如果 MSDE 2000 实例不是复制拓扑的一部分，则可以在任何其他版本的 SQL Server 2000 或 MSDE 2000 上备份用户数据库并进行还原。</P>
+
+<P>如果安装程序检测出用户数据库或文件组不可写，将执行以下操作：
+
+<UL type=disc>
+	<LI>将 SP4 复制更新应用于所有可写的用户数据库。<BR><BR></LI>
+
+	<LI>将只读数据库的列表写入安装程序日志（该日志位于 Winnt\Sqlsp.log）。<BR><BR></LI>
+
+	<LI>显示以下警告消息：
+<PRE><CODE>Setup has detected one or more databases and filegroups which are not writable.</CODE></PRE>
+</LI>
+</UL>
+
+<P>除非安装程序日志中列出的某些数据库是复制拓扑的成员，否则可以忽略此警告。如果安装程序日志中列出的只读数据库是复制拓扑的成员，则必须使这些数据库可写并将 SP4 重新应用于该 MSDE 2000 实例。</P>
+
+<P>有关使数据库可写的信息，请参见 3.5 <A HREF="#_applying_sp4_to_read-only_databases_or_filegroups">将 MSDE 2000 SP4 应用于复制拓扑中的只读数据库或文件组</A>。有关重新应用 SP4 的更多信息，请参见 3.8 <A HREF="#_reapplying_sp4">重新应用 MSDE 2000 SP4</A>。</P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H3><A NAME="_1462464_determine_how_to_remove_msde_200_cuy1"></A>1.2.4 确定如何删除 MSDE 2000 SP4</H3>
+
+<P>在使用 MSDE 2000 SP4 升级现有的 MSDE 实例之前，建议您计划一下如何在以后需要时将实例还原到先前状态。安装 MSDE 2000 SP4 时，会为了进行维护而更改系统表。还会升级作为复制拓扑成员的用户数据库和分发数据库。由于这些更改的性质，无法轻易删除 MSDE 2000 SP4。要还原为安装 MSDE 2000 SP4 前所运行的版本，必须先卸载 MSDE 2000 实例，然后重新安装该实例。接下来，如果运行过以前的 SQL Server 2000 Service Pack 或应用过任何热修复程序，必须将相应的 Service Pack 和热修复程序重新应用于所还原的实例。</P>
+
+<P class=indent><B>重要</B>&nbsp;&nbsp;&nbsp;要将系统安全地还原到安装 MSDE 2000 SP4 之前的状态，必须立即备份 <B>master</B>、<B>model</B> 和 <B>msdb</B> 数据库，然后再安装 MSDE 2000 SP4。有关更多信息，请参见 3.1.1 <A HREF="#_back_up_your_sql_server_databases">备份 SQL Server 数据库</A>。</P>
+
+<P>有关更多信息，请参见 3.7 <A HREF="#_uninstalling_sp4">卸载 MSDE 2000 SP4</A>。</P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H2><A NAME="_3467462_security_considerations_for_msde_d3jb"></A>1.3 MSDE 2000 SP4 的安全注意事项</H2>
+
+<P>在 SP3a 中更改了 MSDE 2000 安装程序的行为，以使默认设置的配置更安全。这些更改在 SP4 中继续生效，如下所述：
+
+<UL type=disc>
+	<LI><B>默认情况下禁用网络支持</B>
+<P class=tl>默认情况下，在安装新的 MSDE 2000 实例时，SP4 禁用网络支持。升级现有实例时，将保留其网络支持设置。如果另一台计算机上没有任何应用程序连接到您的 MSDE 2000 实例，则实例不需要网络支持。最好关闭不使用的资源。如果将 DISABLENETWORKPROTOCOLS 安装参数的值指定为 0，则可以在安装过程中启用网络支持。如果安装 MSDE 2000 SP4 实例时启用了网络支持功能，稍后可以重新配置此实例来禁用网络支持。有关如何禁用和还原网络访问的更多信息，请参见 Microsoft 知识库文章 <A HREF="http://support.microsoft.com?kbid=814130" target=_blank>814130</A>。</P></LI>
+
+	<LI><B>安装程序要求使用强 sa 密码</B>
+<P class=tl>如果不指定强 <B>sa</B> 密码，MSDE 2000 SP4 安装程序不会安装新的 MSDE 2000 实例。可以使用 SAPWD 参数指定强 <B>sa</B> 密码。如果不为 <B>sa</B> 登录指定一个强密码，MSDE 2000 SP4 安装程序不会升级现有的 MSDE 2000 实例。除非使用 MSDE 实例的应用程序在某些方面依赖空的 <B>sa</B> 密码，否则，即使是升级现有的实例，也必须为 <B>sa</B> 登录指定一个强密码。即使 MSDE 2000 实例使用的是 Windows 身份验证，<B>sa</B> 登录也会在实例切换到混合模式身份验证时立即被激活。空、空白、简单或者众所周知的 <B>sa</B> 密码可能很容易被利用来进行未经授权的访问。如果在将 MSDE 2000 实例升级到 MSDE 2000 SP4 之前需要指定一个强 <B>sa</B> 密码，请参见 Microsoft 知识库文章 <A HREF="http://support.microsoft.com?kbid=322336" target=_blank>322336</A>。</P></LI>
+
+	<LI><B>Windows 身份验证</B>
+<P class=tl>为了提高安全性，只要有可能，请对 MSDE 2000 安装使用 Windows 身份验证。如果下列两个条件都为真，可以考虑从混合模式身份验证切换到 Windows 身份验证：</P>
+<UL type=disc>
+	<LI>如果选中了“Windows 身份认证”选项，则可以运行使用 MSDE 2000 的应用程序。<BR><BR></LI>
+
+	<LI>已经为所有需要连接到该实例的用户定义了 Windows 身份验证登录。有关如何添加登录的更多信息，请参见 SQL Server 2000 联机丛书中的“添加 Windows 用户或组”。</LI>
+</UL>
+
+<P class=tl>有关将 MSDE 2000 实例从混合模式身份验证更改为 Windows 身份验证的更多信息，请参见 Microsoft 知识库文章 <A HREF="http://support.microsoft.com?kbid=322336" target=_blank>322336</A>。</P></LI>
+</UL>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H2><A NAME="_1464_know_the_instance_name_fzpy"></A>1.4 确定实例名称</H2>
+
+<P>如果要在一台计算机上安装 MSDE 2000 和 SQL Server 2000 数据库引擎的多个副本（即实例），必须知道实例名称。一台计算机上最多可以安装 16 个实例。其中一个实例没有名称，被称为默认实例<I></I>。其他 15 个实例必须具有唯一的实例名称，被称为命名实例<I></I>。 </P>
+
+<P>使用 MSDE SP4 安装程序安装或升级 MSDE 实例。如果要安装或升级 MSDE 的命名实例，必须使用 INSTANCENAME 参数来指定实例名称。如果不指定 INSTANCENAME，安装程序将对该计算机上默认的 MSDE 实例操作。不能使用 MSDE 2000 SP4 升级 SQL Server 2000 数据库引擎实例。</P>
+
+<P><B>查找计算机上的现有实例：</B>
+
+<OL>
+	<LI>在 Windows 资源管理器中，右键单击“我的电脑”<B></B>，然后单击“管理”<B></B>。<BR><BR></LI>
+
+	<LI>展开“服务和应用程序”<B></B>。<BR><BR></LI>
+
+	<LI>单击“服务”<B></B>。</LI>
+</OL>
+
+<P>默认实例将作为名为 MSSQLSERVER 的一项服务出现在右侧列表窗格中。命名实例将作为 MSSQL$<I>InstanceName</I> 服务列出，其中 <I>InstanceName</I> 是实例的名称。 </P>
+
+<P>实例名称必须遵循此 <A HREF="http://go.microsoft.com/fwlink/?LinkId=20337" target=_blank>Microsoft 网页</A>中包含的规则。 </P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H2><A NAME="_verify_the_version_of_microsoft_data_acc_d3jb"></A>1.5 验证 Microsoft 数据访问组件的版本</H2>
+
+<P>MSDE 2000 SP4 安装程序确定是否要将已安装的 Microsoft 数据访问组件 (MDAC) 版本升级为 MDAC 2.8 SP1：
+
+<UL type=disc>
+	<LI>运行 Windows 2000 的计算机升级到 MDAC 2.8 SP1。<BR><BR></LI>
+
+	<LI>运行 Windows XP 或 Windows Server 2003 的计算机不升级到 MDAC 2.8 SP1。如果系统要求安装 MDAC 2.8 SP1 中包含的任何修复程序，请将系统升级为 Windows XP SP2 或 Windows Server 2003 SP1，以便获取 MDAC 2.8 SP2。<BR><BR></LI>
+
+	<LI>在安装了相同或更高版本的 MDAC 的计算机上，不会安装 MDAC 2.8 SP1。
+<P class=atl><B>说明</B>&nbsp;&nbsp;&nbsp;如果安装了 MSDE 2000 SP4 的计算机升级到更新的操作系统平台，则 SP4 安装的 MDAC 版本将不再存在。</p></LI>
+</UL>
+
+<P class=indent><B>说明</B>&nbsp;&nbsp;&nbsp;有关确定计算机上 MDAC 版本的说明，请参见知识库文章 <A HREF="http://support.microsoft.com?kbid=301202" target=_blank>301202</A>。</P>
+
+<P>MSDE 2000 SP4 安装 MDAC 2.8 SP1 时，MDAC 的语言版本与 MSDE 2000 SP4 的语言版本相同。如果要保留与 MSDE 2000 SP4 不同的 MDAC 语言版本，则必须下载并安装相应的 MDAC 2.8 SP1 语言版本，然后再运行 MSDE 2000 SP4 安装程序。可以从 <A HREF="http://go.microsoft.com/fwlink/?LinkId=35657" target=_blank>Microsoft 数据访问下载页</A>下载 MDAC 2.8 SP1 的特定语言版本。</P>
+
+<P>MDAC 2.8 SP1 包括到 MSXML 3.0 SP7 的升级。MDAC 2.81 还更新 Microsoft SQL Server 2000 附带的 SQLXML 1.0。此 Service Pack 不安装或更新 SQLXML 3.0。如果应用程序要求使用 SQLXML 3.0，必须从此 <A HREF="http://go.microsoft.com/fwlink/?LinkId=38804" target=_blank>Microsoft 网站</A>下载并安装。有关 MDAC 2.8 SP1 的更多信息，请参见 <A HREF="http://go.microsoft.com/fwlink/?LinkId=44403" target=_blank>Microsoft 数据访问下载页</A>。有关 MDAC 版本的更多信息，请参见知识库文章 <A HREF="http://support.microsoft.com?kbid=822758" target=_blank>822758</A>。知识库文章 <A HREF="http://support.microsoft.com?kbid=884930" target=_blank>884930</A> 中介绍了 MDAC 2.8 SP1 中包含的修复程序。</P>
+
+<P>MSDE 2000 支持的所有 Windows 版本包括与 MSDE 2000 SP4 配合使用的 MDAC 软件的版本。如果将 MSDE 2000 实例配置为支持网络通信并充当数据库服务器，那么不需要在任何 Windows 计算机上安装客户端软件，即可使应用程序从该计算机连接到 MSDE 2000 实例。有关网络通信的更多信息，请参见此 <A HREF="http://go.microsoft.com/fwlink/?LinkId=20385" target=_blank>Microsoft 网页</A>。</P>
+
+<P class=indent><B>说明</B>&nbsp;&nbsp;&nbsp;预发行版的 SQL Server 2000 SP4 安装预发行版的 MSXML 3.0 SP7。如果已安装了预发行版的 SQL Server 2000 SP4，建议您从此 <A HREF="http://go.microsoft.com/fwlink/?LinkId=44069" target=_blank>Microsoft 网站</A>下载并安装 MSXML 3.0 SP7 最终发布版。</P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H2><A NAME="_identifying_the_current_version_of_sql_server_or_analysis_services"></A>1.6 确定 MSDE 2000 的当前版本</H2>
+
+<P>在运行安装程序之前，应先确定要升级的 MSDE 2000 实例的版本。如果 MSDE 2000 的版本已达到或高于 SP4，则不需要安装 SP4。</P>
+
+<P><B>确定所安装的 MSDE 2000 版本：</B>
+
+<OL>
+	<LI>使用 <B>isql</B>、<B>osql</B> 或查询分析器对数据库引擎实例执行以下查询之一。
+<UL type=disc>
+	<LI><CODE>SELECT SERVERPROPERTY('ProductLevel')</CODE><BR><BR></LI>
+
+	<LI><CODE>SELECT @@VERSION</CODE> <BR><BR></LI>
+
+	<LI><CODE>SELECT SERVERPROPERTY('ProductVersion')</CODE></LI>
+</UL>
+</LI>
+
+	<LI>利用下表确定您的 MSDE 版本。
+<TABLE border=1 cellpadding=2 cols=3 frame=box rules=rows width=555>
+
+<TR VALIGN="top">
+<TD width=46%><B>SQL Server 2000 版本和级别</B></TD>
+<TD width=30%><B>@@VERSION</B></TD>
+<TD width=24%><B>产品级别</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=46%>SQL Server 2000 原始版本</TD>
+<TD width=30%>8.00.194</TD>
+<TD width=24%>RTM</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=46%>Desktop Engine SP1</TD>
+<TD width=30%>8.00.384</TD>
+<TD width=24%>SP1</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=46%>Desktop Engine SP2</TD>
+<TD width=30%>8.00.534</TD>
+<TD width=24%>SP2</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=46%>Desktop Engine SP3、SP3a 或 MSDE 2000 Release A</TD>
+<TD width=30%>8.00.760</TD>
+<TD width=24%>SP3</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=46%>MSDE 2000 SP4</TD>
+<TD width=30%>8.00.2039</TD>
+<TD width=24%>SP4</TD>
+</TR>
+</TABLE><BR>
+
+<P class=atl><B>说明</B>&nbsp;&nbsp;&nbsp;如果在安装产品之后或安装以前的 Service Pack 之后应用了热修复程序，您的产品版本与上述值可能会有所不同。例如，在对 MSDE 2000 Release A 应用了安全修复程序 MS03-031 之后，<CODE>@@VERSION</CODE>  返回值 8.00.818。</p></LI>
+
+	<LI>（可选）如果无法确定安装的版本是 SQL Server 2000 数据库引擎还是 MSDE 2000，请使用 <B>isql</B>、<B>osql</B> 或查询分析器对不确定的实例执行以下查询。
+<P class=tl><CODE>SELECT SERVERPROPERTY('Edition')</CODE></P>
+<P class=tl>如果返回值 <B>Desktop Engine</B>，表示实例为 MSDE 2000。</P></LI>
+</OL>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H2><A NAME="_additional_information_about_sp4"></A>1.7 有关 SP4 的其他重要信息</H2>
+
+<P>该 Service Pack 中包含的修复程序列表列在 Microsoft 知识库文章 <A HREF="http://support.microsoft.com?kbid=888799" target=_blank>888799</A> 中。<A HREF="http://support.microsoft.com?kbid=888799" target=_blank>888799</A> 中列出的每个修复程序都包含一个链接，指向有关特定修复程序所解决问题的知识库文章。使用指向各个知识库文章的链接可以了解各个修复程序的信息。</P>
+
+<P>对于未能及时包含在本自述文件中、与 SQL Server 2000 Service Pack 4 相关的信息，将发布在 Microsoft 知识库文章 <A HREF="http://support.microsoft.com?kbid=884525" target=_blank>884525</A> 中。</P>
+
+<P>本自述文件中提到的知识库文章位于 <A HREF="http://go.microsoft.com/fwlink/?LinkId=3930" target=_blank>Microsoft 知识库</A>。</P>
+
+<P class=label><B>在知识库中查找文章</B>
+
+<OL>
+	<LI>在“高级搜索”下<B></B>的“搜索”<B></B>文本框中，键入所需的文章编号。<BR><BR></LI>
+
+	<LI>在“搜索类型”<B></B>下拉列表中，选择“文章 ID”<B></B>。<BR><BR></LI>
+
+	<LI>单击“运行搜索”<B></B>右箭头按钮。</LI>
+</OL>
+
+<H5>热修复程序</H5>
+
+<P>所有公开发布的 SQL Server 2000 SP3a 和 SQL Server 2000（64 位）安全公告已在 SP4 中解决。</P>
+
+<P>如果您在 2004 年 12 月 2 日后收到 SQL Server 2000 热修复程序，则该热修复程序可能未包括在 SP4 中。请与主要的产品支持提供商联系获取用于 SQL Server 2000 SP4 的同一热修复程序。</P>
+
+<P>SQL Server 2000 SP4 包括可维护性增强功能，使您可以卸载以后的热修复程序。有关更多信息，请参见 5.7 <A HREF="#_54610_supportability_enhancements_d3jb">可维护性增强功能</A>。</P>
+
+<H5>与 Slammer 蠕虫有关的修复程序</H5>
+
+<P>SQL Server 2000 SP4 包含了对 MSDE 2000 的更改，可以解决 Slammer 蠕虫造成的问题：
+
+<UL type=disc>
+	<LI>SP4 解决了一些客户在 SQL Server 2000 SP3 中安装 Microsoft 数据访问组件 (MDAC) 时遇到的安装问题。<BR><BR></LI>
+
+	<LI>如果将 MSDE 2000 SP4 或 SP3a 的某个实例配置为不支持网络连接，则该实例也将停止使用 UDP 端口 1434。</LI>
+</UL>
+
+<H5>SQL Server CE 和 SQL Mobile 服务器工具更新</H5>
+
+<P>对于已升级或计划将 SQL Server 2000 数据库和发布服务器升级到 SP4 的 Microsoft SQL Server 2000 Windows&reg; CE Edition (SQL Server CE) and SQL Server 2005 Mobile Edition (SQL Mobile) 用户，还必须更新安装了 Microsoft Internet 信息服务 (IIS) 服务器上的服务器复制组件。对于 <A HREF="http://go.microsoft.com/fwlink/?LinkId=38715" target=_blank>SQL Server CE</A> 和 <A HREF="http://go.microsoft.com/fwlink/?LinkId=45062" target=_blank>SQL Mobile</A>，更新的服务器工具安装程序已可用。</P>
+
+<P class=indent><B>说明</B>&nbsp;&nbsp;&nbsp;即使在升级到 SQL Server 2000 SP3 或 SP3a 之后更新了服务器复制组件，仍必须安装最新的 SP4 特定服务器工具组件更新。</P>
+
+<H5>OPENXML 更新</H5>
+
+<P>SQL Server 2000 SP4 消除了 OPENXML 对操作系统安装的 MSXML 版本的依赖性。MSDE 2000 SP4 安装内部版本的 MSXML 技术，可以向后兼容 MSXML 2.6。 </P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H2><A NAME="_updated_books_online_documentation_is_av_wluf"></A>1.8 SQL Server 2000 联机丛书更新已可用</H2>
+
+<P>SQL Server 2000 联机丛书是 MSDE 2000 的主要用户文档。联机丛书会使用修复程序和新的信息定期更新。在 2004 年 1 月，联机丛书进行了更新，包括了有关 MSDE 2000 的更多信息。强烈建议您下载并安装最新版本的联机丛书，原因如下：
+
+<UL type=disc>
+	<LI>MSDE 2000 安装文档进行了更新，以反映 SQL Server 2000 SP3 和 SP3a 中引入的更改。安装文档中有关 MSDE 2000 安装程序 SP4 版本的内容也是最新的，SAVESYSDB 参数除外，该参数是在 SP4 中引入的。有关更多信息，请参见 5.6.1 <A HREF="#_new_desktop_engine_setup_savesysdb_param_fzpy">MSDE 2000 安装程序的新参数 SAVESYSDB</A>。<BR><BR></LI>
+
+	<LI>其中描述了 <B>osql</B> 实用工具的用法。本资料主要针对 MSDE 2000 的新客户。<BR><BR></LI>
+
+	<LI>新增了一节来说明 SQL Server 2000 联机丛书中哪些部分适用于 MSDE 2000。<BR><BR></LI>
+
+	<LI>对 MSDE 2000 工作负荷调控器的描述已更新。<BR><BR></LI>
+
+	<LI>针对 MSDE 2000 的主题已编制索引，以便随 MSDE 2000 一起出现。所有这些主题还包含字符串 MSDE 2000，以便在搜索 MSDE 2000 资料时出现。</LI>
+</UL>
+
+<P>当前版本的联机丛书位于下列位置：
+
+<UL type=disc>
+	<LI>最新版本的联机丛书位于此<A HREF="http://go.microsoft.com/fwlink/?LinkId=9506" target=_blank>联机丛书下载网站</A>，是一组可下载的文件。<BR><BR></LI>
+
+	<LI>最新版本的联机丛书还可以从 MSDN Library 中获取。可以从此<A HREF="http://go.microsoft.com/fwlink/?LinkId=20283" target=_blank>网站</A>获取最新版本的联机丛书（英语版）。</LI>
+</UL>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H5>更新的 SQL Server 2000 示例已可用</H5>
+
+<P>可以从此 <A HREF="http://go.microsoft.com/fwlink/?LinkId=11615" target=_blank>Microsoft 网站</A>获取针对 SQL Server 2000 SP3 和 SP3a 更新过的 SQL Server 2000 数据库引擎示例。	引用了 MSDE 2000 中所包括的 SQL Server 2000 组件的所有示例同样适用于 MSDE 2000，但 MSDE 2000 中不支持的功能除外。包括的功能有数据库引擎、数据库客户端连接组件和程序设计 API、复制以及数据转换服务 (DTS)。</P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H1><A NAME="_acquiring_desktop_engine_sp4"></A>2.0 可以找到并下载 SQL Server 2000 SP4 的位置</H1>
+
+<P>在准备下载并解压缩 SQL Server 2000 SP4 之前，请先阅读本节后面的“下载和解压缩阶段准则”。SQL Server 2000 SP4 通过下列方式分发：
+
+<UL type=disc>
+	<LI>SQL Server 2000 Service Pack 4 光盘，其中包含下列组件的 Service Pack：
+<UL type=disc>
+	<LI>MSDE 2000 SP4<BR><BR></LI>
+
+	<LI>Database Components SP4<BR><BR></LI>
+
+	<LI>Analysis Services SP4<BR><BR></LI>
+
+	<LI>SQL Server 2000 SP4（64 位）</LI>
+</UL>
+
+<P class=tl>如果有 SQL Server 2000 SP4 光盘，可以直接通过该光盘，使用自解压缩文件 SQL2000.MSDE-KB884525-SP4-x86-<I>LLL</I>.exe 将 MSDE 2000 实例升级到 MSDE 2000 SP4。</P></LI>
+
+	<LI>可以从 Internet 上的此 <A HREF="http://go.microsoft.com/fwlink/?LinkId=36830" target=_blank>Microsoft 网站</A>下载的四个自解压缩安装包文件：
+<UL type=disc>
+	<LI>SQL2000.MSDE-KB884525-SP4-x86-<I>LLL</I>.exe (Desktop Engine (MSDE 2000) SP4)<BR><BR></LI>
+
+	<LI>SQL2000-KB884525-SP4-x86-<I>LLL</I>.exe (Database Components SP4)<BR><BR></LI>
+
+	<LI>SQL2000.AS-KB884525-SP4-x86-<I>LLL</I>.exe (Analysis Services SP4)<BR><BR></LI>
+
+	<LI>SQL2000-KB884525-SP4-ia64-<I>LLL</I>.exe（SQL Server 2000 SP4（64 位））</LI>
+</UL>
+
+<P class=atl><B>说明</B>&nbsp;&nbsp;&nbsp;<I>LLL</I> 代表因语言而异的指示符。</p></LI>
+</UL>
+
+<P>从下载网站或 SP4 光盘获取了 SQL2000.MSDE-KB884525-SP4-x86-<I>LLL</I>.exe 之后，可以运行该文件，将 MSDE 2000 SP4 文件解压缩到计算机上。SQL2000.MSDE-KB884525-SP4-x86-<I>LLL</I>.exe 会在硬盘上创建一组文件夹和文件，可以用于安装 MSDE 2000 SP4。</P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H2><A NAME="_2461_choosing_the_correct_language_ar5q"></A>2.1 选择正确的语言</H2>
+
+<P>SQL Server 2000 Desktop Engine Service Pack 是针对各种语言提供的。要升级 MSDE 2000 实例，必须获取与实例语言相同的 Service Pack。Service Pack 可以在 SQL Server 2000 SP4 光盘上获取，也可以通过下载 MSDE 2000 SP4 文件获取。例如，如果升级日语版的 MSDE 2000 实例，必须获取日语版的 MSDE 2000 SP4。</P>
+
+<P class=indent><B>说明</B>&nbsp;&nbsp;&nbsp;因为葡萄牙语（巴西）、瑞典语和荷兰语版本的 SQL Server 2000 只包含 SQL Server 2000 Desktop Engine，所以为这些语言提供的 Service Pack 中只包含 MSDE 2000 SP4。对于这些语言，不能通过 Database Components SP4 或 Analysis Services SP4 升级 SQL Server 2000 组件。</P>
+
+<P>如果无法确定 MSDE 2000 实例的语言，请执行下列操作：
+
+<UL type=disc>
+	<LI>单击“开始”<B></B>，然后单击“运行”<B></B>。<BR><BR></LI>
+
+	<LI>在“打开”<B></B>框中，键入“Regedit”，然后单击“确定”<B></B>。<BR><BR></LI>
+
+	<LI>查找并选择下列注册表项之一：
+<UL type=disc>
+	<LI>对于 MSDE 2000 的默认实例，查找并选择以下子注册表项：
+<P class=tl><B>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MSSQLServer\MSSQLServer\CurrentVersion</B></P></LI>
+
+	<LI>对于 MSDE 2000 的命名实例，查找并选择以下子注册表项：
+<P class=tl><B>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\InstanceName\CurrentVersion</B></P>
+<P class=tl>其中，<I>InstanceName</I> 是实例的名称。</P></LI>
+</UL>
+</LI>
+
+	<LI>查看右侧列表窗格中 <B>Language</B> 条目的值。将该值与下表中的值进行比较，确定 MSDE 2000 实例的语言：
+<TABLE border=1 cellpadding=2 cols=3 frame=box rules=rows width=542>
+
+<TR VALIGN="top">
+<TD width=34%><B><I>Language</I> 注册表值（用十六进制表示）</B></TD>
+<TD width=30%><B><I>Language</I> 注册表值（用十进制表示）</B></TD>
+<TD width=36%><B>该实例的语言 </B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=34%>0x00000404</TD>
+<TD width=30%>1028</TD>
+<TD width=36%>繁体中文</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=34%>0x00000407</TD>
+<TD width=30%>1031</TD>
+<TD width=36%>德语</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=34%>0x00000409</TD>
+<TD width=30%>1033</TD>
+<TD width=36%>英语</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=34%>0x0000040a</TD>
+<TD width=30%>1034</TD>
+<TD width=36%>西班牙语</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=34%>0x0000040c</TD>
+<TD width=30%>1036</TD>
+<TD width=36%>法语</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=34%>0x00000410</TD>
+<TD width=30%>1040</TD>
+<TD width=36%>意大利语</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=34%>0x00000411</TD>
+<TD width=30%>1041</TD>
+<TD width=36%>日语</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=34%>0x00000412</TD>
+<TD width=30%>1042</TD>
+<TD width=36%>朝鲜语</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=34%>0x00000413</TD>
+<TD width=30%>1043</TD>
+<TD width=36%>荷兰语</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=34%>0x00000416</TD>
+<TD width=30%>1046</TD>
+<TD width=36%>葡萄牙语（巴西）</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=34%>0x0000041d</TD>
+<TD width=30%>1053</TD>
+<TD width=36%>瑞典语</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=34%>0x00000804</TD>
+<TD width=30%>2052</TD>
+<TD width=36%>简体中文</TD>
+</TR>
+</TABLE><BR>
+</LI>
+</UL>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H2><A NAME="_2462_downloading_msde_2000_sp4_gq59"></A>2.2 下载 MSDE 2000 SP4</H2>
+
+	<P>如果 MSDE 2000 实例是使用 MSDE 安装实用工具安装的，则可以使用 SQL Server 2000 SP4 下载文件升级 MSDE 2000 实例。安装实用工具的原始包名称为 SqlRun01.msi 到 SqlRun16.msi。</P>
+
+<P>下载 MSDE 2000 SP4：
+
+<UL type=disc>
+	<LI>转至此 <A HREF="http://go.microsoft.com/fwlink/?LinkId=36830" target=_blank>Microsoft 网站</A>。<BR><BR></LI>
+
+	<LI>从该页右上方的“完整下载”<B></B>下拉列表中，选择与 SQL Server 2000 实例的语言相匹配的语言，并单击“Go”<B></B>。 <BR><BR></LI>
+
+	<LI>在与所选语言对应的 Microsoft Download Center 页面上，选择文件 SQL2000.MSDE-KB884525-SP4-x86-<I>LLL</I>.exe，其中 <I>LLL</I> 因语言而异。 </LI>
+</UL>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H2><A NAME="_2463_extracting_the_msde_2000_sp4_files_2y0t"></A>2.3 解压缩 MSDE 2000 SP4 文件</H2>
+
+<P>必须先从 SQL2000.MSDE-KB884525-SP4-x86-<I>LLL</I>.exe 解压缩安装文件，然后才可以安装 MSDE 2000 SP4。可以直接从 SP4 光盘执行 SQL2000.MSDE-KB884525-SP4-x86-<I>LLL</I>.exe，也可以从将该文件下载到的文件夹或将该文件从光盘复制到的文件夹执行该文件。</P>
+
+<P>解压缩 MSDE 2000 SP4 文件：
+
+<UL type=disc>
+	<LI>打开 Windows 资源管理器并浏览到包含 SQL2000.MSDE-KB884525-SP4-x86-<I>LLL</I>.exe 的文件夹。<BR><BR></LI>
+
+	<LI>双击下载的文件，以便解压缩 MSDE 2000 SP4 文件。按照系统要求，指定要将 SP4 文件解压缩到的文件夹。</LI>
+</UL>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H2><A NAME="_2464_download_and_extraction_phase_guide_0a8g"></A>2.4 下载和解压缩阶段准则</H2>
+
+<P>在从 Internet 下载并解压缩 MSDE 2000 SP4 安装文件时，请遵循下列准则：&nbsp;&nbsp;&nbsp;&nbsp;
+
+<UL type=disc>
+	<LI>在运行 SQL2000.MSDE-KB884525-SP4-x86-<I>LLL</I>.exe 将 SP4 文件置于某个文件夹时，确保可用空间大约是该可执行文件大小的三倍，以便解压缩并存储 Service Pack 安装文件。必须拥有足够的空间来存储自解压缩文件和解压缩后的 Service Pack 文件，并拥有足够的临时工作空间来存储自解压缩程序。<BR><BR></LI>
+
+	<LI>在运行自解压缩文件 SQL2000.MSDE-KB884525-SP4-x86-<I>LLL</I>.exe 时，文件会提示您输入要将 Service Pack 文件保存到的文件夹的名称。
+<P class=atl><B>说明</B>&nbsp;&nbsp;&nbsp;如果将 Service Pack 解压缩到网络共享目录中，指定的文件夹路径是运行 SQL2000.MSDE-KB884525-SP4-x86-<I>LLL</I>.exe 的文件夹的相对路径。</p></LI>
+
+	<LI>解压缩组件之后，可以重命名或移动该文件夹。但是，请确保文件夹路径名不包含空格。<BR><BR></LI>
+
+	<LI>可以将全部四个 SP4 自解压缩文件下载并解压缩到同一个目标文件夹，以便建立一个位置，从该位置安装 SQL Server 2000 SP4 的每个部分。四个自解压缩文件不会相互覆盖，也不会相互干扰。</LI>
+</UL>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H1><A NAME="_service_pack_installation"></A>3.0 安装 Service Pack</H1>
+
+<P>要安装 MSDE 2000 SP4，请遵循以下各节中的安装说明。在安装 MSDE 2000 SP4 之前，请查阅 1.0 <A HREF="#_introduction">简介</A>中的资料。MSDE 2000 SP4 的安装阶段如下：
+
+<OL>
+	<LI><A HREF="#_prepare_for_sp4_installation_wluf">准备安装 MSDE 2000 SP4</A><BR><BR></LI>
+
+	<LI><A HREF="#_install_desktop_engine_sp4">通过运行 MSDE 2000 SP4 安装 Service Pack</A><BR><BR></LI>
+
+	<LI><A HREF="#_restart_services">重新启动服务和应用程序</A></LI>
+</OL>
+
+<P>MSDE 2000 SP4 包含安装或升级 SQL Server 2000 Desktop Engine 实例所需的一整套文件。如果具有安装或升级 MSDE 2000 实例的许可证，您可以使用 MSDE 2000 SP4 中的文件执行所有 MSDE 2000 安装操作。有关 MSDE 2000 许可的更多信息，请参见此 <A HREF="http://go.microsoft.com/fwlink/?LinkId=10253" target=_blank>Microsoft 网站</A>。</P>
+
+<P>如果需要有关运行安装程序的更多信息，请参见主要文档源 SQL Server 2000 联机丛书。有关安装最新版本的 SQL Server 2000 联机丛书或访问 MSDN Library 中的联机副本的更多信息，请参见 1.8 <A HREF="#_updated_books_online_documentation_is_av_wluf">SQL Server 2000 联机丛书更新已可用</A>。 </P>
+
+<P>以下是指向 MSDN Library 的联机丛书副本中安装程序可执行文件参考主题的链接：<A HREF="http://go.microsoft.com/fwlink/?LinkId=20286" target=_blank>Customizing Desktop Engine Setup.exe</A>（自定义 Desktop Engine Setup.exe）。</P>
+
+<P>在最新版本的 SQL Server 2000 联机丛书中，“Customizing Desktop Engine Setup.exe”（自定义 Desktop Engine Setup.exe）介绍了 Desktop Engine SP3a 和 MSDE 2000 Release A 中包含的安装程序可执行文件版本的功能。文档中有关 Desktop Engine 安装程序 SP4 版本的内容也是最新的，SAVESYSDB 参数除外，该参数在 SP4 中引入。有关更多信息，请参见 5.6.1 <A HREF="#_new_desktop_engine_setup_savesysdb_param_fzpy">MSDE 2000 安装程序的新参数 SAVESYSDB</A>。</P>
+
+<P class=indent><B>说明</B>&nbsp;&nbsp;&nbsp;在 SQL Server 2000 SP3 之前的 MSDE 安装程序版本中，用户必须指定用于安装或升级 MSDE 2000 实例的 .msi 安装包文件。在 SP3 以及更高版本的安装程序中，由安装程序管理 .msi 文件，不需要用户在升级或新安装中指定 .msi 文件。</P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H2><A NAME="_prepare_for_sp4_installation_wluf"></A>3.1 准备安装 MSDE 2000 SP4</H2>
+
+<P>在安装 MSDE 2000 SP4 之前，必须执行下列操作：
+
+<OL>
+	<LI><A HREF="#_back_up_your_sql_server_databases">备份 SQL Server 数据库</A><BR><BR></LI>
+
+	<LI><A HREF="#_make_sure_that_the_system_databases_have_enough_free_space">确认系统数据库具有足够的可用空间</A><BR><BR></LI>
+
+	<LI><A HREF="#_restart_services">停止服务和应用程序</A></LI>
+</OL>
+
+<H3><A NAME="_back_up_your_sql_server_databases"></A>3.1.1 备份 SQL Server 数据库</H3>
+
+<P>在安装 MSDE 2000 SP4 之前，需要备份 <B>master</B>、<B>msdb</B> 和 <B>model </B>数据库。安装 MSDE 2000 SP4 时将修改 <B>master</B>、<B>msdb</B> 和 <B>model </B>数据库，会使其与 SP4 之前的 MSDE 2000 版本不兼容。如果决定重新安装没有 SP4 的 MSDE 2000，必须备份这些数据库。</P>
+
+<P>尽管 SP4 只对作为复制拓扑成员的用户数据库执行更新，但是备份用户数据库仍不失为明智之举。</P>
+
+<P>现有备份方案考虑到了复制，因此，在升级到 SP4 之后，可以在出现故障后将数据库还原到某个已知点。建议在应用 SP4 之后，为复制拓扑中包含的所有用户数据库创建日志备份或完整的数据库备份。如果执行了上述数据库备份，之后某个复制数据库出现故障，则还原数据库以后不必重新应用 SP4。</P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H3><A NAME="_make_sure_that_the_system_databases_have_enough_free_space"></A>3.1.2 确认系统数据库具有足够的可用空间</H3>
+
+<P>如果没有为 <B>master</B> 和 <B>msdb</B> 数据库选择“自动增长”<B></B>选项，那么数据库必须至少有 500 KB 的可用空间。要确认 <B>master</B> 数据库或 <B>msdb</B> 数据库是否具有这么多空间，请分别对它们运行 <B>sp_spaceused</B> 系统存储过程。如果任一数据库中未分配的空间少于 500 KB，则应增加相应数据库的大小。有关更多信息，请参见 SQL Server 2000 联机丛书中的“扩充数据库”。</P>
+
+<P>如果为 <B>master</B> 和 <B>msdb</B> 数据库选择了“自动增长”<B></B>选项，并且驱动器上有足够的空间，可以跳过上述空间确认步骤。</P>
+
+<P>要确认是否已在 MSDE 2000 中选中了“自动增长”<B></B>选项，请使用 <B>osql</B> 命令提示符实用工具执行下列 SQL 语句：
+
+<UL type=disc>
+	<LI><CODE>sp_helpdb master</CODE><BR><BR></LI>
+
+	<LI><CODE>sp_helpdb msdb</CODE></LI>
+</UL>
+
+<P>在这些语句的输出结果中，确认增长列的值不为 0。</P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H3><A NAME="_stop_services_and_applications_before_running_sp4_setup"></A>3.1.3 在运行 MSDE 2000 SP4 安装程序之前停止服务和应用程序</H3>
+
+<P>在安装 MSDE 2000 SP4 之前，应停止所有应用程序和服务，包括“控制面板”、“添加和删除程序”、“SQL Server 2000 Reporting Services”、“SQL Server 2000 Notification Services”以及所有连接到所升级的 MSDE 实例的应用程序。</P>
+
+<P>可以在不事先关闭服务的情况下应用 MSDE 2000 SP4，但事后如果不重新启动系统，那么有些服务将无法重新启动。如果不关闭服务，安装程序完成时将提示您重新启动计算机。如果不重新启动系统，下列服务可能会无法启动：
+
+<UL type=disc>
+	<LI>Microsoft 分布式事务处理协调器 (DTC)、Microsoft 搜索服务和 MSSQLServerOLAPService 服务。<BR><BR></LI>
+
+	<LI>用于正在升级的实例（例如，MSSQL$NamedInstance）的 MSSQLServer 和 SQLServerAgent 服务。<BR><BR></LI>
+
+	<LI>Microsoft 组件服务、Microsoft 消息队列和 Microsoft COM 事务集成器。</LI>
+</UL>
+
+<P>您可以降低安装 MSDE 2000 SP4 之后需要重新启动计算机的可能性。为降低这种可能性，在运行安装程序之前，应停止上表中的服务和应用程序。</P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H2><A NAME="_install_desktop_engine_sp4"></A>3.2 运行 MSDE 2000 SP4 安装程序</H2>
+
+<P>本节包括运行 MSDE 2000 SP4 安装实用工具的一般准则。之后，本节还提供最常见 MSDE 2000 SP4 方案的示例：
+
+<UL type=disc>
+	<LI>3.2.2 <A HREF="#_3467464_upgrading_existing_instances_of__fzpy">将现有的 MSDE 2000 实例升级到 SP4</A><BR><BR></LI>
+
+	<LI>3.2.3 <A HREF="#_3467465_installing_a_new_instance_of_msd_cuy1">安装新的 MSDE 2000 SP4 实例</A><BR><BR></LI>
+
+	<LI>3.2.4 <A HREF="#_3467466_upgrading_msde_1460_to_msde_2000_238p">将 MSDE 1.0 升级到 MSDE 2000 SP4</A></LI>
+</UL>
+
+<P>要安装 MSDE 2000 SP4，请从下列任一位置运行 Setup.exe：
+
+<UL type=disc>
+	<LI>在本地计算机上，包含从 SQL2000.MSDE-KB884525-SP4-x86-<I>LLL</I>.exe 解压缩的 Service Pack 文件的文件夹，其中 <I>LLL</I> 因语言而异。<BR><BR></LI>
+
+	<LI>在网络共享位置上，包含从 SQL2000.MSDE-KB884525-SP4-x86-<I>LLL</I>.exe 解压缩的 Service Pack 文件的文件夹。</LI>
+</UL>
+
+<P>这将启动安装过程。</P>
+
+<P>MSDE 2000 SP4 中包含的安装程序可执行文件是 MSDE 2000 的 Desktop Engine 安装程序的 SP4 版本。除了 SAVESYSDB 参数之外，MSDE 2000 SP4 安装程序的操作均在最新版本的 SQL Server 2000 联机丛书中有所描述。有关安装最新版本的 SQL Server 2000 联机丛书的信息，请参见 1.8 <A HREF="#_updated_books_online_documentation_is_av_wluf">SQL Server 2000 联机丛书更新已可用</A>。以下是描述 Setup.exe 行为的英语版参考主题：<A HREF="http://go.microsoft.com/fwlink/?LinkId=20286" target=_blank>Customizing Desktop Engine Setup.exe</A>（自定义 Desktop Engine Setup.exe）。</P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H3>3.2.1 运行安装程序的一般准则</H3>
+
+<P>MSDE 2000 SP4 被设计为可以随应用程序一起分发并通过应用程序安装程序来安装。MSDE 2000 没有交互式安装程序。MSDE 2000 的安装机制被设计为由应用程序的安装实用工具来调用。应用程序安装程序处理所有与最终用户的必需交互。MSDE 2000 有两种安装机制：
+
+<UL type=disc>
+	<LI>命令提示符安装实用工具 (Setup.exe)。此安装实用工具通常由应用程序的安装实用工具来调用，但也可以从命令提示符窗口来运行。MSDE 2000 安装实用工具没有可由用户来控制该实用工具的行为的图形用户界面。但它可以接受一组参数，这些参数定义了该实用工具执行的操作。
+<P class=atl><B>重要</B>&nbsp;&nbsp;&nbsp;一定要通过运行 Setup.exe 来安装或升级 MSDE 实例。不要试图通过 .msi 文件间接启动安装程序；例如，不要双击某个 MSDE 2000 .msi 文件。 </p></LI>
+
+	<LI>一定要使用 <B>/L*v</B> 开关生成安装程序日志输出文件。 <BR><BR></LI>
+
+	<LI>一组 Windows 安装程序合并模块。编写基于 Windows 安装程序的安装实用工具的开发人员可以对应用程序的安装程序进行编程，以便通过使用 MSDE 2000 合并模块来安装 MSDE 2000 实例。开发人员可以通过指定与 MSDE 2000 安装实用工具参数相对应的安装包属性来控制已安装实例的配置。</LI>
+</UL>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H5>安装参数</H5>
+
+<P>必须通过从命令提示符运行 Setup.exe 来安装或升级任意 MSDE 实例。用户可通过指定参数来控制 MSDE 2000 安装程序的行为。安装参数可通过下列两种方式指定：
+
+<UL type=disc>
+	<LI>在命令提示符处。<BR><BR></LI>
+
+	<LI>在安装实用工具将读取的 .ini 文件中。</LI>
+</UL>
+
+<P>如果指定的 MSDE 安装参数值中包含特殊字符（如空格），则必须将该值放在引号中。如果没有特殊字符，则引号是可选的。</P>
+
+<P>第 3.2.2、3.2.3 和 3.2.4 节提供了最常见的 MSDE 2000 SP4 安装方案使用的参数示例。可以为安装程序指定的参数在最新版本的 SQL Server 2000 联机丛书中有所描述。有关安装最新版本的 SQL Server 2000 联机丛书的信息，请参见 1.8 <A HREF="#_updated_books_online_documentation_is_av_wluf">SQL Server 2000 联机丛书更新已可用</A>。以下是描述 Setup.exe 行为的英语版参考主题：<A HREF="http://go.microsoft.com/fwlink/?LinkId=20286" target=_blank>Customizing Desktop Engine Setup.exe</A>（自定义 Desktop Engine Setup.exe）。</P>
+
+<P class=indent><B>说明</B>&nbsp;&nbsp;&nbsp;如果使用终端服务连接尝试将现有的 MSDE 实例升级到 MSDE 2000 SP4，或者安装新的 MSDE 2000 SP4 实例，可能会出现问题。如果遇到问题，请从本地计算机重新启动安装程序。</P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H5>使用 .ini 文件</H5>
+
+<P>可以在 .ini 文件中指定 MSDE 2000 Setup.exe 参数，.ini 文件的位置由 <B>/settings</B> 开关指定。.ini 文件是一个文本文件，如使用记事本创建并使用扩展名 .ini 保存的文件。.ini 文件中的第一行是 [Options]。您可以在后面指定参数，每行指定一个参数。</P>
+
+<P class=indent><!--IMPORTANT--><P ID="Alert_Important"><B CLASS="notes">安全说明</B>&nbsp;&nbsp;如果安装时使用 .ini 文件，请不要将安全凭据存储在该文件中。</P><!--/IMPORTANT--></P>
+
+<P>下例说明了如何在命令提示符处指定参数：</P>
+
+<PRE><CODE>setup SAPWD=<B>"</B><I>AStrongPassword</I><B>"</B> INSTANCENAME=<B>"</B><I>InstanceName</I><B>"
+</B>TARGETDIR=<B>"</B>C:\MyInstanceFolder<B>"</B></CODE></PRE>
+
+<P>要使用 .ini 文件中的相同参数运行安装程序，请使用记事本创建一个名为 <CODE>MyParameters.ini</CODE> 的文件，其内容如下：</P>
+
+<PRE><CODE>[Options]
+INSTANCENAME=<B>"</B><I>InstanceName</I><B>"</B>
+TARGETDIR=<B>"</B>C:\MyInstanceFolder<B>"</B></CODE></PRE>
+
+<P>然后在运行安装程序时，使用 <B>/settings</B> 开关指向该 .ini 文件：</P>
+
+<PRE><CODE>setup /settings <B>"</B>MyParameters.ini<B>"</B> SAPWD=<B>"</B><I>AStrongPassword</I><B>"</B></CODE></PRE>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H5>请求安装程序日志</H5>
+
+<P>使用详细日志来验证 N 安装是否成功，或者帮助解决出现的问题。</P>
+
+<P>要生成详细日志，请指定 <B>/L*v</B> &lt;<I>LogFileName&gt;</I>，其中 &lt;<I>LogFileName</I>&gt; 是安装程序用于记录所有操作的日志文件的名称。如果指定名称时没有包含路径，将在当前文件夹中创建日志文件。如果是从 CD-ROM 执行安装程序，则必须指定指向硬盘上某个文件夹的完整路径。 </P>
+
+<P>下例将在 C: 驱动器的根文件夹中创建一个名为 MSDELog.log 的日志文件：</P>
+
+<PRE><CODE>setup SAPWD=<B>"</B><I>AStrongSAPassword</I><B>"</B> /L*v C:\MSDELog.log</CODE></PRE>
+
+<P>如果安装成功，在日志末尾将显示如下所示的条目：</P>
+
+<PRE><CODE>=== Logging stopped: 5/16/03&nbsp; 0:06:10 ===
+MSI (s) (BC:7C): Product: Microsoft SQL Server Desktop Engine
+ -- Installation operation completed successfully.</CODE></PRE>
+
+<P>如果安装失败，在日志末尾将显示如下所示的条目：</P>
+
+<PRE><CODE>=== Logging stopped: 5/15/03&nbsp; 23:50:34 ===
+MSI (c) (6A:CE): Product: Microsoft SQL Server Desktop Engine
+ -- Installation operation failed.</CODE></PRE>
+
+<P>如果安装失败，请在错误日志中搜索字符串“<CODE>value 3"</CODE>。该字符串的后 10 行是有关自定义操作的故障通知。该通知中包含有关故障性质的附加信息。</P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H3><A NAME="_3467464_upgrading_existing_instances_of__fzpy"></A>3.2.2 将现有的 MSDE 2000 实例升级到 MSDE 2000 SP4</H3>
+
+<P>本节中的示例描述如何将现有的 MSDE 2000 实例升级到 MSDE 2000 SP4 以及如何对该 MSDE 2000 实例禁用网络连接。如果该实例必须接受其他计算机上运行的应用程序所请求的连接，请不要指定 DISABLENETWORKPROTOCOLS 参数。</P>
+
+<P>本节中的示例假定 <B>sa</B> 登录有一个强密码。有关 <B>sa</B> 登录密码的更多信息，请参见 1.3 <A HREF="#_3467462_security_considerations_for_msde_d3jb">MSDE 2000 SP4 的安全注意事项</A>。</P>
+
+<P class=label><B>将现有的 MSDE 2000 实例升级到 MSDE 2000 SP4</B>
+
+<OL>
+	<LI>打开命令提示符窗口。<BR><BR></LI>
+
+	<LI>在命令提示符处，使用 <B>cd</B> 命令导航至包含 MSDE 2000 SP4 安装实用工具的文件夹：
+<PRE><CODE>cd <I>c:\MSDESP4Folder</I>\MSDE</CODE></PRE>
+
+<P class=tl>其中 <I>c:\MSDESP4Folder</I> 是一个路径，它指向将 MSDE 2000 SP4 文件解压缩到的文件夹或者 SQL Server 2000 SP4 光盘上的 MSDE 2000 SP4 文件夹。</P></LI>
+
+	<LI>执行下列命令之一：
+<UL type=disc>
+	<LI>对于使用 Windows 身份验证并且禁用了网络协议的默认实例，执行：
+<PRE><CODE>setup /upgradesp sqlrun /L*v C:\MSDELog.log</CODE></PRE>
+</LI>
+
+	<LI>对于使用 Windows 身份验证并且启用了网络协议的默认实例，执行：
+<PRE><CODE>setup /upgradesp sqlrun DISABLENETWORKPROTOCOLS=0 /L*v C:\MSDELog.log</CODE></PRE>
+</LI>
+
+	<LI>对于使用 Windows 身份验证并且禁用了网络协议的命名实例，执行：
+<PRE><CODE>setup /upgradesp sqlrun INSTANCENAME=<I>InstanceName</I> /L*v C:\MSDELog.log</CODE></PRE>
+</LI>
+
+	<LI>对于使用混合模式身份验证并且禁用了网络协议的默认实例（其中，<I>AnAdminLogin</I> 是 <B>sysadmin</B> 固定服务器角色的成员），执行：
+<PRE><CODE>setup /upgradesp sqlrun SECURITYMODE=SQL UPGRADEUSER=<I>AnAdminLogin</I> 
+UPGRADEPWD=<I>AdminPassword</I> /L*v C:\MSDELog.log</CODE></PRE>
+</LI>
+
+	<LI>对于使用混合模式身份验证并且禁用了网络协议的命名实例（其中，<I>AnAdminLogin</I> 是 <B>sysadmin</B> 固定服务器角色的成员），执行：
+<PRE><CODE>setup /upgradesp sqlrun INSTANCENAME=<I> InstanceName </I>SECURITYMODE=SQL 
+UPGRADEUSER=<I>AnAdminLogin</I> UPGRADEPWD=<I>AdminPassword</I> /L*v C:\MSDELog.log</CODE></PRE>
+</LI>
+</UL>
+
+<P class=tl>为了便于阅读，在这些示例中加入了换行符。执行的命令不能包括换行符。</P>
+<P class=atl><B>说明</B>&nbsp;&nbsp;&nbsp;如果所升级的 MSDE 2000 实例是以前使用早期的 SQL Server 2000 Service Pack 从 MSDE 1.0 升级而来的，必须还要在安装命令中追加 <CODE>UPGRADE=1</CODE>。</p>
+<P class=atl><!--IMPORTANT--><P ID="Alert_Important"><B CLASS="notes">安全说明</B>&nbsp;&nbsp;如果安装时使用 .ini 文件，请不要将凭据存储在该 .ini 文件中。</P><!--/IMPORTANT--></p></LI>
+</OL>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H3><A NAME="_3467465_installing_a_new_instance_of_msd_cuy1"></A>3.2.3 安装新的 MSDE 2000 SP4 实例</H3>
+
+<P>本节中的示例描述如何安装已配置为禁用网络连接（默认行为）的新 MSDE 2000 SP4 实例。如果该实例必须接受在其他计算机上运行的应用程序请求的连接，必须还要指定 <CODE>DISABLENETWORKPROTOCOLS=0</CODE>。</P>
+
+<P>以下示例使用所有配置项（如排序规则和文件位置）的默认设置安装实例。这些配置可以由安装参数（如 COLLATION、DATADIR 和 TARGETDIR）来控制。有关在安装时可以指定的配置参数的更多信息，请参见 <A HREF="http://go.microsoft.com/fwlink/?LinkId=20286" target=_blank>Customizing Desktop Engine Setup.exe</A>（自定义 Desktop Engine Setup.exe）。</P>
+
+<P class=label><B>安装新的 Desktop Engine 实例</B>
+
+<OL>
+	<LI>打开命令提示符窗口。<BR><BR></LI>
+
+	<LI>在命令提示符处，使用 <B>cd</B> 命令导航至包含 MSDE 2000 SP4 安装实用工具的文件夹：
+<PRE><CODE>cd <I>c:\MSDESP4Folder</I>\MSDE</CODE></PRE>
+
+<P class=tl>其中 <I>c:\MSDESP4Folder</I> 是一个路径，它指向将 MSDE 2000 SP4 文件解压缩到的文件夹或者 SQL Server 2000 SP4 光盘上的 MSDE 2000 SP4 文件夹。</P></LI>
+
+	<LI>执行下列命令之一：
+<UL type=disc>
+	<LI>要安装被配置为使用 Windows 身份验证的默认实例，请执行：
+<PRE><CODE>setup SAPWD=<B>"</B><I>AStrongSAPwd</I><B>"</B> /L*v C:\MSDELog.log</CODE></PRE>
+
+<P class=tl>其中，<I>AStrongSAPwd</I> 是为 <B>sa</B> 登录指定的强密码。</P></LI>
+
+	<LI>要安装被配置为使用 Windows 身份验证的命名实例，请执行：
+<PRE><CODE>setup INSTANCENAME=<B>"</B><I>InstanceName</I><B>"</B> SAPWD=<B>"</B><I>AStrongSAPwd</I><B>"</B>
+/L*v C:\MSDELog.log</CODE></PRE>
+
+<P class=tl>其中，<I>AStrongSAPwd</I> 是为 <B>sa</B> 登录指定的强密码，<I>InstanceName</I> 是为该实例指定的名称。</P></LI>
+
+	<LI>要安装被配置为使用混合模式身份验证的默认实例，请执行：
+<PRE><CODE>setup SAPWD=<B>"</B><I>AStrongSAPwd</I><B>"</B> SECURITYMODE=SQL
+/L*v C:\MSDELog.log</CODE></PRE>
+
+<P class=tl>其中，<I>AStrongSAPwd</I> 是为 <B>sa</B> 登录指定的强密码。</P></LI>
+
+	<LI>要安装被配置为使用混合模式身份验证的命名实例，请执行：
+<PRE><CODE>setup INSTANCENAME=<B>"</B><I>InstanceName</I><B>"</B> SECURITYMODE=SQL
+SAPWD=<B>"</B><I>AStrongSAPwd</I><B>"</B> /L*v C:\MSDELog.log</CODE></PRE>
+
+<P class=tl>其中，<I>AStrongSAPwd</I> 是为 <B>sa</B> 登录指定的强密码，<I>InstanceName</I> 是为该实例指定的名称。</P></LI>
+</UL>
+</LI>
+</OL>
+
+<P class=indent><!--IMPORTANT--><P ID="Alert_Important"><B CLASS="notes">重要</B>&nbsp;&nbsp;如果安装时使用 .ini 文件，请不要将凭据存储在该 .ini 文件中。</P><!--/IMPORTANT--></P>
+
+<P class=indent><!--IMPORTANT--><P ID="Alert_Important"><B CLASS="notes">重要</B>&nbsp;&nbsp;即使实例被配置为使用 Windows 身份验证，也请始终为 <B>sa</B> 登录指定一个强密码。</P><!--/IMPORTANT--></P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H3><A NAME="_3467466_upgrading_msde_1460_to_msde_2000_238p"></A>3.2.4 将 MSDE 1.0 升级到 MSDE 2000 SP4</H3>
+
+<P>本节中的示例描述如何将现有的 MSDE 1.0 实例升级到 MSDE 2000 SP4，并且禁用该实例的网络连接。如果该实例必须接受在其他计算机上运行的应用程序请求的连接，请不要指定 <B>DISABLENETWORKPROTOCOLS</B> 参数。</P>
+
+<P>MSDE 1.0 与 MSDE 2000 的默认实例的运行方式相同，且总是升级为 MSDE 2000 默认实例。</P>
+
+<P class=indent><B>说明</B>&nbsp;&nbsp;&nbsp;复制拓扑中的 MSDE 1.0 实例无法升级到 MSDE 2000 SP4。 </P>
+
+<P class=label><B>将 MSDE 1.0 实例升级到 MSDE 2000 SP4</B>
+
+<OL>
+	<LI>打开命令提示符窗口。<BR><BR></LI>
+
+	<LI>在命令提示符处，使用 <B>cd</B> 命令导航至包含 MSDE 2000 SP4 安装实用工具的文件夹：
+<PRE><CODE>cd <I>c:\MSDESP4Folder</I>\MSDE</CODE></PRE>
+
+<P class=tl>其中 <I>c:\MSDESP4Folder</I> 是一个路径，它指向将 MSDE 2000 SP4 文件解压缩到的文件夹或者 SQL Server 2000 SP4 光盘上的 MSDE 2000 SP4 文件夹。</P></LI>
+
+	<LI>执行下列命令之一：
+<UL type=disc>
+	<LI>如果从使用 Windows 身份验证的 MSDE 1.0 实例升级，请执行：
+<PRE><CODE>setup UPGRADE=1 DISABLENETWORKPROTOCOLS=1
+/L*v C:\MSDELog.log</CODE></PRE>
+</LI>
+
+	<LI>如果从使用混合模式身份验证的 MSDE 1.0 实例升级（其中，<I>AnAdminLogin</I> 是 <B>sysadmin</B> 固定服务器角色的成员），请执行：
+<PRE><CODE>setup UPGRADE=1 SECURITYMODE=SQL UPGRADEUSER=<I>AnAdminLogin</I>
+UPGRADEPWD=<I>AdminPassword</I> DISABLENETWORKPROTOCOLS=1
+/L*v C:\MSDELog.log</CODE></PRE>
+</LI>
+</UL>
+</LI>
+</OL>
+
+<P class=indent><!--IMPORTANT--><P ID="Alert_Important"><B CLASS="notes">重要</B>&nbsp;&nbsp;如果安装时使用 .ini 文件，请不要将凭据存储在该 .ini 文件中。</P><!--/IMPORTANT--></P>
+
+<P class=indent><!--CAUTION--><P ID="Alert_Caution"><B CLASS="notes">安全说明</B>&nbsp;&nbsp;强烈建议您不要使用空白密码，因为空白密码会大大增加安全隐患。</P><!--/CAUTION--></P>
+
+<P class=indent><B>说明</B>&nbsp;&nbsp;&nbsp;如果使用 <CODE>BLANKSAPWD=1</CODE>，则不必指定 <CODE>SECURITYMODE=SQL</CODE>  或 <CODE>UPGRADEUSER</CODE>  与 <CODE>UPGRADEPWD</CODE>。</P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H2><A NAME="_restart_services"></A>3.3 重新启动服务和应用程序</H2>
+
+<P>完成安装后，可能会提示您重新启动系统。3.1.3 <A HREF="#_stop_services_and_applications_before_running_sp4_setup">在运行 MSDE 2000 SP4 安装程序之前停止服务和应用程序</A>中提供了有关何时必须重新启动的准则。在系统重新启动（或者完成安装但未请求重新启动）之后，使用“控制面板”中的“服务”应用程序，确保在应用 Service Pack 之前停止的所有服务现在正在运行。在应用 Service Pack 之前可能已停止的服务包括 DTC、MSSQLServer 和 SQLServerAgent 服务或其实例专用的同等服务。</P>
+
+<P>请重新启动运行 Service Pack 安装程序之前关闭的应用程序。</P>
+
+<P>此时，对升级后的 <B>master</B> 和 <B>msdb</B> 数据库进行备份也是明智的。</P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H2><A NAME="_installing_on_replicated_servers"></A>3.4 在复制服务器上安装 MSDE 2000 SP4</H2>
+
+<P>以下信息仅适用于作为合并复制拓扑一部分的现有 MSDE 2000 实例。 
+
+<UL type=disc>
+	<LI>在升级到 SP4 之前，请确保用来运行 SQL Server 服务的 Windows 帐户是 <B>sysadmin</B> 固定服务器角色的成员。之所以必须确认，是因为要通过 SQL Server 服务帐户的上下文升级复制分发数据库。在升级到 SP4 之后，应从 <B>sysadmin</B> 角色中删除该 Windows 帐户。<BR><BR></LI>
+
+	<LI>升级发布服务器前，必须先升级分发服务器。<BR><BR></LI>
+
+	<LI>对于基于事务复制及只读订阅服务器的复制拓扑，如果需要升级拓扑中的 MSDE 2000 实例，可以在升级发布服务器和分发服务器之前或之后升级订阅服务器。 <BR><BR></LI>
+
+	<LI>对于基于合并复制或事务复制及更新订阅服务器的复制拓扑，如果需要升级拓扑中的 MSDE 2000 实例，必须在升级发布服务器和分发服务器之后升级订阅服务器。
+<P class=atl><B>说明</B>&nbsp;&nbsp;&nbsp;许多情况下，尤其在合并复制中，分发服务器和发布服务器位于同一台服务器，在同一时间升级。</p></LI>
+
+	<LI>如果要使用合并复制，而分发服务器位于另一台计算机或数据库实例（远程分发服务器）上，则必须在应用 SP4 之后生成一个新快照。<BR><BR></LI>
+
+	<LI>不能将复制拓扑中的 MSDE 1.0 实例升级到 MSDE 2000 SP4。 </LI>
+</UL>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H5>在用作发布服务器和订阅服务器的服务器上安装 MSDE 2000 SP4</H5>
+
+<P>在以下情况下，需要使系统暂停（停止所有更新）并同时升级所有服务器。
+
+<UL type=disc>
+	<LI>对于基于合并复制的复制拓扑<BR><BR></LI>
+
+	<LI>对于基于更新订阅服务器的事务复制的复制拓扑，其中一个或多个服务器既充当订阅服务器，又充当发布服务器（或分发服务器）。 </LI>
+</UL>
+
+<H6>示例 1：需要同时升级的拓扑</H6>
+
+<P>下表中包括的服务器既发布又订阅允许在订阅服务器上进行更新的发布。如上一节所述，对于允许在订阅服务器上进行更新的拓扑，必须遵循下列升级顺序：分发服务器、发布服务器、订阅服务器。此顺序要求，对于合并发布，先升级服务器 A；对于通过更新订阅服务器进行的事务发布，先升级服务器 B。在此情况下，必须使系统暂停，然后同时升级这些服务器。</P>
+
+<TABLE border=1 cellpadding=2 cols=2 frame=box rules=rows width=614>
+
+<TR VALIGN="top">
+<TH class=label width=49%>服务器 A</TH>
+<TH class=label width=51%>服务器 B</TH>
+</TR>
+
+<TR VALIGN="top">
+<TD width=49%>用于合并复制的发布服务器/分发服务器</TD>
+<TD width=51%>用于合并复制的订阅服务器</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=49%>用于通过更新进行事务复制的订阅服务器</TD>
+<TD width=51%>用于通过更新进行事务复制的发布服务器/分发服务器</TD>
+</TR>
+</TABLE><BR>
+
+<H6>示例 2：允许依次升级的拓扑</H6>
+
+<P>在此示例中，可以首先升级服务器 A，因为只读事务复制允许在升级发布服务器/分发服务器之前先升级订阅服务器。</P>
+
+<TABLE border=1 cellpadding=2 cols=2 frame=box rules=rows width=614>
+
+<TR VALIGN="top">
+<TH class=label width=49%>服务器 A</TH>
+<TH class=label width=51%>服务器 B</TH>
+</TR>
+
+<TR VALIGN="top">
+<TD width=49%>用于合并复制的发布服务器/分发服务器</TD>
+<TD width=51%>用于合并复制的订阅服务器</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=49%>用于只读事务复制的订阅服务器</TD>
+<TD width=51%>用于只读事务复制的发布服务器/分发服务器</TD>
+</TR>
+</TABLE><BR>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H2><A NAME="_applying_sp4_to_read-only_databases_or_filegroups"></A>3.5 将 MSDE 2000 SP4 应用于复制拓扑中的只读数据库或文件组</H2>
+
+<P>以下信息仅适用于作为合并复制拓扑一部分的 MSDE 2000 实例。</P>
+
+<P>如果存在只读数据库或文件组，则安装程序将显示以下消息：</P>
+
+<PRE><CODE>Setup has detected one or more databases and filegroups which are not writable.</CODE></PRE>
+
+<P>通常，可以忽略此警告并继续运行安装程序。但是，如果安装程序日志中列出的任何只读数据库是复制拓扑的成员，则必须使这些数据库可写，并将 SP4 安装程序重新应用于该 SQL Server 2000 实例。</P>
+
+<P>安装过程中，安装程序不会区分只读数据库和脱机或可能有问题的数据库。如果复制拓扑中的数据库或文件组在安装时是只读的，必须重新应用 Service Pack 来升级该数据库。有关如何使数据库联机的更多信息，请参见 SQL Server 2000 联机丛书中的“附加和分离数据库”主题。有关诊断可能有问题的数据库的更多信息，请参见 SQL Server 2000 联机丛书中的“服务器和数据库疑难解答”主题。</P>
+
+<P><B>对只读数据库应用 MSDE 2000 SP4</B>
+
+<OL>
+	<LI>使用 <CODE>ALTER DATABASE</CODE> 语句使只读数据库可写，如下所示：
+<PRE><CODE>ALTER DATABASE <I>database</I> SET READ_WRITE</CODE></PRE>
+</LI>
+
+	<LI>对所有只读数据库重复步骤 1。<BR><BR></LI>
+
+	<LI>应用（或重新应用）SP4。<BR><BR></LI>
+
+	<LI>如果需要，使用 <CODE>ALTER DATABASE</CODE> 重新使数据库只读，如下所示：
+<PRE><CODE>ALTER DATABASE <I>database</I> SET READ_ONLY</CODE></PRE>
+</LI>
+</OL>
+
+<P><B>对只读文件组应用 SP4</B>
+
+<OL>
+	<LI>使用 <CODE>ALTER DATABASE</CODE> 使只读文件组可写，如下所示：
+<PRE><CODE>ALTER DATABASE <I>Database</I> 
+MODIFY FILEGROUP <I>filegroup_name</I> READWRITE </CODE></PRE>
+</LI>
+
+	<LI>对所有只读文件组重复步骤 1。<BR><BR></LI>
+
+	<LI>应用（或重新应用）Service Pack。<BR><BR></LI>
+
+	<LI>使用 <CODE>ALTER DATABASE</CODE> 重新使文件组只读，如下所示：
+<PRE><CODE>ALTER DATABASE <I>Database</I> 
+MODIFY FILEGROUP <I>filegroup_name</I> READONLY</CODE></PRE>
+</LI>
+</OL>
+
+<P>有关 ALTER DATABASE 的更多信息，请参见 SQL Server 联机丛书中的“ALTER DATABASE”参考主题。有关重新应用 SP4 的更多信息，请参见 3.8 <A HREF="#_reapplying_sp4">重新应用 MSDE 2000 SP4</A>。</P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H2><A NAME="_34613_upgrading_the_catalog_of_linked_se_d3jb"></A>3.6 升级链接服务器的目录</H2>
+
+<P>将 MSDE 2000 实例升级到 MSDE 2000 SP4 时，可能需要验证某些系统存储过程在其他 SQL Server 或 MSDE 实例中是否已更新。</P>
+
+<P>MSDE 2000 SP4 包括将 Microsoft 数据访问组件 (MDAC) 升级到 MDAC 2.8 SP1。MDAC 2.8 SP1 包括对 SQLOLEDB 提供程序和 SQL Server ODBC 驱动程序的更新。有关更多信息，请参见 1.5 <A HREF="#_verify_the_version_of_microsoft_data_acc_d3jb">验证 Microsoft 数据访问组件的版本</A>。如果提供程序或驱动程序连接到 SQL Server 或 MSDE 实例，则该提供程序或驱动程序将使用一组系统存储过程，称为目录存储过程。实例上目录存储过程的版本必须等于或高于提供程序和驱动程序所使用的版本。如果尝试连接到的 SQL Server 或 MSDE 实例包含更低版本的目录存储过程，将收到以下错误消息：</P>
+
+<P><CODE>The ODBC catalog stored procedures installed on server &lt;<I>ServerName</I>&gt; <BR>
+are version &lt;<I>OldVersionNumber</I>&gt;; version &lt;<I>NewVersionNumber</I>&gt; or later <BR>
+is required to ensure proper operation. Please contact your system <BR>
+administrator.</CODE></P>
+
+<H5>运行 Instcat.sql 脚本</H5>
+
+<P>每个版本的提供程序和驱动程序都是随名为 Instcat.sql 的脚本附带的。Instcat.sql 会升级任何包含更低目录版本的 SQL Server 或 MSDE 实例中的目录存储过程。</P>
+
+<P>安装了 MSDE 2000 SP4 之后，必须针对任何版本低于 SQL Server 2000 SP4 并具有以下特性的 SQL Server 或 MSDE 实例，从 MSDE 2000 SP4 运行 Instcat.sql 脚本：
+
+<UL type=disc>
+	<LI>通过使用 <B>SQLClient</B> 托管命名空间、ADO、OLE DB 或 ODBC 并且在任何安装了 MSDE 2000 SP4 的计算机上运行的应用程序进行访问。<BR><BR></LI>
+
+	<LI>通过对 MSDE 2000 SP4 实例运行的分布式查询引用。分布式查询包括对使用 <B>sp_addlinkedserver</B> 以及 OPENROWSET 和 OPENQUERY 函数定义的链接服务器条目的引用。</LI>
+</UL>
+
+<P><B>升级选中了“Windows 身份验证”选项的 MSDE 2000 实例上的目录存储过程</B>
+
+<OL>
+	<LI>使用作为 SQL Server <B>sysadmin</B> 固定服务器角色成员的登录帐户登录 Windows。<BR><BR></LI>
+
+	<LI>打开命令提示符窗口。<BR><BR></LI>
+
+	<LI>运行 <B>osql</B> 实用工具：
+<UL type=disc>
+	<LI>对于默认实例，执行：
+<PRE><CODE>osql -E -SComputerName -ilocation\instcat.sql</CODE></PRE>
+</LI>
+
+	<LI>对于命名实例，执行：
+<PRE><CODE>osql -E -SComputerName\InstanceName -ilocation\instcat.sql</CODE></PRE>
+</LI>
+</UL>
+</LI>
+</OL>
+
+<P><B>升级选中了“混合模式身份验证”选项的 MSDE 2000 实例上的目录存储过程：</B>
+
+<OL>
+	<LI>使用任意登录帐户登录 Windows。<BR><BR></LI>
+
+	<LI>打开命令提示符窗口。<BR><BR></LI>
+
+	<LI>运行 <B>osql</B> 实用工具：
+<UL type=disc>
+	<LI>对于默认实例，执行：
+<PRE><CODE><B>osql -U</B><I>AnAdminLogin</I><B> -P</B><I>AdminPassword</I><B> 
+-S</B><I>ComputerName</I> <B>-i</B><I>location</I><B>\instcat.sql</B></CODE></PRE>
+</LI>
+
+	<LI>对于命名实例，执行：
+<PRE><CODE><B>osql -U</B><I>AnAdminLogin</I><B> -P</B><I>AdminPassword</I><B> 
+-S</B><I>ComputerName</I>\<I>InstanceName</I> <B>-i</B><I>location</I><B>\instcat.sql</B></CODE></PRE>
+</LI>
+</UL>
+</LI>
+</OL>
+
+<P>其中：
+
+<UL type=disc>
+	<LI><I>AnAdminLogin</I> 是一个 SQL Server 登录，它是 <B>sysadmin</B> 固定服务器角色的成员。<BR><BR></LI>
+
+	<LI><I>AdminPassword</I> 是 <I>AnAdminLogin</I> 的密码。<BR><BR></LI>
+
+	<LI><I>ComputerName</I> 是运行 SQL Server 或 MSDE 实例的计算机的名称。<BR><BR></LI>
+
+	<LI><CODE>InstanceName</CODE> 是 SQL Server 2000 或 MSDE 2000 命名实例的名称。<BR><BR></LI>
+
+	<LI><I>location</I> 是包含 <CODE>instcat.sql</CODE> 的文件夹的完整路径。已安装的 SQL Server 2000 实例的默认位置是 c:\program files\Microsoft SQL Server\MSSQL\Install。</LI>
+</UL>
+
+<P>Instcat.sql 脚本可生成许多消息。这些消息通常不指明任何错误。只是通知您脚本中每条 Transact-SQL 语句所影响的行数。最后一条消息应指明脚本是否成功运行。</P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H2><A NAME="_uninstalling_sp4"></A>3.7 卸载 MSDE 2000 SP4</H2>
+
+<P>为了能够还原到安装 SP4 之前的 MSDE 2000 版本，必须先备份 <B>master</B>、<B>msdb</B><B> </B>和 <B>model </B>数据库，然后再安装 SP4。有关更多信息，请参见 3.1.1 <A HREF="#_back_up_your_sql_server_databases">备份 SQL Server 数据库</A>。</P>
+
+<P><B>还原到安装 SP4 之前的 MSDE 2000 版本</B>
+
+<OL>
+	<LI>分离所有用户数据库。有关更多信息，请参见 SQL Server 2000 联机丛书中的“如何附加和分离数据库（企业管理器）”。<BR><BR></LI>
+
+	<LI>卸载 MSDE 2000：在“控制面板”<B></B>中，双击“添加/删除程序”<B></B>，然后选择要卸载的 MSDE 2000 实例，再单击“删除”<B></B>。<BR><BR></LI>
+
+	<LI>从 CD-ROM 或最初安装 MSDE 2000 的位置重新安装 MSDE 2000。<BR><BR></LI>
+
+	<LI>应用安装 MSDE 2000 SP4 之前安装的所有 Service Pack 和热修复程序。<BR><BR></LI>
+
+	<LI>从安装 SP4 之前创建的最后一个备份中还原 <B>master</B>、<B>msdb</B> 和 <B>model</B> 数据库。如果数据文件的位置未更改，此还原将自动附加创建备份时附加的所有用户数据库。<BR><BR></LI>
+
+	<LI>附加最后一次备份 <B>master</B> 数据库之后创建的所有用户数据库。<BR><BR></LI>
+
+	<LI>必要时对复制进行配置。
+<P class=atl><!--WARNING--><P ID="Alert_Warning"><B CLASS="notes">警告</B>&nbsp;&nbsp;还原到安装 SP4 之前的 SQL Server 版本后，将丢失自安装 SP4 之后对 <B>master</B>、<B>msdb</B> 和 <B>model</B> 数据库所做的所有更改。</P><!--/WARNING--></p>
+<P class=atl><B>说明</B>&nbsp;&nbsp;&nbsp;还原到安装 SP4 之前的 MSDE 2000 版本时，不会卸载 MDAC 更新。有关更多信息，请参见 1.5 <A HREF="#_verify_the_version_of_microsoft_data_acc_d3jb">验证 Microsoft 数据访问组件的版本</A>。</p></LI>
+</OL>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H2><A NAME="_reapplying_sp4"></A>3.8 重新应用 MSDE 2000 SP4</H2>
+
+<P>如果使最初应用 SP4 时属于复制拓扑的只读数据库或文件组可写，必须重新应用 MSDE 2000 SP4。</P>
+
+<P>要重新应用 MSDE 2000 SP4，请执行 3.0 <A HREF="#_service_pack_installation">安装 Service Pack</A> 中的步骤。</P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H1><A NAME="_additional_installation_considerations"></A>4.0 其他安装信息</H1>
+
+<P>本节描述 Service Pack 安装的其他注意事项。</P>
+
+<H2><A NAME="_3467467_redistributing_msde_2000_sp4_ar5q"></A>4.1 再分发 MSDE 2000 SP4</H2>
+
+<P>如果应用程序供应商具有分发 MSDE 2000 的许可证，MSDE 2000 SP4 将包含随该应用程序再分发 MSDE 2000 所需的所有文件。可以按照最新版本的 SQL Server 2000 联机丛书中所述分发 MSDE 2000 SP4 文件。还可以在此 <A HREF="http://go.microsoft.com/fwlink/?LinkId=44239" target=_blank>Microsoft 网站</A>上注册，获得再分发 MSDE 2000 的权利。</P>
+
+<P>有关安装最新版本的 SQL Server 2000 联机丛书的更多信息，请参见 1.8 <A HREF="#_updated_books_online_documentation_is_av_wluf">SQL Server 2000 联机丛书更新已可用</A>。</P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H5>分发 MSDE 2000 SP4 修补程序</H5>
+
+<P>如果某个应用程序有基于 Windows 安装程序的安装实用工具，则该应用程序可以通过使用 MSDE 2000 合并模块来安装 MSDE 2000 实例。MSDE 2000 SP4 提供合并模块以支持使用合并模块的现有应用程序。新应用程序的安装实用工具必须编写为调用 MSDE 2000 安装实用工具，而不是直接使用 MSDE 2000 合并模块。</P>
+
+<P>如果供应商选择使用 MSDE 2000 合并模块安装 MSDE 2000 实例，则他们必须为其客户提供以后所有的 MSDE 2000 修补程序。应用程序直接使用合并模块安装的 MSDE 2000 实例，使用 Windows 安装程序与应用程序关联的产品代码 GUID 进行标记。只有也包含该应用程序产品代码 GUID 的修补程序文件才能修补这些 MSDE 2000 实例。只有应用程序供应商开发的修补程序文件才会包含正确的产品代码。由 Microsoft 提供的 MSDE 2000 Service Pack 不能应用于这些实例。应用程序供应商必须使用 MSDE 2000 SP4 文件构建修补程序文件，并将这些修补程序文件分发给该供应商所有需要 SP4 中修复程序的 MSDE 客户。</P>
+
+<P>有关如何创建修补程序文件包的更多信息，请参见 Windows 安装程序软件开发工具包 (SDK)，该工具包可以从 <A HREF="http://go.microsoft.com/fwlink/?LinkId=4435" target=_blank>Microsoft 平台 SDK 网站</A>下载。</P>
+
+<P>如果应用程序的安装实用工具通过调用 MSDE 2000 安装程序来安装 MSDE 2000 实例，则 MSDE 2000 实例使用 MSDE 2000 产品代码 GUID 进行标记。客户可以使用标准的 MSDE 2000 Service Pack 文件来修补这些实例。应用程序供应商可以选择下列某个方法来分发 MSDE 2000 SP4：
+
+<UL type=disc>
+	<LI>指导客户从 SQL Server 2000 SP4 下载页或 SQL Server 2000 SP4 光盘安装 MSDE 2000 SP4。指导客户直接应用 SP4 的应用程序供应商必须提供针对其客户的特定说明。 <BR><BR></LI>
+
+	<LI>有关 Microsoft 应用程序小组为其客户准备的 MSDE 2000 Service Pack 说明类型的示例，请参见此 <A HREF="http://go.microsoft.com/fwlink/?LinkId=14961" target=_blank>Microsoft MSDE 应用程序网页</A>。<BR><BR></LI>
+
+	<LI>下载 SQL2000.MSDE-KB884525-SP4-x86-<I>LLL</I>.exe 下载文件并将其随如何应用 Service Pack 的说明一起分发给客户。<BR><BR></LI>
+
+	<LI>使用 MSDE 2000 SP4 文件构建 Service Pack 应用程序实用工具，在由该应用程序安装的 MSDE 2000 实例上安装 SP4。</LI>
+</UL>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H2><A NAME="_3467468_msde_2000_sp4_file_locations_gq59"></A>4.2 MSDE 2000 SP4 文件位置</H2>
+
+<P>所有 MSDE SP4 安装文件和文件夹均位于 \MSDE 文件夹，该文件夹位于下列一个或多个位置：
+
+<UL type=disc>
+	<LI>SQL Server 2000 SP4 CD-ROM。<BR><BR></LI>
+
+	<LI>包含从 SQL2000.MSDE-KB884525-SP4-x86-<I>LLL</I>.exe 解压缩的 Service Pack 文件的文件夹，其中 <I>LLL</I> 因语言而异。</LI>
+</UL>
+
+<P>\MSDE 文件夹中包含 Readmesql2k32desksp4.htm 文件、readme.txt 文件、license.txt 文件和安装实用工具的可执行文件。它还包含下列子文件夹：
+
+<UL type=disc>
+	<LI><B>\Msi</B>：包含安装 Windows 安装程序或升级版本低于 2.0.2600.0 的 Windows 安装程序所必需的可执行文件。<BR><BR></LI>
+
+	<LI><B>\MSM</B>：包含合并模块安装程序所必需的合并模块。<BR><BR></LI>
+
+	<LI><B>\Setup</B>：包含 MSDE 2000 安装程序安装新的 MSDE 2000 SP4 实例所必需的 .msi 安装包文件或将现有的 MSDE 2000 实例升级到 SP4 所必需的 .msp 修补程序包文件。\Setup 还包含 sqlrun.cab 压缩包文件，其中包含安装程序安装的文件。</LI>
+</UL>
+
+<P>有关如何使用 MSDE 合并模块的进一步说明，请参见 SQL Server 2000 联机丛书中的“使用 SQL Server Desktop Engine 合并模块”主题。</P>
+
+<P class=indent><B>说明</B>&nbsp;&nbsp;&nbsp;新安装不支持合并模块。SP4 中提供的合并模块用于维护以前使用合并模块安装的 MSDE 2000 实例。</P>
+
+<P>如果应用程序安装程序调用 MSDE 2000 安装程序，请构建一个具有以下结构和文件集的文件夹。文件夹 <I>MSDEInstallFolder</I> 代表示例文件夹名称：</P>
+
+<P class=dt><I>MSDEInstallFolder</I></P>
+
+<P class=indent>将以下文件从 MSDE 2000 SP4 \MSDE 文件夹复制到此位置：Setup.exe、Setup.ini、Setup.rll 和 sqlresld.dll。</P>
+
+<P class=dt><I>MSDEInstallFolder</I>\Msi</P>
+
+<P class=indent>将 MSDE 2000 SP4 \MSDE\Msi 文件夹中的所有文件复制到此位置。</P>
+
+<P class=dt><I>MSDEInstallFolder</I>\Setup</P>
+
+<P class=indent>将 MSDE 2000 SP4 \MSDE\Setup 文件夹中的所有文件复制到此位置。</P>
+
+<P>然后可以执行 Setup.exe 以安装或升级为 MSDE 2000 SP4 实例。</P>
+
+<P class=indent><B>说明</B>&nbsp;&nbsp;&nbsp;如果计算机上尚未安装 Windows 安装程序或者其版本低于支持的 MSDE 2000 SP4 安装程序版本，安装程序将使用 MSDEInstallFolder\Msi 文件夹中的文件来升级 Windows 安装程序。</P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H1><A NAME="_documentation_notes"></A>5.0 文档说明</H1>
+
+<P>本节介绍在应用 MSDE 2000 SP4 之后可能发生的问题以及运行 SP4 时可以使用的新功能。在通过运行 Service Pack 从任何早期版本的 MSDE 2000（包括 MSDE 2000 Release A）升级时，可能会出现这些问题。本节不描述 SP4 中提供的所有修复程序。有关这些修复程序的完整列表，请参见知识库文章 <A HREF="http://support.microsoft.com?kbid=888799" target=_blank>888799</A>。</P>
+
+<P>对于未能及时包含在本自述文件中、与 SQL Server 2000 Service Pack 4 相关的信息，将发布在 Microsoft 知识库文章 <A HREF="http://support.microsoft.com?kbid=884525" target=_blank>884525</A> 中。</P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H2><A NAME="_database_and_desktop_engine_enhancements"></A>5.1 MSDE 2000 增强功能</H2>
+
+<P>下列增强功能适用于安装 Database Components SP4 的 MSDE 2000 实例。它们还适用于安装 MSDE 2000 SP4 的 MSDE 2000 Release A 实例。</P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H3><A NAME="_hash_teams_removed"></A>5.1.1 删除了散列组</H3>
+
+<P><I>在 SP1 中引入</I></P>
+
+<P>散列组 (hash teams) 已删除。由于 MSDE 2000 中的某些增强功能，使用散列组已不能获得它们在 MSDE 1.0 中所提供的性能优势。而且，删除散列组使得 MSDE 2000 更加稳定。 </P>
+
+<P>因此，查询优化器不再用散列组生成查询计划。</P>
+
+<P>在极个别的情况下，删除散列组可能会使查询的处理速度减慢。请分析这类查询并确定创建更适合的索引是否能使查询性能恢复到以前的水平。</P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H3><A NAME="_affinity_mask_switches_added"></A>5.1.2 添加了 Affinity Mask 开关</H3>
+
+<P><I>在 SP1 中引入</I></P>
+
+<P>此 Service Pack 添加了两个 Affinity Mask 开关。</P>
+
+<H5>Affinity Mask I/O 开关</H5>
+
+<P>使用此 Service Pack，可以指定使用哪些 CPU 来运行用于磁盘 I/O 操作的线程。这一开关必须与 <B>Affinity Mask</B> 选项结合起来使用。有关更多信息，请参见知识库文章 <A HREF="http://support.microsoft.com?kbid=298402" target=_blank>298402</A>。</P>
+
+<H5>Affinity Mask 连接开关</H5>
+
+<P>使用此 Service Pack，可以将支持虚拟接口体系结构 (VIA) 的系统配置为将 MSDE 2000 连接从某些网卡绑定到一个处理器或一组处理器。这一开关必须与 <B>Affinity Mask</B> 选项结合起来使用。有关更多信息，请参见知识库文章 <A HREF="http://support.microsoft.com?kbid=299641" target=_blank>299641</A>。</P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H3><A NAME="_syntax_changes_for_sp_change_users_login_wluf"></A>5.1.3 sp_change_users_login 的语法更改</H3>
+
+<P><I>在 SP3 中引入</I></P>
+
+<P>使用 <B>@Action=Auto_Fix</B> 参数运行 <B>sp_change_users_login</B> 时，现在必须指定密码。<B>sp_change_users_login</B> 将把此密码赋给它为用户创建的任何新的登录。下例显示了新的 <B>@Password</B> 参数：</P>
+
+<PRE><CODE>sp_change_users_login [ @Action = ] 'action' 
+    [ , [ @UserNamePattern = ] 'user' ] 
+    [ , [ @LoginName = ] 'login' ]
+    [ , [ @Password = ] 'password' ]</CODE></PRE>
+
+<P><B>@Password</B> 参数只能与 <B>@Action=Auto_Fix </B>一起使用。下例显示了在使用 <B>Auto_Fix</B> 时 <B>sp_change_users_login</B> 命令的新语法。SQL Server 联机丛书中的其他示例没有变化。</P>
+
+<PRE><CODE>USE pubs
+go
+EXEC sp_change_users_login 'Auto_Fix', 'Mary', NULL, 'B3r12-36'
+go</CODE></PRE>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H3><A NAME="_ad_hoc_access_to_ole_db_providers_disabl_fzpy"></A>5.1.4 默认情况下禁用对 OLE DB 提供程序的特殊访问</H3>
+
+<P><I>在 SP3 中引入</I></P>
+
+<P>如果未明确设置 <B>DisallowAdhocAccess</B> 注册表选项，则默认情况下，不允许对 OLE DB 提供程序进行特殊访问。这表示特殊查询语法（如 OPENDATASOURCE 和 OPENROWSET）无法针对远程服务器工作。要允许特殊访问，必须明确将 <B>DisallowAdhocAccess</B> 选项设置为 <B>0</B>。</P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H3><A NAME="_new_sqlserverlike_provider_option_cuy1"></A>5.1.5 新的 SqlServerLike 提供程序选项</H3>
+
+<P><I>在 SP3 中引入</I></P>
+
+<P>为了更有效地处理包含 LIKE 谓词的远程查询，在 SP3 中添加了 <B>SqlServerLike</B> 选项。在 MSDE 2000 SP3 或更高版本中，现在有两个选项可用来将 LIKE 运算发送到链接服务器。如果用于链接服务器的 OLE DB 提供程序支持 LIKE 运算符和通配符的 SQL Server 语法，则可以指定 <B>SqlServerLike</B> 选项，以便让 MSDE 2000 使用 SQL Server 语法发送 LIKE 运算。如果用于链接服务器的 OLE DB 提供程序报告它支持 Entry Level ANSI/ISO SQL-92 语法或者返回 <B>SQLPROP_ANSILIKE </B>属性，则 SQL Server 将使用 SQL-92 语法将 LIKE 运算发送到链接服务器。有关 <B>SQLPROP_ANSILIKE</B> 的更多信息，请参见 SQL Server 2000 联机丛书中的“SQLPROPSET_OPTHINTS 属性集程序设计”主题。</P>
+
+<P>必须添加一个注册表项值，才能为 OLE DB 提供程序启用 <B>SqlServerLIKE</B> 选项。</P>
+
+<P class=indent><!--CAUTION--><P ID="Alert_Caution"><B CLASS="notes">安全说明</B>&nbsp;&nbsp;如果注册表编辑不当，可能会导致严重问题并需要重新安装操作系统。Microsoft 不能保证因注册表编辑不当而导致的问题会得到解决。编辑注册表之前，请备份所有重要数据。</P><!--/CAUTION-->
+
+<OL>
+	<LI>打开 Regedit32。<BR><BR></LI>
+
+	<LI>查找正确的注册表项：
+<UL type=disc>
+	<LI>对于命名实例，查找以下子注册表项：
+<P class=tl><B>HKEY_LOCAL_MACHINE\Software\Microsoft\Microsoft SQL Server\&lt;Instance Name&gt;\Providers\&lt;Provider Name&gt;</B></P></LI>
+
+	<LI>对于默认实例，查找以下子注册表项：
+<P class=tl><B>HKEY_LOCAL_MACHINE\Software\Microsoft\MSSQLServer\Providers\&lt;Provider Name&gt;</B></P></LI>
+</UL>
+</LI>
+
+	<LI>在 &lt;Provider Name&gt; 注册表项中，添加一个名为 SqlServerLIKE 的 DWORD 值，并将其值设置为 1。</LI>
+</OL>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H3><A NAME="_expanded_error_messages_for_distributed__d3jb"></A>5.1.6 分布式查询的扩展错误消息</H3>
+
+<P><I>在 SP3 中引入</I></P>
+
+<P>对于分布式查询，MSDE 2000 除了返回服务器错误信息以外，还返回提供程序错误信息。当相互链接的服务器之间的查询导致错误时，MSDE 2000 将检查该提供程序是否支持 <B>IErrorRecords</B> OLE DB 接口。如果支持此接口，MSDE 2000 将调用 <B>GetErrorInfo</B> 函数，以便从该提供程序中获取附加错误信息，并将此信息作为错误消息的一部分返回给用户。如果不支持 <B>IErrorRecords</B> 接口，则 MSDE 2000 的行为没有什么变化：MSDE 2000 将返回一般性错误。</P>
+
+<P>例如，如果对使用 MSDASQL 的服务器（该服务器不支持 <B>sql_variant</B>）运行下列查询：</P>
+
+<PRE><CODE>SELECT * FROM remote2k.dqtable.dbo.sqlvariantnotnull 
+--Remote2k is a loopback server.</CODE></PRE>
+
+<P>SP3 之前的 MSDE 2000 版本会返回下列错误消息：</P>
+
+<P><CODE>Server: Msg 7356, Level 16, State 1, Line 1</CODE></P>
+
+<P><CODE>OLE DB provider 'msdasql' supplied inconsistent metadata for a column. <BR>
+Metadata information was changed at execution time.</CODE></P>
+
+<P>在应用 SP3 或更高版本之后，MSDE 2000 返回下列错误消息：</P>
+
+<P><CODE>Server: Msg 7356, Level 16, State 1, Line 1</CODE></P>
+
+<P><CODE>OLE DB provider 'msdasql' supplied inconsistent metadata for a column. <BR>
+Metadata information was changed at execution time.</CODE></P>
+
+<P><CODE>OLE DB error trace [Non-interface error:&nbsp; Column 'sql_variant' (compile-time<BR>
+ordinal 3) of object '"dqtable"."dbo"."sqlvariantnotnull"' was reported <BR>
+to have a DBCOLUMNFLAGS_ISFIXEDLENGTH of 16 at compile time and 0 at run time].</CODE></P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H3><A NAME="_new_function_fn_get_sql_returns_sql_stat_wluf"></A>5.1.7 新函数 fn_get_sql 返回 SQL 语句</H3>
+
+<P><I>在 SP3 中引入</I></P>
+
+<P>SP3 以及更高版本包含新函数 <B>fn_get_sql</B>，该函数为指定的 SQL 句柄返回 SQL 语句的文本。另外，为了支持此函数，在 <B>sysprocesses</B> 系统表中添加了三个新列：<B>sql_handle</B>、<B>stmt_start</B> 和 <B>stmt_end</B>。</P>
+
+<P><B>fn_get_sql</B> 在最新版本的 SQL Server 2000 联机丛书中描述。有关安装最新版本的 SQL Server 2000 联机丛书的信息，请参见 1.8 <A HREF="#_updated_books_online_documentation_is_av_wluf">SQL Server 2000 联机丛书更新已可用</A>。这是 <A HREF="http://go.microsoft.com/fwlink/?LinkId=33351" target=_blank><B>fn_get_sql</B></A> 的英语版参考主题。</P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H3><A NAME="_enabling_cross45database_ownership_chain_ar5q"></A>5.1.8 跨数据库所有权链接</H3>
+
+<P><I>在 SP3 中引入</I></P>
+
+<P>此 Service Pack 提供了一个新选项，可以用来打开和关闭跨数据库所有权链接。</P>
+
+<P>在安装 MSDE 2000 SP4 时，可以使用 ALLOWXDBCHAINING 安装参数为所有数据库启用跨数据库所有权链接。ALLOWXDBCHAINING 在最新版本的 SQL Server 2000 联机丛书的以下主题中描述：<A HREF="http://go.microsoft.com/fwlink/?LinkId=20286" target=_blank>Customizing Desktop Engine Setup.exe</A>（自定义 Desktop Engine Setup.exe）。有关安装最新版本的 SQL Server 2000 联机丛书的信息，请参见 1.8 <A HREF="#_updated_books_online_documentation_is_av_wluf">SQL Server 2000 联机丛书更新已可用</A>。</P>
+
+<P class=indent><B>说明</B>&nbsp;&nbsp;&nbsp;建议不要对所有数据库启用跨数据库所有权链接。</P>
+
+<P>安装后，可以使用下列方法对实例中的所有数据库打开或关闭跨数据库的所有权链接：
+
+<UL type=disc>
+	<LI>使用 <B>sp_configure</B> 系统存储过程的新参数 <B>Cross DB Ownership Chaining</B>。<BR><BR></LI>
+
+	<LI>在企业管理器中，使用“SQL Server 属性”<B></B>对话框中“安全性”<B></B>选项卡上的“允许跨数据库所有权链接”<B></B>选项。<BR><BR></LI>
+
+	<LI>使用 <B>SQLServer.Configuration.ConfigValues</B> 数据库管理对象 (DMO) 集合。当 <B>SQLServer </B>对象引用 MSDE 2000 SP3 或更高版本的实例时，该集合将包含一个名为 <B>Cross DB Ownership Chaining</B> 的 <B>ConfigValue</B> 对象。</LI>
+</UL>
+
+<P>如果对该实例关闭了跨数据库所有权链接，则可以对单个数据库进行配置。使用下列方法可以对数据库打开和关闭跨数据库的所有权链接：
+
+<UL type=disc>
+	<LI>使用 <B>sp_dboption</B> 系统存储过程的新选项 <B>db chaining</B>。<BR><BR></LI>
+
+	<LI>在企业管理器中，使用“数据库属性”<B></B>对话框中“选项”<B></B>选项卡上的“允许跨数据库所有权链接”<B></B>选项。<BR><BR></LI>
+
+	<LI>使用 DMO 对象 <B>DBOption2</B> 的 <B>DBChaining</B> 属性。</LI>
+</UL>
+
+<P>有关更多信息，请在运行安装程序时单击“后向兼容性一览表”<B></B><B></B>页上的“帮助”按钮、下载 <A HREF="#_updated_books_online_documentation_is_av_wluf">SQL Server 2000 联机丛书</A>的更新版，或者查看知识库文章 <A HREF="http://support.microsoft.com?kbid=810474" target=_blank>810474</A>。</P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H3><A NAME="_enhancements_for_trace_flag_1204_gq59"></A>5.1.9 跟踪标志 1204 的增强功能</H3>
+
+<P><I>在 SP3 中引入</I></P>
+
+<P>跟踪标志 1204 返回参与死锁的锁的类型以及当前受影响的命令。在 SP3 和更高版本中，当启用此跟踪标志时，会将死锁信息自动写入错误日志。</P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H3><A NAME="_permissions_change_for_sp_changedbowner_2y0t"></A>5.1.10 sp_changedbowner 的权限更改</H3>
+
+<P><I>在 SP3 中引入</I></P>
+
+<P>只有 <B>sysadmin</B> 固定服务器角色的成员可以运行 <B>sp_changedbowner</B> 系统存储过程。</P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H3><A NAME="_debugging_functionality_changes_f8s1"></A>5.1.11 调试功能的更改</H3>
+
+<P><I>在 SP3 中引入</I></P>
+
+<P>默认情况下，禁用在 Microsoft Visual Studio&reg; 6.0 及更早版本或 SP3 之前的 SQL Server 查询分析器中调试存储过程的功能。默认情况下还将禁用应用程序调试（在调试客户端应用程序时停止于 SQL Server Transact-SQL 断点处）。要启用调试功能，请运行 <B>sp_sdidebug</B> 并传递参数 <B>legacy_on</B>。要禁用调试功能，请将 <B>legacy_off</B> 传递给此过程。 </P>
+
+<P class=indent><B>说明</B>&nbsp;&nbsp;&nbsp;建议不要在生产用服务器上运行 <B>sp_sdidebug</B> 存储过程。</P>
+
+<P>有关更多信息，请参见知识库文章 <A HREF="http://support.microsoft.com?kbid=328151" target=_blank>328151</A>。</P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H3>5.1.12 在群集服务器上不能禁用命名管道</H3>
+
+<P><I>在 SP3 中引入</I></P>
+
+<P>应用了 Service Pack 之后，将无法再在参与故障转移群集的数据库引擎实例上禁用命名管道协议。</P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H3><A NAME="_54614615_turning_off_udp_port_1434_d3jb"></A>5.1.13 UDP 端口 1434 的操作</H3>
+
+<P><I>在 SP3a 中引入</I></P>
+
+<P>从 MSDE 2000 SP3a 开始，如果 MSDE 2000 实例未被配置为支持网络通信，将停止使用用户数据报协议 (UDP) 端口 1434。配置为支持网络通信的实例将使用 UDP 端口 1434。</P>
+
+<P>对于升级到 SP3a 或更高版本的实例，只要所有服务器 Net-Library（共享内存 Net-Library 除外）都被禁用，它将停止使用 UDP 端口 1434。只要启用任何一个服务器 Net-Library，该实例又将开始使用端口 1434。有关禁用或启用服务器 Net-Library 的更多信息，请参见 SQL Server 2000 联机丛书中的“SQL Server 网络实用工具”主题。</P>
+
+<P>只有将计算机上所有 SQL Server 2000 和 MSDE 2000 实例都升级到了 SP3a 或更高版本并配置为不支持网络通信，该计算机才会停止使用 UDP 端口 1434。</P>
+
+<P>UDP 端口 1434 的打开和关闭与共享内存 Net-Library 的状态无关。共享内存 Net-Library 只供本地连接使用，它不使用网络。共享内存 Net-Library 始终处于活动状态；它不能被启用或禁用。</P>
+
+<P>还可以在安装或升级 MSDE 2000 实例时指定是否禁用服务器 Net-Library。使用 MSDE 2000 安装实用工具的 <B>DISABLENETWORKPROTOCOLS</B> 参数或 MSDE 2000 合并模块的 <B>SqlDisableNetworkProtocols</B> 属性。有关这些选项的更多信息，请参见最新版本的 SQL Server 2000 联机丛书中的以下主题：<A HREF="http://go.microsoft.com/fwlink/?LinkId=20286" target=_blank>Customizing Desktop Engine Setup.exe</A>（自定义 Desktop Engine Setup.exe）。有关安装最新版本的 SQL Server 2000 联机丛书的信息，请参见 1.8 <A HREF="#_updated_books_online_documentation_is_av_wluf">SQL Server 2000 联机丛书更新已可用</A>。</P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H3>5.1.14 最大网络数据包大小的更改</H3>
+
+<P><I>在 SP4 中引入</I></P>
+
+<P>在 SP4 中，网络数据包大小选项的最大值（使用 <B>sp_configure</B> 设置）为 32767。该值略小于以前的最大值 65536 的一半。在升级期间，大于 32767 的现有值将自动调整为 32767。如果脚本尝试使用 <B>sp_configure</B> 设置一个大于 32767 但小于等于 65536 的值，该值也将设置为 32767。将网络数据包大小设置为大于 65536 的值将导致错误。</P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H3>5.1.15 优化具有大的 IN 列表或许多 OR 子句的查询</H3>
+
+<P><I>在 SP4 中引入</I></P>
+
+<P>SP4 包含对 SQL Server 优化器行为的更改，此更改影响包含具有大的 IN 列表或许多 OR 子句的谓词的查询。更具体的讲，此更改（在 SQL Server 2000 热修复程序 789 中引入）影响包含以下内容的查询（或可以使用包含以下内容的对应表达式重写的查询）： 
+
+<UL type=disc>
+	<LI>IN 列表中包含 10,000 个以上的元素<BR><BR></LI>
+
+	<LI>两个 IN 列表，每个列表都包含 100 个以上的元素<BR><BR></LI>
+
+	<LI>OR 子句中包含 10,000 个以上的分离项<BR><BR></LI>
+
+	<LI>OR 子句和 IN 列表组合，使对应的表达式包含 10,000 个以上的分离项</LI>
+</UL>
+
+<P>如果运行此类查询的系统具有大量内存但并行程度很低，优化器可能会选择性能较差的查询计划。为了覆盖优化器行为的更改，此 Service Pack 中提供了跟踪标志 9060。默认情况下，禁用跟踪标志 9060。如果启用该跟踪标志，热修复程序 789 之前的 SP3 行为将启用。如果启用该跟踪标志时遇到错误 701（系统内存不足），应考虑使用 IN 列表中的值的临时表或表变量重写查询。对于数字范围，应使用 BETWEEN 子句或者大于 (&gt;) 或小于 (&lt;) 运算符。有关使用跟踪标志的信息，请参见 SQL Server 联机丛书中的“跟踪标志”。 </P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H3>5.1.16 支持未来的网络协议</H3>
+
+<P><I>在 SP4 中引入</I></P>
+
+<P>SP4 中支持 Banyan VINES、多协议、AppleTalk 和 NWLink IPX/SPX 网络协议。但是，在 SQL Server 2005 以及更高版本中将不支持这些协议。请做出相应计划。</P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H2><A NAME="_replication_enhancements"></A>5.2 复制增强功能</H2>
+
+<P>本节讨论 MSDE 2000 SP4 中包含的 MSDE 2000 复制增强功能。</P>
+
+<H3><A NAME="_transactional_replication_update_custom_stored_procedure"></A>5.2.1 事务复制 UPDATE 自定义存储过程</H3>
+
+<P><I>在 SP1 中引入</I></P>
+
+<P>在事务复制设置期间，将在订阅数据库中创建插入、删除和更新操作的自定义存储过程。不管 UPDATE 语句会影响多少列，更新自定义存储过程都将更新订阅表中的所有列。任何未更改的列都将重置为更新前已存在的相同值。通常，此操作不会引起问题。但是，如果这些列中的任意一列被编制索引，则重置操作会占用大量资源。</P>
+
+<P>如果您使用事务复制，并且订阅表中有若干个索引，而且只有几个列值因为更新而发生改变，则在订阅服务器应用更改时，维护索引的开销可能会成为限制性能的因素。例如，用于报告用途的订阅数据库可能具有比发布数据库更多的索引。在运行时动态生成 UPDATE 语句可以改善性能。此更新将仅包括已更改的列，从而创建最优的 UPDATE 字符串。</P>
+
+<P>此 Service Pack 包含一个新的能够生成自定义存储过程的存储过程 <B>sp_scriptdynamicupdproc</B>，在运行时，您可以在订阅服务器中使用该自定义存储过程动态生成 UPDATE 语句。但是，在运行时生成动态 UPDATE 语句需要额外的处理。</P>
+
+<P><B>sp_scriptdynamicupdproc</B> 在最新版本的 SQL Server 2000 联机丛书中描述。有关安装最新版本的 SQL Server 2000 联机丛书的信息，请参见 1.8 <A HREF="#_updated_books_online_documentation_is_av_wluf">SQL Server 2000 联机丛书更新已可用</A>。这是 <A HREF="http://go.microsoft.com/fwlink/?LinkId=33474" target=_blank><B>sp_scriptdynamicupdproc</B></A> 的英语版参考主题。</P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H3><A NAME="_transactional_replication_scripting_custom_stored_procedures"></A>5.2.2 事务复制脚本自定义存储过程</H3>
+
+<P><I>在 SP1 中引入</I></P>
+
+<P>设置 nosync 订阅（即不接收初始快照的订阅）时，必须手动创建 INSERT、UPDATE 和 DELETE 语句的自定义存储过程。通常，在传送初始快照时，会在订阅服务器上创建这些语句。新添加的存储过程 <B>sp_scriptpublicationcustomprocs</B> 可以为发布级的自定义存储过程生成脚本。这一新功能可以使设置 nosync 订阅变得更加容易。</P>
+
+<P><B>sp_scriptpublicationcustomprocs</B> 在最新版本的 SQL Server 2000 联机丛书中描述。有关安装最新版本的 SQL Server 2000 联机丛书的信息，请参见 1.8 <A HREF="#_updated_books_online_documentation_is_av_wluf">SQL Server 2000 联机丛书更新已可用</A>。这是 <A HREF="http://go.microsoft.com/fwlink/?LinkId=33475" target=_blank><B>sp_scriptpublicationcustomprocs</B></A> 的英语版参考主题。</P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H3><A NAME="_merge_replication_retention-based_meta_data_clean_up"></A>5.2.3 合并复制基于保持的元数据清除</H3>
+
+<P><I>在 SP1 中引入</I></P>
+
+<P>如果在合并复制系统表中有大量元数据，清除元数据将会改善性能。在 SQL Server 2000 SP1 之前，元数据只能通过运行 <B>sp_mergecleanupmetadata</B> 来清除。但是，SQL Server 2000 SP1 及更高版本包含基于保持的元数据清除功能，这意味着可以从下列系统表中自动删除元数据：
+
+<UL type=disc>
+	<LI><B>MSmerge_contents</B><BR><BR></LI>
+
+	<LI><B>MSmerge_tombstone</B><BR><BR></LI>
+
+	<LI><B>MSmerge_genhistory</B><BR><BR></LI>
+
+	<LI>任何前映像表（如果存在）</LI>
+</UL>
+
+<P class=indent><B>说明</B>&nbsp;&nbsp;&nbsp;如果在发布中启用了<I></I> <B>@keep_partition_changes</B> 同步优化选项，则前映像表是存在的。</P>
+
+<P>出现下列情况时，将发生基于保持的元数据清除：
+
+<UL type=disc>
+	<LI>如果合并代理程序参数 <B>&#0150;MetadataRetentionCleanup</B> 设为 1（这是默认情况），合并代理程序将清除合并所涉及的订阅服务器和发布服务器。 <BR><BR></LI>
+
+	<LI>如果参数 <B>-MetadataRetentionCleanup</B> 设为 0，则不进行自动清除。在这种情况下，请通过执行 <B>sp_mergemetadataretentioncleanup</B> 手动启动基于保持的元数据清除。必须在每一个应被清除的发布服务器和订阅服务器上执行此存储过程。建议（但不是必须）在相似的时刻清除发布服务器和订阅服务器（请参见本节后面的<A HREF="#_preventing_false_conflicts">防止虚假冲突</A>）。
+<P class=atl><B>说明</B>&nbsp;&nbsp;&nbsp;对于 SQL Server 2000 SP1 及更高版本中包括的所有合并代理程序配置文件，将 <B>-MetadataRetentionCleanup</B> 参数设置为 <B>1</B>。如果将服务器升级到 SP1 或更高版本，然后添加合并复制，则合并代理程序配置文件将自动更新以包括此参数。如果将已启用合并复制的服务器升级到 SP1 或更高版本，则合并代理程序配置文件不会自动更新；请通过运行 <B>sp_add_agent_parameter</B> 来更新配置文件（请参见本节后面的 <A HREF="#_additional_parameter_for_sp_add_agent_parameter">sp_add_agent_parameter 的其他参数</A>）。</p>
+<P class=atl><!--IMPORTANT--><P ID="Alert_Important"><B CLASS="notes">重要</B>&nbsp;&nbsp;发布的默认保持期为 14 天。如果某个项目同时属于多个发布，则可能有几个不同的保持期。此时，将使用最长的保持期来确定清除可能发生的最早时刻。如果在数据库上有多个发布，并且其中有一个发布使用无限的发布保持期 (<B>@retention=0</B>)，则不会自动清除该数据库的合并元数据。因此，使用无限发布保持时要格外小心。</P><!--/IMPORTANT--></p></LI>
+</UL>
+
+<H5><A NAME="_additional_parameter_for_sp_add_agent_parameter"></A>sp_add_agent_parameter 的其他参数</H5>
+
+<P>系统存储过程 <B>sp_add_agent_parameter </B>现在有一个 <B>MetadataRetentionCleanup</B> 参数，通过此参数可在合并代理程序配置文件中添加或删除元数据保持清除操作。值为 1 表明配置文件应包括清除；值为 0 表明不应包括清除。例如，要将元数据保持清除添加到配置文件中，请执行下列代码：</P>
+
+<PRE><CODE>EXEC sp_add_agent_parameter @profile_id=&lt;my_profile_id&gt;,
+  @parameter_name='MetadataRetentionCleanup', @parameter_value=1</CODE></PRE>
+
+<H5>不同版本的 SQL Server 拓扑中的元数据清除</H5>
+
+<P>要在与合并复制有关的数据库中自动进行基于保持的清除，此数据库及合并代理程序必须都位于运行 SQL Server 2000 SP1 或更高版本的服务器上。例如：
+
+<UL type=disc>
+	<LI>SQL Server 7.0 请求订阅服务器不会在 SQL Server 2000 SP1 发布服务器上运行清除。<BR><BR></LI>
+
+	<LI>SQL Server 2000 SP1 强制合并代理程序不会在 SQL Server 2000（无 SP1）订阅服务器数据库上运行清除。 <BR><BR></LI>
+
+	<LI>SQL Server 2000 SP1 强制合并代理程序会在 Server 2000 SP1 发布服务器数据库上运行清除，即使该发布服务器上有正在运行 SQL Server 2000 或更早版本的订阅服务器。</LI>
+</UL>
+
+<P>在某些服务器上进行自动清除而在其他服务器上不进行自动清除时，最多会引起虚假冲突，而这种冲突极少发生。对于包括 SQL Server 2000 SP1 之前的 SQL Server 版本的拓扑，可以通过在所有未被自动清除的服务器上运行 <B>sp_mergemetadatacleanup</B> 来改善其性能。</P>
+
+<H5><A NAME="_preventing_false_conflicts"></A>防止虚假冲突</H5>
+
+<P>基于保持的元数据清除可以防止在其他节点上发生未汇集的和无提示的更改覆盖。然而，下列情况下会发生虚假冲突：
+
+<UL type=disc>
+	<LI>在一个节点上清除元数据，而在其他节点上不清除。<BR><BR></LI>
+
+	<LI>已清除节点上的后续更新发生在元数据被删除的那一行。</LI>
+</UL>
+
+<P>例如，如果元数据在发布服务器上被清除而在订阅服务器上未被清除，并且在发布服务器进行了一次更新，则即使数据似乎已同步，仍会发生冲突。 </P>
+
+<P>要防止此冲突，需确保元数据几乎同时在相关节点上被清除。如果将 <B>-MetadataRetentionCleanup</B> 设为 1，则在合并开始之前将自动清除发布服务器和订阅服务器，从而确保节点被同时清除。如果发生冲突，请使用合并复制冲突查看器检查冲突并在必要时更改结果。</P>
+
+<P>如果某个项目属于多个发布或位于某个重新发布方案中，则给定行在发布服务器和订阅服务器上的保持期可能不同。要减少元数据在一侧清除而在另一侧未清除的可能性，建议对不同的发布使用相似的保持期。</P>
+
+<P class=indent><B>说明</B>&nbsp;&nbsp;&nbsp;如果在系统表中有大量必须清除的元数据，合并处理的运行时间可能会比较长。请定期清除元数据以避免出现此情况。</P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H3><A NAME="_backup_and_restore_issues_for_merge_replication"></A>5.2.4 合并复制的备份和还原问题</H3>
+
+<P><I>在 SP1 中引入</I></P>
+
+<P>从某个备份还原的发布数据库首先应与一个具有全局订阅（即具有分配的优先级值的订阅）的订阅数据库同步，以确保正确的汇集行为。同步可以确保能够重新正确地应用发布数据库中由于还原操作而丢失的更改。</P>
+
+<P>不要将发布数据库与含有匿名订阅的订阅数据库同步。因为匿名订阅没有将更改应用于发布数据库所需的足够的元数据，所以这种同步可能会导致数据未汇集。 </P>
+
+<P>在规划合并复制的备份和还原操作时，还需考虑下列几个问题： 
+
+<UL type=disc>
+	<LI>从没有超过保持期的备份中还原订阅数据库。</LI>
+</UL>
+
+<P class=indent>只有当备份时间不超过订阅服务器所订阅的所有发布的最短保持期时，才从备份中还原订阅数据库。例如，如果订阅服务器订阅了三个保持期分别为 10 天、20 天和 30 天的发布，则用于还原数据库的备份的保持时间不应超过 10 天。 
+
+<UL type=disc>
+	<LI>生成备份之前进行同步。</LI>
+</UL>
+
+<P class=indent>强烈建议您在进行备份前将订阅服务器与发布服务器同步。否则，如果从该备份恢复订阅服务器，系统可能无法正常汇集。虽然备份文件本身也许是新的，但与发布服务器的最近一次同步至今的时间也可能和保持期一样长。例如，假设有一个保持期为 10 天的发布。最近一次同步在 8 天前，现在执行备份。如果 4 天后应用备份，则最近一次同步发生在 12 天之前，已过了保持期。如果订阅服务器在备份之前刚刚同步过，订阅数据库将在保持期之内。
+
+<UL type=disc>
+	<LI>如果更改了发布保持期值，请重新初始化订阅服务器。</LI>
+</UL>
+
+<P class=indent>如果需要更改发布的保持期值，可手动重新初始化订阅服务器，以避免数据不汇集。当到达发布保持期时，基于保持的元数据清除功能将从合并系统表中删除过时的元数据。 </P>
+
+<P class=indent>发布的保持期值用于确定保持期内尚未同步的发布何时到期。如果在清除之后增加了发布的保持期，而某个订阅试图与发布服务器（已删除元数据）合并，则该订阅将不会到期，这是因为保持期值已经增加了。而且，发布服务器没有足够的元数据来下载对订阅服务器所做的更改，从而导致数据不汇集。
+
+<UL type=disc>
+	<LI>请对所有发布服务器及其可选同步伙伴使用相同的发布保持期值。使用其他值可能导致数据不汇集。</LI>
+</UL>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H3><A NAME="_restoring_replicated_databases_from_different_versions_of_sql_server"></A>5.2.5 从不同版本的 SQL Server 还原复制的数据库</H3>
+
+<P><I>在 SP1 中引入</I></P>
+
+<P>将备份还原到备份创建时所在的服务器或数据库，并且其上运行的服务器版本不变时，可保留复制设置。如果将复制的数据库还原到与备份数据库时不同的 SQL Server 版本，则需考虑下列问题：
+
+<UL type=disc>
+	<LI>如果要从使用 SQL Server 2000 创建的备份中将数据库还原到 SQL Server 2000 SP3a 中，且希望保留复制设置，则必须运行 <B>sp_vupgrade_replication</B>。运行 <B>sp_vupgrade_replication</B> 可以确保复制元数据会被升级。如果不运行 <B>sp_vupgrade_replication</B>，则复制元数据可能会处于一种无法预知的状态。<BR><BR></LI>
+
+	<LI>如果要从使用 SQL Server 7.0（发行版本、SP1、SP2、SP3 和 SP4）创建的备份中将数据库还原到 SQL Server 2000 中，且希望保留复制设置，则必须在安装 Service Pack 之前重建备份。可以直接从在 SQL Server 7.0 中创建的复制数据库备份中将数据库还原到 SQL Server 2000 SP3a 中，但是将不会保留复制设置。</LI>
+</UL>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H3><A NAME="_a_new_-maxnetworkoptimization_command_line_argument_for_snapshot_agent"></A>5.2.6 快照代理程序的新命令行参数 -MaxNetworkOptimization</H3>
+
+<P><I>在 SP2 中引入。</I></P>
+
+<P>在正常处理过程中，当某些行不属于订阅服务器的分区时，合并复制会向订阅服务器发送 DELETE 命令。这种 DELETE 命令也称为不相干删除。不相干删除不会影响数据的完整性或汇集，但可能导致不必要的网络通信。 </P>
+
+<P>要减少不相干删除导致的网络通信，可以在合并复制发布中使用新的快照代理程序参数 <BR>
+<B>-MaxNetworkOptimization</B>。将该参数设为 1 可尽量减少不相干删除，从而最大程度地优化网络性能。 </P>
+
+<P class=indent><B>说明</B>&nbsp;&nbsp;&nbsp;仅当合并复制的同步优化选项设为 true（<B>sp_addmergepublication </B>的 <B>@keep_partition_changes</B> 参数）时，将此参数设为 1 才有用。</P>
+
+<P>默认值为 0，因为如果存在多级联接筛选器和复杂的子集筛选器，则将该参数设为 1 会导致存储更多的元数据，并导致发布服务器的性能降低。应当认真评估复制拓扑结构，并且只有当不相干删除导致的网络通信量高得无法接受时，才将 <B>-MaxNetworkOptimization</B> 设为 1。</P>
+
+<P>可以通过执行系统过程 <B>sp_add_agent_parameter</B> 将此参数添加到快照代理程序配置文件中，如下所示：</P>
+
+<PRE><CODE>EXEC sp_add_agent_parameter 1, 'MaxNetworkOptimization', 1</CODE></PRE>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H3><A NAME="_merge_replication_uses_new_role_d3jb"></A>5.2.7 合并复制使用新角色</H3>
+
+<P><I>在 SP3 中引入</I></P>
+
+<P>SP3 和更高版本自动创建一个角色供合并复制使用。该新角色的名称形式为 <B>MSmerge-&lt;publication ID&gt;</B>。该角色是在发布服务器上为每个合并复制发布而创建的，并且作为发布访问列表 (PAL) 来控制对发布服务器上合并发布的访问。如果除去了该角色，可以运行 SP3 或更高版本中附带的新存储过程 <B>sp_createmergepalrole</B> 来重新创建该角色。此存储过程将在发布服务器的发布数据库上执行，以便重新创建该角色。</P>
+
+<P><B>sp_createmergepalrole</B> 在最新版本的 SQL Server 2000 联机丛书中描述。有关安装最新版本的 SQL Server 2000 联机丛书的信息，请参见 1.8 <A HREF="#_updated_books_online_documentation_is_av_wluf">SQL Server 2000 联机丛书更新已可用</A>。这是 <A HREF="http://go.microsoft.com/fwlink/?LinkId=33476" target=_blank><B>sp_createmergepalrole</B></A> 的英语版参考主题。</P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H3><A NAME="_sql_agent_proxy_account_required_for_non_wluf"></A>5.2.8 非系统管理员用户创建的订阅的新要求</H3>
+
+<P><I>在 SP3 中引入</I></P>
+
+<P>如果创建某个订阅的用户不是 <B>sysadmin</B> 固定服务器角色的成员，则必须执行下列任一操作：
+
+<UL type=disc>
+	<LI>使用登录名和密码配置 SQL Server 代理的代理帐户，以便与复制代理程序关联的 SQL Server 代理作业步骤能够拥有足够的运行权限。有关更多信息，请参见 SQL Server 联机丛书中的“xp_sqlagent_proxy_account”主题。<BR><BR></LI>
+
+	<LI>在运行该代理之前，请将作业步骤的所有者更改为作为 <B>sysadmin</B> 固定服务器角色成员的用户。</LI>
+</UL>
+
+<P class=indent><B>说明</B>&nbsp;&nbsp;&nbsp;远程代理程序激活功能总是要求作业步骤在 <B>sysadmin</B> 固定服务器角色的用户帐户的上下文中运行。</P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H3><A NAME="_changes_to_permissions_on_stored_procedu_d3jb"></A>5.2.9 存储过程权限的更改</H3>
+
+<P><I>在 SP3 中引入</I></P>
+
+<P>许多用于实现、管理和监视复制拓扑的存储过程的权限已经更改。这些更改中的大多数都涉及到使运行存储过程所需的权限变得更为严格。有关新权限的更多信息，请查阅 SQL Server 联机丛书更新版中有关复制存储过程的 Transact-SQL 参考文档。有关更新的 SQL Server 联机丛书的更多信息，请参见 1.8 <A HREF="#_updated_books_online_documentation_is_av_wluf">SQL Server 2000 联机丛书更新已可用</A>。</P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H3><A NAME="_new_parameter_for_sp_addmergearticle_and_fzpy"></A>5.2.10 sp_addmergearticle 和 sp_changemergearticle 的新参数</H3>
+
+<P><I>在 SP3 中引入</I></P>
+
+<P><B>sp_addmergearticle</B> 和 <B>sp_changemergearticle</B> 中已经同时添加了一个新参数 <B>@published_in_tran_pub</B>。此参数用于指明是否将合并发布中的一个项目同时发布到事务发布中。<B>@published_in_tran_pub </B>的数据类型为 <B>nvarchar(5)</B>，默认值为 <B>FALSE</B>。<B>TRUE</B> 用于指明将某个项目同时发布于事务发布中。 </P>
+
+<P class=indent><B>说明</B>&nbsp;&nbsp;&nbsp;在 <B>sp_changemergearticle</B> 中更改此参数时，必须使快照无效并且必须重新初始化订阅服务器。</P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H3><A NAME="_changes_to_windows_synchronization_manag_d3jb"></A>5.2.11 对 Windows 同步管理器支持的更改</H3>
+
+<P><I>在 SP3 中引入</I></P>
+
+<P>SQL Server 允许您启用现有的订阅（使用 SQL Server 企业管理器 SQL-DMO 和复制存储过程创建），以便与 Windows 同步管理器一起使用。还可以使用 Windows 同步管理器创建新订阅。在您应用该 Service Pack 以后，当 Windows 同步管理器同步订阅时，将提示您输入连接到参与同步的服务器所需的一个或多个密码。</P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H3><A NAME="_change_to_requirements_for_attaching_40o_wluf"></A>5.2.12 附加或还原复制数据库要求的更改</H3>
+
+<P><I>在 SP3 中引入</I></P>
+
+<P>在某些情况下，在附加或还原发布数据库的过程中，复制可能无法正常工作。包括以下情况：
+
+<UL type=disc>
+	<LI>已应用 SP3 或更高版本。<BR><BR></LI>
+
+	<LI>附加数据库的用户不是 <B>sysadmin</B> 固定服务器角色的成员。<BR><BR></LI>
+
+	<LI>尚未启用跨数据库链接。</LI>
+</UL>
+
+<P>如果符合上述所有情况，则应在附加或还原的数据库上执行 <B>sp_changedbowner</B> 存储过程。将所有权指定给内置的 <B>sa</B> 管理员登录。这将确保复制功能能够正常运行。</P>
+
+<P class=indent><B>说明</B>&nbsp;&nbsp;&nbsp;只有 <B>sysadmin</B> 固定服务器角色的成员能够执行<B> sp_changedbowner</B>。 </P>
+
+<P>有关跨数据库所有权链接的更多信息，请参见 5.1.8 <A HREF="#_enabling_cross45database_ownership_chain_ar5q">跨数据库所有权链接</A>。</P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H3>5.2.13 复制 ActiveX 控件的安全性指定的更改</H3>
+
+<P><I>在 SP4 中引入</I></P>
+
+<P>复制 ActiveX(R) 控件（sqlinitx.dll、sqldistx.dll、sqlmergx.dll 和 replerrx.dll）不再指定为“对于脚本是安全的”和“对于初始化是安全的”。控件的安全性和功能行为在 SP3 之后未曾更改；但是，安全性指定已根据安全标准进行了更改。这些更改可能会影响调用网页中的嵌入式复制 ActiveX 控件的应用程序。</P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H3>5.2.14 合并发布中项目的新参数</H3>
+
+<P><I>在 SP4 中引入</I></P>
+
+<P>在调用 <B>sp_addmergearticle</B> 时，可以指定新参数 <B>@compensate_for_errors</B>。该参数指定如果在同步期间遇到错误（例如违反约束），是否要进行补偿操作。如果设置为 TRUE（默认值），则同步期间无法在节点上应用的更改将通过补偿操作撤消所有其他节点上的更改。在某些情况下需要此行为，但某些情况下也可能会产生问题；例如，一个因配置不当而出错的订阅服务器可能会撤消在发布服务器和所有其他订阅服务器上的更改。 </P>
+
+<P>如果指定值 FALSE，将禁用这些补偿操作；但是，仍会记录错误，后续的合并将继续尝试应用更改。尽管受影响的行中的数据似乎没有汇集，但是，只要您解决了错误，即可应用更改，数据也将汇集。</P>
+
+<P class=indent><B>说明</B>&nbsp;&nbsp;&nbsp;如果项目的源表已在另一个发布中发布，则两个项目的 <B>@compensate_for_errors</B> 值必须相同。 </P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H3>5.2.15 用于复制事务发布中标识列的新架构选项</H3>
+
+<P><I>在 SP4 中引入</I></P>
+
+<P>在以前的版本中，事务发布中的标识列作为基本数据类型（例如 <B>int</B>）进行复制，而不设置标识属性。此方法适合不允许在订阅服务器上进行插入的应用程序。SQL Server 2000 SP4 为事务发布引入了一个新的架构选项 (<B>0x4</B>)，用于将标识列作为一个标识列进行复制。这在许多情况下都适用，包括双向复制以及使用订阅服务器作为备用服务器。在上述情况下，可能会在订阅服务器上进行插入，而插入会使标识列增加。</P>
+
+<P><B>指定标识列应作为一个标识列复制：</B>
+
+<OL>
+	<LI>在发布服务器上创建表时，为标识列指定 NOT FOR REPLICATION 选项。这样可以确保只有用户插入会使标识列增加，复制代理程序插入不会增加标识列。有关更多信息，请参见 SQL Server 联机丛书中的“CREATE TABLE”。<BR><BR></LI>
+
+	<LI>在添加包含标识列的项目时，应为 <B>sp_addarticle</B> 的 <B>@schema_option</B> 参数设置 <B>0x4</B> 选项。有关此参数的更多信息，请参见 SQL Server 联机丛书中的“sp_addarticle”。<BR><BR></LI>
+
+	<LI>初始化订阅服务器之后，对每个包含标识列的表执行 DBCC CHECKIDENT。这样可以为在订阅服务器的标识列中的插入指定起始值，使插入的值不会与发布服务器上已插入的值相同。例如，可以指定在订阅服务器上的插入应从 1,000,000 开始：
+<PRE><CODE>USE Northwind
+GO
+DBCC CHECKIDENT ('Employees', RESEED, 1000000)
+GO</CODE></PRE>
+</LI>
+</OL>
+
+<P>有关更多信息，请参见 SQL Server 联机丛书中的 DBCC CHECKIDENT。</P>
+
+<H3>5.2.16 在 Windows-on-Windows 64 模式下运行的分发服务器不支持非 SQL Server 订阅服务器</H3>
+
+<P><I>在 SP4 中引入</I></P>
+
+<P>对于在 X64 或兼容的处理器上运行的 Windows 2003 SP1 系统，以 Windows-on-Windows 64 模式运行的 SQL Server 2000（32 位）分发服务器实例不能包含非 SQL Server 订阅服务器。尽管 SQL Server 2000 SP4 现在支持以 Windows-on-Windows 64 模式运行，但是用于从分发服务器连接到非 SQL Server 订阅服务器的驱动程序或提供程序不支持此模式。</P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H2><A NAME="_5464_sql_server_agent_enhancements_705"></A>5.3 SQL Server 代理和共享工具增强功能</H2>
+
+<P>本节讨论 SP4 中包含的 SQL Server 代理增强功能。 </P>
+
+<H3><A NAME="_sql_server_agent_logs_account_information"></A>5.3.1 SQL Server 代理记录帐户信息</H3>
+
+<P><I>在 SP2 中引入</I></P>
+
+<P>SQL Server 代理作业历史记录现在会记录运行每个作业步骤的 Windows 帐户。此信息可以帮助管理员诊断与调度作业（包括为复制和数据转换服务 (DTS) 任务定义的调度作业）有关的安全性问题。</P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H3><A NAME="_sql_server_agent_permission_checks_d3jb"></A>5.3.2 SQL Server 代理权限检查</H3>
+
+<P><I>在 SP3 中引入</I></P>
+
+<P>MSDE 2000 现在会检查以确保代理作业的所有者具有追加或重写每个作业所产生的输出日志文件的权限。存在三种情况：
+
+<UL type=disc>
+	<LI>如果作业所有者是 <B>sysadmin</B> 固定服务器角色的成员，则可以将作业输出日志文件写入服务器。 <BR><BR></LI>
+
+	<LI>如果作业所有者是 Windows 用户，则 MSDE 2000 将测试该用户是否对服务器上所选作业输出日志文件位置具有写权限。<BR><BR></LI>
+
+	<LI>如果作业所有者是 MSDE 2000 用户，则 MSDE 2000 将测试 SQL Server 代理的代理帐户是否对服务器上所选作业输出日志文件位置具有写权限。如果尚未设置代理帐户，则不会写入日志。 </LI>
+</UL>
+
+<P>在所有情况下，均使用 SQL Server 代理凭据写入作业，但 MSDE 2000 现在将进行测试以确保用户对服务器上所选作业输出日志文件位置具有写权限。错误被记录在作业历史记录中，但如果无法写入日志文件，作业步骤也不会失败。</P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H3><A NAME="_5464465_sql_server_agent_mail_mapi_profi_d3jb"></A>5.3.3 SQL 代理邮件 MAPI 配置文件</H3>
+
+<P><I>在 SP3 中引入</I></P>
+
+<P>在 MSDE 2000 和 32 位版本的 SQL Server 2000 中，可以配置 SQL 代理邮件以使用扩展 MAPI 电子邮件配置文件来发送电子邮件警报。可以使用扩展 MAPI 电子邮件应用程序（如 Microsoft Outlook）来创建扩展 MAPI 配置文件。在 64 位版本的 SQL Server 2000 中，SQL 代理邮件只能使用简单 MAPI 配置文件来发送电子邮件警报。不要在 MSDE 2000 或 32 位版本的 SQL Server 2000 中使用简单 MAPI 配置文件。</P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H2><A NAME="_sqlxml_enhancement_d3jb"></A>5.4 XML 增强功能</H2>
+
+<P>以下主题讨论 SP4 中包含的 XML 和 SQLXML 的增强功能。</P>
+
+<H3><A NAME="_improved_validation_of_xpath_expressions_wluf"></A>5.4.1 改进的 XPath 表达式验证</H3>
+
+<P><I>在 SP3 中引入</I></P>
+
+<P>在应用 SP4 时，OPENXML 更新为使用自定义的 XML 分析技术，该技术是为了向后兼容 MSXML 2.6。 </P>
+
+<P>在 SP3 之前，OPENXML 使用的 XML 分析器版本允许 XPath 表达式中的谓词跟在用于标识当前上下文节点（在 XPath 语法中，当前上下文节点由句点 <CODE>.</CODE> 表示）的特殊字符缩写词后面。这种做法违反了 XPath 语法规范，该规范要求此字符后跟一个位置路径表达式。 </P>
+
+<P>对于新的 OPENXML 行为，谓词不能紧跟在当前上下文节点缩写词特殊字符的后面。在升级到 SP3 或更高版本之后，SQLXML 查询（对所批注的映射架构执行的 XPath 查询以及用于转换 SQLXML 查询结果的 XSLT 样式表中的 XPath 查询）存在语法错误的 XPath 表达式将失败。</P>
+
+<P>要防止发生这些失败，请标识并修复所有使用错误语法的表达式。例如，在下面的 <CODE>xsl:if</CODE> 元素中，被指定为测试特性值的 XPath 表达式的语法是无效的，原因在于谓词 <CODE>[@ResourceTypeID='2']</CODE> 直接跟在用于标识当前上下文节点的特殊字符缩写词的后面。 </P>
+
+<P>以下语句在以前不生成错误，但是在安装 SP3 或更高版本之后将失败。 </P>
+
+<PRE><CODE>&lt;xsl:if test=".[@ResourceTypeID='2']"&gt;</CODE></PRE>
+
+<P>要防止失败，必须按如下所示修改该 XPath 表达式：</P>
+
+<PRE><CODE>&lt;xsl:if test="@ResourceTypeID='2'"&gt;</CODE></PRE>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H2><A NAME="_db-library_and_embedded_sql_for_c"></A>5.5 用于 C 语言的 DB-Library 和嵌入式 SQL</H2>
+
+<P><I>在 SP1 中引入，在 SP4 中更新</I></P>
+
+<P>虽然 SQL Server 2000 和 MSDE 2000 仍然支持用于 C 语言应用程序接口 (API) 的 DB-Library 和嵌入式 SQL，但是以后的 SQL Server 版本将不再包含编写使用这些 API 的应用程序所需的文件或文档。SQL Server 的下一个版本仍然支持来自使用用于 C 语言的 DB-Library 和嵌入式 SQL 编写的现有应用程序的连接，但在此之后的版本中将不再提供这种支持。在编写新的应用程序时不要使用 DB-Library 或嵌入式 SQL。修改现有应用程序时应消除对这些技术的依赖性。使用 .NET Framework 中的 system.data.SQLClient 命名空间或者 ADO、OLE DB 或 ODBC 等 API 访问 SQL Server 中的数据，代替用于 C 语言的 DB-Library 或嵌入式 SQL。有关这些技术的更多信息，请参见 SQL Server 联机丛书或 .NET Framework SDK。</P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H2><A NAME="_desktop_engine_setup_enhancements_wluf"></A>5.6 MSDE 2000 安装程序增强功能</H2>
+
+<P>以下主题描述 MSDE 2000 安装程序的增强功能。</P>
+
+<H3><A NAME="_new_desktop_engine_setup_savesysdb_param_fzpy"></A>5.6.1 MSDE 2000 安装程序的新参数 SAVESYSDB</H3>
+
+<P><I>在 SP4 中引入</I></P>
+
+<P>MSDE 2000 SP4 为 MSDE 2000 安装程序引入了一个新参数 SAVESYSDB。SAVESYSDB 参数供在将使用合并模块或 MSI 文件安装的 MSDE 2000 实例升级到将来的 SQL Server 2005 Express Edition 版本时使用。SAVESYSDB 将与计划为将来的 SQL Server Express 版本引入的一项新功能组合使用。仅当通过在命令提示符处运行 MSDE 2000 安装程序来卸载实例时，SAVESYSDB 才有效。</P>
+
+<P>默认情况下，在卸载 MSDE 2000 实例时，MSDE 2000 安装程序会删除 <B>master</B>、<B>model</B> 和 <B>msdb</B> 系统数据库的文件。如果指定 SAVESYSDB=1，则 MSDE 2000 安装程序会保留这些系统数据库的文件。</P>
+
+<P>尽管可以随时指定 SAVESYSDB，但是只在与 /x 卸载开关一起使用时才会处理该参数。</P>
+
+<PRE><CODE>Setup /x sqlrun01.msi SAVESYSDB=1 INSTANCENAME="MyInstance"</CODE></PRE>
+
+<P>如果没有指定 /x，将忽略 SAVESYSDB。如果同时指定了 SAVESYSDB 和 /x，SAVESYSDB 必须设置为 1，将其设置为任何其他值都会出错。</P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+<H2><A NAME="_54610_supportability_enhancements_d3jb"></A>5.7 可维护性增强功能</H2>
+
+<P><I>在 SP4 中引入</I></P>
+
+<P>SQL Server 2000 SP4 引入了新的可维护性功能，使您可以卸载在 Windows XP 和 Windows Server 2003 上运行的 SQL Server 2000 SP4 以及更高版本所应用的热修复程序。（SQL Server 2000 SP3 也提供了此功能，但是只有在应用了附加的热修复程序之后才可用。） </P>
+
+<P><A HREF="#_contents_ar5q">[返回页首]</A></P>
+
+</BODY>
+</HTML>

@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Config>
+  <sdir>F:\gary\kf\Bin</sdir>
+  <ddir>C:\Users\Administrator.D130\Desktop</ddir>
+  <filetype>*.dll;*.exe;*.kcg;*.kui</filetype>
+  <sel />
+  <PageName>KF企业版V8.0-补丁包-{yyyyMMdd-HHmm})</PageName>
+  <MaxNO>2100000000</MaxNO>
+  <SqlBefore>
+  </SqlBefore>
+  <SqlAfter>--DELETE FROM kfClientComConfgNew
+--辅助核算项目清掉多余
+DELETE FROM kfMulEntityInputSort WHERE ID&lt;&gt;1 AND ParentID=1 AND ID&lt;&gt;3000268
+update kfMulEntityInputSort set Name='天伟表业' where ID=3000268
+update kfMulEntityInputSort set Name='成本类别',ParentID=3000268 where ID=3000040--物料分类
+update kfMulEntityInputSort set Name='材料分类',ParentID=3000268 where ID=3000220--包装状态
+if not exists (select top 1 1 from kfMulEntityInputSort where ID=3000271)
+begin
+set identity_insert kfMulEntityInputSort on
+insert into kfMulEntityInputSort(ID,Name,PointID,ParentID,[Level],IsDetail,Forbidden) values(3000271,'价格类型',3000846,3000268,3,1,0)
+set identity_insert kfMulEntityInputSort off
+end
+else
+update kfMulEntityInputSort set Name='价格类型',ParentID=3000268 where ID=3000271--价格类型
+if not exists (select top 1 1 from kfMulEntityInputSort where ID=3000272)--主版本号
+begin
+set identity_insert kfMulEntityInputSort on
+insert into kfMulEntityInputSort(ID,Name,PointID,ParentID,[Level],IsDetail,Forbidden) values(3000272,'主版本号',3000856,3000268,3,1,0)
+set identity_insert kfMulEntityInputSort off
+end
+--角色加所有角色组
+SET IDENTITY_INSERT kfSysRole on
+IF not EXISTS (SELECT TOP 1 1 FROM kfSysRole WHERE ID=2)
+INSERT INTO kfSysRole(ID,Name,Forbidden,Description,System,ParentID,Level,IsDetail,IsGroup,IsUseDataAccess,IsUseFieldAccess,RemoteAdress,RemotePort,IsUdp) VALUES (2,'所有角色',0,'所有角色',1,0,1,0,1,0,0,'',0,0)
+SET IDENTITY_INSERT kfSysRole off
+--编码规则
+ SET IDENTITY_INSERT kfBusiCodeRule ON 
+ if not exists(select 1 from kfBusiCodeRule where id=3000085) Insert into kfBusiCodeRule([ID],[Name],[Forbidden],[DataEntityID],[Prefix],[DigitalCount],[Postfix],[CurrentNumber],[CurNumRule],[isNotEdit],[UIMainContainerID],[IsAfterSave],[ColName])  values (3000085,'核价申请单',0,3000829,'',6,'',16,'0',0,0,0,'Number')
+ ELSE UPDATE kfBusiCodeRule SET [ColName]='Number' WHERE id=3000085
+ if not exists(select 1 from kfBusiCodeRule where id=3000087) Insert into kfBusiCodeRule([ID],[Name],[Forbidden],[DataEntityID],[Prefix],[DigitalCount],[Postfix],[CurrentNumber],[CurNumRule],[isNotEdit],[UIMainContainerID],[IsAfterSave],[ColName])  values (3000087,'核价BOM单',0,3000832,'',6,'',1,'0',0,0,0,'Number')
+ ELSE UPDATE kfBusiCodeRule SET [ColName]='Number' WHERE id=3000087
+ if not exists(select 1 from kfBusiCodeRule where id=3000090) Insert into kfBusiCodeRule([ID],[Name],[Forbidden],[DataEntityID],[Prefix],[DigitalCount],[Postfix],[CurrentNumber],[CurNumRule],[isNotEdit],[UIMainContainerID],[IsAfterSave],[ColName])  values (3000090,'业务报价单',0,3000841,'',6,'',1,'0',0,0,0,'Number')
+ ELSE UPDATE kfBusiCodeRule SET [ColName]='Number' WHERE id=3000090
+ if not exists(select 1 from kfBusiCodeRule where id=3000091) Insert into kfBusiCodeRule([ID],[Name],[Forbidden],[DataEntityID],[Prefix],[DigitalCount],[Postfix],[CurrentNumber],[CurNumRule],[isNotEdit],[UIMainContainerID],[IsAfterSave],[ColName])  values (3000091,'成本预算单',0,3000838,'',6,'',1,'0',0,0,0,'Number')
+ ELSE UPDATE kfBusiCodeRule SET [ColName]='Number' WHERE id=3000091
+ if not exists(select 1 from kfBusiCodeRule where id=3000092) Insert into kfBusiCodeRule([ID],[Name],[Forbidden],[DataEntityID],[Prefix],[DigitalCount],[Postfix],[CurrentNumber],[CurNumRule],[isNotEdit],[UIMainContainerID],[IsAfterSave],[ColName])  values (3000092,'组合BOM清单',0,3000836,'',6,'',3,'0',0,0,0,'Number')
+ ELSE UPDATE kfBusiCodeRule SET [ColName]='Number' WHERE id=3000092
+ SET IDENTITY_INSERT kfBusiCodeRule OFF 
+--
+delete from kfGridColProperty where UIControlID in (select UIControlID from kfUIControl where MainContainerID in (3004640,3004615,3004617))
+delete from kfControlProp where ControlID in (select UIControlID from kfUIControl where MainContainerID in (3004640,3004615,3004617))
+delete from kfUIControl where MainContainerID in (3004640,3004615,3004617)
+delete from kfUIMainContainerProperty where UIMainContainerPropertyID in (3004640,3004615,3004617)
+delete from kfuimaincontainer where UIMainContainerID in (3004640,3004615,3004617)</SqlAfter>
+  <UpdateLog>
+2017-06-26 更新包</UpdateLog>
+  <EntityIDs>688,988,3000825,3000847,3000848,3000841,3000844,3000843,3000842,3000846,3000849,3000855,3000856,3000850,3000854,3000828,3000829,3000830,3000826,3000827,3000831,3000836,3000837,3000838,3000840,3000839,3000832,3000835,3000833,3000834,716,2271356,2272046,717,718,495</EntityIDs>
+  <UIIDs>3004590,3004591,3004592,3004593,3004594,3004595,3004596,3004597,3004600,3004601,3004602,3004603,3004604,3004605,3004606,3004607,3004618,3004619,3004627,3004628,3004631,3004646,3004647,3004648,3004652,3004653,3004598,3004599,3004608,3004609,3004610,3004611,3004612,3004613,3004620,3004621,3004622,3004623,3004624,3004625,3004626,3004629,3004630,3004633,3004641,3004642,3004643,2272765,1000540,3003998,3004650,3004651</UIIDs>
+</Config>

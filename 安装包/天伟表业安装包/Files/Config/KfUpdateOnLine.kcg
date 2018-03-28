@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <data>
+    <OnlineUpdateHost>120.25.3.76</OnlineUpdateHost>
+    <Port>8008</Port>
+    <Interval>10</Interval>
+    <KfDNS>KFDNS.com</KfDNS>
+    <IISVirDir>TMWeb</IISVirDir>
+    <UpdateDBName>授权系统</UpdateDBName>
+    <SysName>标准版</SysName>
+    <LastUpdateDate>2017-04-17 00:00:00</LastUpdateDate>
+    <NavKf>
+    </NavKf>
+  </data>
+</root>

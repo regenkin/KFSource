@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "君飞Single版BOS平台", "ClientSetUp\BOS\BOSClientSetUp.vdproj", "{891AE0F6-3AFE-4278-A08A-3CDA8121C3ED}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{891AE0F6-3AFE-4278-A08A-3CDA8121C3ED}.Debug|Default.ActiveCfg = Debug
+		{891AE0F6-3AFE-4278-A08A-3CDA8121C3ED}.Debug|Default.Build.0 = Debug
+		{891AE0F6-3AFE-4278-A08A-3CDA8121C3ED}.Release|Default.ActiveCfg = Release
+		{891AE0F6-3AFE-4278-A08A-3CDA8121C3ED}.Release|Default.Build.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
