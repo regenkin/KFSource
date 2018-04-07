@@ -1,14 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <data>
-    <OnlineUpdateHost>120.25.3.76</OnlineUpdateHost>
-    <Port>8008</Port>
+    <OnlineUpdateHost>demo.kinfar.net</OnlineUpdateHost>
+    <Port>80</Port>
     <Interval>10</Interval>
     <KfDNS>KFDNS.com</KfDNS>
-    <IISVirDir>TMWeb</IISVirDir>
-    <UpdateDBName>授权系统</UpdateDBName>
-    <SysName>标准版</SysName>
-    <LastUpdateDate>2017-04-17 00:00:00</LastUpdateDate>
+    <IISVirDir></IISVirDir>
+    <UpdateDBName>君飞授权系统</UpdateDBName>
+	<SysNameList>普及版|1,企业版|2,申请试用许可|101,开发BOS平台|100"</SysNameList>
+    <SysName>申请试用许可</SysName>
+    <LastUpdateDate>2018-04-04 00:00:00</LastUpdateDate>
     <NavKf>
     </NavKf>
   </data>
