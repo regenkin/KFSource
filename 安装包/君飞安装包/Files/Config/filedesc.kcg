@@ -1,24 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <config>
-  <item name="Kf.BOS.exe.config" issvr="0" isrem="1" isplat="0" iscad="0" cls="" desc="" dir="" />
-  <item name="Kf.ConfigTool.exe.config" issvr="0" isrem="0" isplat="1" iscad="0" cls="" desc="" dir="" />
-  <item name="Kf.DBCenter.exe.config" issvr="1" isrem="0" isplat="0" iscad="0" cls="" desc="" dir="" />
-  <item name="Kf.Devenv.exe.config" issvr="0" isrem="0" isplat="1" iscad="0" cls="" desc="" dir="" />
-  <item name="Kf.ImportData.exe.config" issvr="0" isrem="0" isplat="0" iscad="0" cls="" desc="" dir="" />
-  <item name="Kf.InstallSQL.exe.config" issvr="1" isrem="0" isplat="0" iscad="0" cls="" desc="" dir="" />
-  <item name="Kf.License.exe.config" issvr="1" isrem="0" isplat="0" iscad="0" cls="" desc="" dir="" />
-  <item name="Kf.Runtime.exe.config" issvr="0" isrem="1" isplat="0" iscad="0" cls="" desc="" dir="" />
-  <item name="Kf.Service.exe.config" issvr="1" isrem="0" isplat="0" iscad="0" cls="" desc="" dir="" />
-  <item name="Kf.SetForderRight.exe.config" issvr="1" isrem="0" isplat="0" iscad="0" cls="" desc="" dir="" />
-  <item name="Kf.ToolHelper.exe.config" issvr="0" isrem="0" isplat="0" iscad="1" cls="" desc="" dir="" />
-  <item name="Kf.UpdateCom.exe.config" issvr="1" isrem="1" isplat="0" iscad="0" cls="Core" desc="" dir="" />
-  <item name="Kf.UpdateOnline.exe.config" issvr="1" isrem="1" isplat="0" iscad="0" cls="Core" desc="" dir="" />
-  <item name="Kf.UpLoadAutoUpdateCom.exe.config" issvr="0" isrem="1" isplat="0" iscad="0" cls="Core" desc="" dir="" />
-  <item name="Kf.UpLoadCom.exe.config" issvr="0" isrem="0" isplat="1" iscad="0" cls="" desc="" dir="" />
-  <item name="Kf-EMS.exe.config" issvr="0" isrem="0" isplat="0" iscad="0" cls="" desc="" dir="" />
-  <item name="T9.exe.config" issvr="0" isrem="0" isplat="0" iscad="0" cls="" desc="" dir="" />
-  <item name="天伟表业.exe.config" issvr="0" isrem="1" isplat="0" iscad="0" cls="" desc="" dir="" />
-  <item name="在线云服务.exe.config" issvr="0" isrem="1" isplat="0" iscad="0" cls="" desc="" dir="" />
   <item name="ActiveReports.Design.DLL" issvr="0" isrem="1" isplat="0" iscad="0" cls="ActiveReports" desc="ActiveReports报表设计" dir="ActiveReports" />
   <item name="ActiveReports.DLL" issvr="0" isrem="1" isplat="0" iscad="0" cls="ActiveReports" desc="ActiveReports报表" dir="ActiveReports" />
   <item name="ActiveReports.HtmlExport.DLL" issvr="0" isrem="1" isplat="0" iscad="0" cls="ActiveReports" desc="ActiveReports报表导出" dir="ActiveReports" />
@@ -34,13 +15,27 @@
   <item name="ActiveReports3.dll" issvr="0" isrem="0" isplat="0" iscad="0" cls="ActiveReports" desc="ActiveReports报表" dir="ActiveReports" />
   <item name="AForge.Video.DirectShow.dll" issvr="0" isrem="0" isplat="0" iscad="0" cls="System" desc="" dir="System" />
   <item name="AForge.Video.dll" issvr="0" isrem="0" isplat="0" iscad="0" cls="System" desc="" dir="System" />
+  <item name="App.ico" issvr="0" isrem="1" isplat="0" iscad="0" cls="UI" desc="" dir="UI" />
+  <item name="App.png" issvr="0" isrem="0" isplat="0" iscad="0" cls="UI" desc="" dir="UI" />
+  <item name="App16.ico" issvr="0" isrem="0" isplat="0" iscad="0" cls="UI" desc="" dir="UI" />
+  <item name="App64.ico" issvr="0" isrem="0" isplat="0" iscad="0" cls="UI" desc="" dir="UI" />
+  <item name="Aspose.Cells.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="System" desc="第三方操作Excel" dir="System" />
   <item name="ClientDll.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="Core" desc="客户端classKey" dir="Core" />
+  <item name="CSkin.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="System" desc="MiniUI皮肤" dir="System" />
+  <item name="DBCenter.ico" issvr="0" isrem="0" isplat="0" iscad="0" cls="UI" desc="" dir="UI" />
+  <item name="DBSys.ico" issvr="0" isrem="0" isplat="0" iscad="0" cls="UI" desc="" dir="UI" />
+  <item name="default.kfskin" issvr="0" isrem="1" isplat="0" iscad="0" cls="Skin" desc="默认皮肤配制" dir="Skin" />
+  <item name="Dev.ico" issvr="0" isrem="0" isplat="0" iscad="0" cls="UI" desc="" dir="UI" />
   <item name="FarPoint.CalcEngine.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="FarPoint" desc="FarPoint控件" dir="FarPoint" />
   <item name="FarPoint.Excel.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="FarPoint" desc="FarPoint控件" dir="FarPoint" />
   <item name="FarPoint.PluginCalendar.WinForms.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="FarPoint" desc="FarPoint控件" dir="FarPoint" />
   <item name="FarPoint.Win.DLL" issvr="0" isrem="1" isplat="0" iscad="0" cls="FarPoint" desc="FarPoint控件" dir="FarPoint" />
   <item name="FarPoint.Win.Spread.DLL" issvr="0" isrem="1" isplat="0" iscad="0" cls="FarPoint" desc="FarPoint控件" dir="FarPoint" />
+  <item name="filedesc.kcg" issvr="0" isrem="1" isplat="1" iscad="1" cls="Config" desc="文件列表说明配制" dir="Config" />
+  <item name="ico16.kui" issvr="0" isrem="1" isplat="0" iscad="0" cls="UI" desc="16*16图标工具标菜单图标" dir="UI" />
   <item name="ICSharpCode.SharpZipLib.dll" issvr="1" isrem="1" isplat="0" iscad="0" cls="System" desc="" dir="System" />
+  <item name="img32.kui" issvr="0" isrem="1" isplat="0" iscad="0" cls="UI" desc="32*32图标左边菜单图标" dir="UI" />
+  <item name="img64.kui" issvr="0" isrem="1" isplat="0" iscad="0" cls="UI" desc="64*64图标中心流程图标" dir="UI" />
   <item name="Infragistics4.Documents.Core.v12.2.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="Infragistics" desc="" dir="Control" />
   <item name="Infragistics4.Documents.Excel.v12.2.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="Infragistics" desc="" dir="Control" />
   <item name="Infragistics4.Documents.IO.v12.2.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="Infragistics" desc="" dir="Control" />
@@ -48,26 +43,26 @@
   <item name="Infragistics4.Documents.TextDocument.v12.2.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="Infragistics" desc="" dir="Control" />
   <item name="Infragistics4.Documents.Word.v12.2.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="Infragistics" desc="" dir="Control" />
   <item name="Infragistics4.Math.v12.2.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="Infragistics" desc="" dir="Control" />
-  <item name="Infragistics4.Shared.v12.2.dll" issvr="1" isrem="1" isplat="0" iscad="0" cls="Infragistics" desc="" dir="Control" />
+  <item name="Infragistics4.Shared.v12.2.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="Infragistics" desc="" dir="Control" />
   <item name="Infragistics4.Undo.v12.2.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="Infragistics" desc="" dir="Control" />
-  <item name="Infragistics4.Win.AppStylistSupport.v12.2.dll" issvr="1" isrem="1" isplat="0" iscad="0" cls="Infragistics" desc="" dir="Control" />
-  <item name="Infragistics4.Win.Misc.v12.2.dll" issvr="1" isrem="1" isplat="0" iscad="0" cls="Infragistics" desc="" dir="Control" />
+  <item name="Infragistics4.Win.AppStylistSupport.v12.2.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="Infragistics" desc="" dir="Control" />
+  <item name="Infragistics4.Win.Misc.v12.2.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="Infragistics" desc="" dir="Control" />
   <item name="Infragistics4.Win.SupportDialogs.v12.2.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="Infragistics" desc="" dir="Control" />
   <item name="Infragistics4.Win.UltraChart.v12.2.Design.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="Infragistics" desc="" dir="Control" />
   <item name="Infragistics4.Win.UltraGauge.v12.2.Design.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="Infragistics" desc="" dir="Control" />
-  <item name="Infragistics4.Win.UltraWinCalcManager.v12.2.dll" issvr="1" isrem="1" isplat="0" iscad="0" cls="Infragistics" desc="" dir="Control" />
+  <item name="Infragistics4.Win.UltraWinCalcManager.v12.2.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="Infragistics" desc="" dir="Control" />
   <item name="Infragistics4.Win.UltraWinCalcManager.v12.2.FormulaBuilder.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="Infragistics" desc="" dir="Control" />
   <item name="Infragistics4.Win.UltraWinChart.v12.2.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="Infragistics" desc="" dir="Control" />
-  <item name="Infragistics4.Win.UltraWinDataSource.v12.2.dll" issvr="1" isrem="1" isplat="0" iscad="0" cls="Infragistics" desc="" dir="Control" />
-  <item name="Infragistics4.Win.UltraWinDock.v12.2.dll" issvr="1" isrem="1" isplat="0" iscad="0" cls="Infragistics" desc="" dir="Control" />
-  <item name="Infragistics4.Win.UltraWinEditors.v12.2.dll" issvr="1" isrem="1" isplat="0" iscad="0" cls="Infragistics" desc="" dir="Control" />
+  <item name="Infragistics4.Win.UltraWinDataSource.v12.2.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="Infragistics" desc="" dir="Control" />
+  <item name="Infragistics4.Win.UltraWinDock.v12.2.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="Infragistics" desc="" dir="Control" />
+  <item name="Infragistics4.Win.UltraWinEditors.v12.2.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="Infragistics" desc="" dir="Control" />
   <item name="Infragistics4.Win.UltraWinExplorerBar.v12.2.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="Infragistics" desc="" dir="Control" />
   <item name="Infragistics4.Win.UltraWinFormattedText.WordWriter.v12.2.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="Infragistics" desc="" dir="Control" />
   <item name="Infragistics4.Win.UltraWinGanttView.v12.2.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="Infragistics" desc="" dir="Control" />
   <item name="Infragistics4.Win.UltraWinGauge.v12.2.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="Infragistics" desc="" dir="Control" />
   <item name="Infragistics4.Win.UltraWinGrid.DocumentExport.v12.2.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="Infragistics" desc="" dir="Control" />
   <item name="Infragistics4.Win.UltraWinGrid.ExcelExport.v12.2.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="Infragistics" desc="" dir="Control" />
-  <item name="Infragistics4.Win.UltraWinGrid.v12.2.dll" issvr="1" isrem="1" isplat="0" iscad="0" cls="Infragistics" desc="" dir="Control" />
+  <item name="Infragistics4.Win.UltraWinGrid.v12.2.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="Infragistics" desc="" dir="Control" />
   <item name="Infragistics4.Win.UltraWinGrid.WordWriter.v12.2.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="Infragistics" desc="" dir="Control" />
   <item name="Infragistics4.Win.UltraWinInkProvider.Ink17.v12.2.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="Infragistics" desc="" dir="Control" />
   <item name="Infragistics4.Win.UltraWinListBar.v12.2.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="Infragistics" desc="" dir="Control" />
@@ -76,17 +71,19 @@
   <item name="Infragistics4.Win.UltraWinPrintPreviewDialog.v12.2.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="Infragistics" desc="" dir="Control" />
   <item name="Infragistics4.Win.UltraWinSchedule.v12.2.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="Infragistics" desc="" dir="Control" />
   <item name="Infragistics4.Win.UltraWinSpellChecker.v12.2.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="Infragistics" desc="" dir="Control" />
-  <item name="Infragistics4.Win.UltraWinStatusBar.v12.2.dll" issvr="1" isrem="1" isplat="0" iscad="0" cls="Infragistics" desc="" dir="Control" />
+  <item name="Infragistics4.Win.UltraWinStatusBar.v12.2.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="Infragistics" desc="" dir="Control" />
   <item name="Infragistics4.Win.UltraWinTabbedMdi.v12.2.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="Infragistics" desc="" dir="Control" />
-  <item name="Infragistics4.Win.UltraWinTabControl.v12.2.dll" issvr="1" isrem="1" isplat="0" iscad="0" cls="Infragistics" desc="" dir="Control" />
-  <item name="Infragistics4.Win.UltraWinToolbars.v12.2.dll" issvr="1" isrem="1" isplat="0" iscad="0" cls="Infragistics" desc="" dir="Control" />
-  <item name="Infragistics4.Win.UltraWinTree.v12.2.dll" issvr="1" isrem="1" isplat="0" iscad="0" cls="Infragistics" desc="" dir="Control" />
+  <item name="Infragistics4.Win.UltraWinTabControl.v12.2.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="Infragistics" desc="" dir="Control" />
+  <item name="Infragistics4.Win.UltraWinToolbars.v12.2.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="Infragistics" desc="" dir="Control" />
+  <item name="Infragistics4.Win.UltraWinTree.v12.2.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="Infragistics" desc="" dir="Control" />
   <item name="Infragistics4.Win.v12.2.Design.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="Infragistics" desc="" dir="Control" />
   <item name="Infragistics4.Win.v12.2.dll" issvr="1" isrem="1" isplat="0" iscad="0" cls="Infragistics" desc="" dir="Control" />
   <item name="Interop.Excel.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="System" desc="Microsoft Excel" dir="System" />
   <item name="Interop.SeaMoonDLL.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="System" desc="VS" dir="System" />
   <item name="IrisSkin4.dll" issvr="0" isrem="0" isplat="0" iscad="0" cls="System" desc="" dir="System" />
   <item name="Kf.AccessBase.DLL" issvr="0" isrem="1" isplat="0" iscad="0" cls="Core" desc="用户与权限管理" dir="Core" />
+  <item name="Kf.Agent.exe" issvr="1" isrem="0" isplat="0" iscad="0" cls="" desc="服务端定时执行 代理服务" dir="" />
+  <item name="Kf.Agent.exe.config" issvr="1" isrem="0" isplat="0" iscad="0" cls="" desc="" dir="" />
   <item name="Kf.ArAp.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="PlugIn" desc="应收应付" dir="PlugIn" />
   <item name="Kf.ArAp.Svr.dll" issvr="1" isrem="0" isplat="0" iscad="0" cls="PlugIn" desc="应收应付服务组件" dir="PlugIn" />
   <item name="Kf.ArApFormula.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="PlugIn" desc="应收应付" dir="PlugIn" />
@@ -97,30 +94,46 @@
   <item name="Kf.BllBase.Svr.dll" issvr="1" isrem="0" isplat="0" iscad="0" cls="PlugIn" desc="基础资料服务端基类(发送短信)" dir="PlugIn" />
   <item name="Kf.BllObj.DLL" issvr="1" isrem="1" isplat="0" iscad="0" cls="Core" desc="业务处理基类(单据审核心,自动生成单号,附件)" dir="Core" />
   <item name="Kf.BllPicControl.DLL" issvr="0" isrem="1" isplat="0" iscad="0" cls="Core" desc="导航界面导航图标控件" dir="Core" />
+  <item name="Kf.BOS.exe" issvr="0" isrem="1" isplat="0" iscad="0" cls="" desc="单据自定义外壳" dir="" />
+  <item name="Kf.BOS.exe.config" issvr="0" isrem="1" isplat="0" iscad="0" cls="" desc="" dir="" />
   <item name="Kf.BOSBase.DLL" issvr="0" isrem="1" isplat="0" iscad="0" cls="PlugIn" desc="单据自定义BOS平台库" dir="PlugIn" />
   <item name="Kf.Center.DBInfo.dll" issvr="1" isrem="0" isplat="0" iscad="0" cls="Core" desc="数据中心连接相关" dir="Core" />
   <item name="Kf.Center.RoleManager.dll" issvr="1" isrem="0" isplat="0" iscad="0" cls="Core" desc="数据中心权限管理(好像没用到)" dir="Core" />
   <item name="Kf.Center.Svr.dll" issvr="1" isrem="0" isplat="0" iscad="0" cls="Core" desc="数据中心服务类(启用账套新建账套..)" dir="Core" />
   <item name="Kf.Center.UI.dll" issvr="1" isrem="0" isplat="0" iscad="0" cls="Core" desc="数据中心账套管理界面(清InsUI)" dir="Core" />
-  <item name="Kf.Control.dll" issvr="1" isrem="1" isplat="0" iscad="0" cls="Core" desc="控件库" dir="Core" />
+  <item name="Kf.CheckDataIntegrality.exe" issvr="0" isrem="0" isplat="0" iscad="1" cls="" desc="检查数据完整性工具(服务端待清InsUI）" dir="" />
+  <item name="Kf.ConfigTool.exe" issvr="0" isrem="0" isplat="1" iscad="0" cls="" desc="版本发布工具" dir="" />
+  <item name="Kf.ConfigTool.exe.config" issvr="0" isrem="0" isplat="1" iscad="0" cls="" desc="" dir="" />
+  <item name="Kf.Control.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="Core" desc="控件库" dir="Core" />
   <item name="Kf.Core.dll" issvr="1" isrem="1" isplat="0" iscad="0" cls="Core" desc="核心库" dir="Core" />
   <item name="Kf.DataAccessL.dll" issvr="1" isrem="0" isplat="0" iscad="0" cls="Core" desc="数据访问" dir="Core" />
+  <item name="Kf.DBCenter.exe" issvr="1" isrem="0" isplat="0" iscad="0" cls="" desc="数据中心外壳" dir="" />
+  <item name="Kf.DBCenter.exe.config" issvr="1" isrem="0" isplat="0" iscad="0" cls="" desc="" dir="" />
   <item name="Kf.DBObj.dll" issvr="1" isrem="0" isplat="0" iscad="0" cls="Core" desc="服务端数据库对象_组装SQL语句" dir="Core" />
   <item name="Kf.DefineReport.DLL" issvr="0" isrem="1" isplat="0" iscad="0" cls="Core" desc="自定义报表" dir="Core" />
+  <item name="Kf.DefineReport.exe" issvr="0" isrem="0" isplat="0" iscad="0" cls="" desc="自定义报表外壳" dir="" />
   <item name="Kf.DeveloperLogin.dll" issvr="0" isrem="0" isplat="0" iscad="0" cls="Core" desc="授权第三方开发登陆认证(服务端)" dir="Core" />
+  <item name="Kf.Devenv.exe" issvr="0" isrem="0" isplat="1" iscad="0" cls="" desc="开发平台外壳" dir="" />
+  <item name="Kf.Devenv.exe.config" issvr="0" isrem="0" isplat="1" iscad="0" cls="" desc="" dir="" />
   <item name="Kf.DevUI.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="Core" desc="平台界面设计" dir="Core" />
+  <item name="Kf.DogDriver.exe" issvr="0" isrem="0" isplat="0" iscad="1" cls="" desc="加密狗Kf.EncrypDog.dll外壳" dir="" />
   <item name="Kf.EMS.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="PlugIn" desc="设备管理" dir="PlugIn" />
   <item name="Kf.EMS.Svr.dll" issvr="1" isrem="0" isplat="0" iscad="0" cls="PlugIn" desc="设备管理服务端" dir="PlugIn" />
   <item name="Kf.EncrypDog.dll" issvr="1" isrem="1" isplat="0" iscad="0" cls="Core" desc="加密狗" dir="Core" />
   <item name="Kf.Entity.Base.dll" issvr="1" isrem="1" isplat="0" iscad="0" cls="Core" desc="界面元数据基类" dir="Core" />
+  <item name="Kf.Entity.exe" issvr="0" isrem="0" isplat="0" iscad="1" cls="" desc="实体工具外壳" dir="" />
   <item name="Kf.EntityPlu.dll" issvr="0" isrem="0" isplat="1" iscad="0" cls="Core" desc="自动生成代码类添加到VS" dir="Core" />
   <item name="Kf.EntityUI.DLL" issvr="1" isrem="1" isplat="0" iscad="0" cls="Core" desc="实体管理UI" dir="Core" />
   <item name="Kf.Extension.dll" issvr="0" isrem="0" isplat="0" iscad="0" cls="Core" desc="[未用]" dir="Core" />
+  <item name="Kf.ExtensionApp.exe" issvr="0" isrem="0" isplat="0" iscad="0" cls="" desc="[未用]" dir="" />
   <item name="Kf.FA.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="PlugIn" desc="固定资产" dir="PlugIn" />
   <item name="Kf.FA.Svr.dll" issvr="1" isrem="0" isplat="0" iscad="0" cls="PlugIn" desc="固定资产服务端" dir="PlugIn" />
   <item name="Kf.FlowUI.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="Core" desc="中心流程图设计" dir="Core" />
+  <item name="Kf.Fuscator.exe" issvr="0" isrem="0" isplat="0" iscad="1" cls="" desc="混淆工具" dir="" />
   <item name="Kf.Gateway.Interface.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="Core" desc="短信网关接口" dir="Core" />
   <item name="Kf.General.UI.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="Core" desc="通用界面" dir="Core" />
+  <item name="Kf.GenLicense.exe" issvr="0" isrem="0" isplat="0" iscad="0" cls="" desc="[移除]已失效" dir="" />
+  <item name="Kf.GenLicenseX.exe" issvr="0" isrem="0" isplat="0" iscad="0" cls="" desc="[待验证]" dir="" />
   <item name="Kf.GL.Base.dll" issvr="1" isrem="1" isplat="0" iscad="0" cls="PlugIn" desc="财务模块基类" dir="PlugIn" />
   <item name="Kf.GL.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="PlugIn" desc="财务模块管理" dir="PlugIn" />
   <item name="Kf.GL.Svr.dll" issvr="1" isrem="0" isplat="0" iscad="0" cls="PlugIn" desc="财务模块服务务端" dir="PlugIn" />
@@ -130,10 +143,18 @@
   <item name="Kf.HR.Svr.dll" issvr="1" isrem="0" isplat="0" iscad="0" cls="PlugIn" desc="人力资源服务端" dir="PlugIn" />
   <item name="Kf.ht.CheckLicense.dll" issvr="1" isrem="0" isplat="0" iscad="0" cls="Core" desc="" dir="Core" />
   <item name="Kf.IGenLicense.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="Core" desc="生成许可" dir="Core" />
+  <item name="Kf.ImportData.exe" issvr="0" isrem="1" isplat="0" iscad="0" cls="" desc="数据导入外壳" dir="" />
+  <item name="Kf.ImportData.exe.config" issvr="0" isrem="0" isplat="0" iscad="0" cls="" desc="" dir="" />
   <item name="Kf.Inst.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="PlugIn" desc="工器具" dir="PlugIn" />
   <item name="Kf.Inst.Svr.dll" issvr="1" isrem="0" isplat="0" iscad="0" cls="PlugIn" desc="工器具服务端" dir="PlugIn" />
+  <item name="Kf.InstallIIS.exe" issvr="1" isrem="0" isplat="0" iscad="0" cls="" desc="安装配置IIS" dir="" />
+  <item name="Kf.InstallSQL.exe" issvr="1" isrem="0" isplat="0" iscad="0" cls="" desc="安装SQL MSDE 新建数据库" dir="" />
+  <item name="Kf.InstallSQL.exe.config" issvr="1" isrem="0" isplat="0" iscad="0" cls="" desc="" dir="" />
   <item name="Kf.IRemoteCall.dll" issvr="1" isrem="1" isplat="0" iscad="0" cls="Core" desc="RemoteObject接口 服务端继承 客户端调用" dir="Core" />
+  <item name="Kf.Jeez2Kinfar.exe" issvr="0" isrem="0" isplat="0" iscad="0" cls="" desc="" dir="" />
   <item name="Kf.LanguageHelper.DLL" issvr="1" isrem="1" isplat="0" iscad="0" cls="Core" desc="语言类多语言文字自动翻译类简转繁" dir="Core" />
+  <item name="Kf.License.exe" issvr="1" isrem="0" isplat="0" iscad="0" cls="" desc="申请许可外壳" dir="" />
+  <item name="Kf.License.exe.config" issvr="1" isrem="0" isplat="0" iscad="0" cls="" desc="" dir="" />
   <item name="Kf.LicenseMan.dll" issvr="1" isrem="0" isplat="0" iscad="0" cls="Core" desc="许可申请" dir="Core" />
   <item name="Kf.Login.dll" issvr="1" isrem="1" isplat="0" iscad="0" cls="Core" desc="登陆组件" dir="Core" />
   <item name="Kf.MailMan.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="Core" desc="邮件类" dir="Core" />
@@ -143,6 +164,7 @@
   <item name="Kf.Mes.Svr.dll" issvr="1" isrem="0" isplat="0" iscad="0" cls="PlugIn" desc="MES模块服务端" dir="PlugIn" />
   <item name="Kf.MeterRead.dll" issvr="0" isrem="0" isplat="0" iscad="0" cls="Core" desc="[移除]读表" dir="Core" />
   <item name="Kf.MeterRead.ReadMeterZenner.dll" issvr="0" isrem="0" isplat="0" iscad="0" cls="Core" desc="[移除]读表" dir="Core" />
+  <item name="Kf.MeterRead.Service.exe" issvr="0" isrem="0" isplat="0" iscad="0" cls="Core" desc="[移除]读表" dir="Core" />
   <item name="Kf.MyKingFly.dll" issvr="0" isrem="0" isplat="0" iscad="0" cls="PlugIn" desc="我的君飞开发专用客户端" dir="PlugIn" />
   <item name="Kf.MyKingFly.Svr.dll" issvr="0" isrem="0" isplat="0" iscad="0" cls="PlugIn" desc="我的君飞开发专用服端" dir="PlugIn" />
   <item name="Kf.OA.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="PlugIn" desc="OA组件" dir="PlugIn" />
@@ -158,22 +180,46 @@
   <item name="Kf.Runtime.Base.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="Core" desc="界面基类" dir="Core" />
   <item name="Kf.Runtime.BusiLogic.DLL" issvr="1" isrem="0" isplat="0" iscad="0" cls="Core" desc="服务端执行基类" dir="Core" />
   <item name="Kf.Runtime.Data.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="Core" desc="界面基类报表界面" dir="Core" />
+  <item name="Kf.Runtime.exe" issvr="0" isrem="1" isplat="0" iscad="0" cls="" desc="执行文件" dir="" />
+  <item name="Kf.Runtime.exe.config" issvr="0" isrem="1" isplat="0" iscad="0" cls="" desc="" dir="" />
   <item name="Kf.Runtime.MenuUI.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="Core" desc="定制版本主容器界面" dir="Core" />
+  <item name="Kf.Runtime.MiniUI.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="Core" desc="定制迷你版本主容器界面" dir="Core" />
   <item name="Kf.Runtime.UI.DLL" issvr="0" isrem="1" isplat="0" iscad="0" cls="Core" desc="运行时主界面" dir="Core" />
   <item name="Kf.Scm.Base.DLL" issvr="1" isrem="1" isplat="0" iscad="0" cls="PlugIn" desc="进销存" dir="PlugIn" />
   <item name="Kf.Scm.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="PlugIn" desc="进销存" dir="PlugIn" />
   <item name="Kf.Scm.Svr.dll" issvr="1" isrem="0" isplat="0" iscad="0" cls="PlugIn" desc="进销存" dir="PlugIn" />
   <item name="Kf.ScmFormula.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="PlugIn" desc="进销存" dir="PlugIn" />
+  <item name="Kf.Service.exe" issvr="1" isrem="0" isplat="0" iscad="0" cls="" desc="Windows服务" dir="" />
+  <item name="Kf.Service.exe.config" issvr="1" isrem="0" isplat="0" iscad="0" cls="" desc="" dir="" />
+  <item name="Kf.SetForderRight.exe" issvr="1" isrem="0" isplat="0" iscad="0" cls="" desc="设置文件目录权限安装时用" dir="" />
+  <item name="Kf.SetForderRight.exe.config" issvr="1" isrem="0" isplat="0" iscad="0" cls="" desc="" dir="" />
   <item name="Kf.SetLicense.dll" issvr="1" isrem="0" isplat="0" iscad="0" cls="Core" desc="设置许可导入许可" dir="Core" />
   <item name="Kf.Shop.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="PlugIn" desc="零售客户端" dir="PlugIn" />
   <item name="Kf.Shop.Svr.dll" issvr="1" isrem="0" isplat="0" iscad="0" cls="PlugIn" desc="零售服务端" dir="PlugIn" />
+  <item name="Kf.SMS.Serices.ico" issvr="0" isrem="0" isplat="0" iscad="0" cls="UI" desc="" dir="UI" />
+  <item name="Kf.SMS.Services.exe" issvr="0" isrem="0" isplat="0" iscad="0" cls="Core" desc="" dir="Core" />
+  <item name="Kf.SMSConfig.exe" issvr="0" isrem="0" isplat="0" iscad="0" cls="Core" desc="" dir="Core" />
+  <item name="Kf.SMSService.exe" issvr="0" isrem="0" isplat="0" iscad="0" cls="Core" desc="Windows服务" dir="Core" />
+  <item name="Kf.StartService.exe" issvr="1" isrem="0" isplat="0" iscad="0" cls="" desc="部署Windows服务" dir="" />
+  <item name="Kf.Studio.exe" issvr="0" isrem="0" isplat="0" iscad="0" cls="" desc="" dir="" />
   <item name="Kf.SysAdminMenuSupport.dll" issvr="1" isrem="0" isplat="0" iscad="0" cls="Core" desc="数据中心菜单" dir="Core" />
   <item name="Kf.TaoBao.dll" issvr="0" isrem="0" isplat="0" iscad="0" cls="PlugIn" desc="第三方淘宝抽数" dir="PlugIn" />
   <item name="Kf.TimerPool.dll" issvr="1" isrem="0" isplat="0" iscad="0" cls="Core" desc="服务端定时调用服务类继承ITimerService" dir="Core" />
+  <item name="Kf.Tomom.exe" issvr="0" isrem="0" isplat="0" iscad="0" cls="" desc="定制版执行文件" dir="" />
+  <item name="Kf.ToolHelper.exe" issvr="0" isrem="0" isplat="0" iscad="1" cls="" desc="辅助工具外壳" dir="" />
+  <item name="Kf.ToolHelper.exe.config" issvr="0" isrem="0" isplat="0" iscad="1" cls="" desc="" dir="" />
   <item name="Kf.Tools.dll" issvr="0" isrem="0" isplat="1" iscad="1" cls="Core" desc="辅助工具类库" dir="Core" />
   <item name="Kf.TWBY.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="PlugIn" desc="天伟表业第三方" dir="PlugIn" />
   <item name="Kf.TWBY.Svr.dll" issvr="1" isrem="0" isplat="0" iscad="0" cls="PlugIn" desc="天伟表业第三方" dir="PlugIn" />
+  <item name="Kf.UpdateCom.exe" issvr="1" isrem="1" isplat="0" iscad="0" cls="Core" desc="升级" dir="" />
+  <item name="Kf.UpdateCom.exe.config" issvr="1" isrem="1" isplat="0" iscad="0" cls="Core" desc="" dir="" />
   <item name="Kf.UpdateDB.DLL" issvr="1" isrem="0" isplat="0" iscad="0" cls="Core" desc="数据库操作类升级执行SQL[待除ins]" dir="Core" />
+  <item name="Kf.UpdateOnline.exe" issvr="0" isrem="1" isplat="0" iscad="0" cls="Core" desc="在线升级" dir="" />
+  <item name="Kf.UpdateOnline.exe.config" issvr="0" isrem="1" isplat="0" iscad="0" cls="Core" desc="" dir="" />
+  <item name="Kf.UpLoadAutoUpdateCom.exe" issvr="0" isrem="0" isplat="0" iscad="1" cls="Core" desc="升级" dir="" />
+  <item name="Kf.UpLoadAutoUpdateCom.exe.config" issvr="0" isrem="0" isplat="0" iscad="1" cls="Core" desc="" dir="" />
+  <item name="Kf.UpLoadCom.exe" issvr="0" isrem="0" isplat="1" iscad="0" cls="" desc="打包升级工具" dir="" />
+  <item name="Kf.UpLoadCom.exe.config" issvr="0" isrem="0" isplat="1" iscad="0" cls="" desc="" dir="" />
   <item name="Kf.Util.DLL" issvr="1" isrem="1" isplat="0" iscad="0" cls="Core" desc="常用类" dir="Core" />
   <item name="Kf.UtilEntityUI.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="Core" desc="基础资料界面UI基类" dir="Core" />
   <item name="Kf.UtilObj.DLL" issvr="1" isrem="1" isplat="0" iscad="0" cls="Core" desc="基础资料界面实体基类" dir="Core" />
@@ -184,80 +230,43 @@
   <item name="Kf.WorkflowRuntime.dll" issvr="1" isrem="1" isplat="0" iscad="0" cls="Core" desc="工作流运行时" dir="Core" />
   <item name="Kf.WorkflowSMS.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="Core" desc="工作流发送信息" dir="Core" />
   <item name="Kf.Zara.dll" issvr="0" isrem="0" isplat="0" iscad="0" cls="PlugIn" desc="Zara抽数组件" dir="PlugIn" />
+  <item name="KfData.kcg" issvr="1" isrem="1" isplat="0" iscad="0" cls="Config" desc="核心配制文件" dir="Config" />
+  <item name="KfDbServer.kcg" issvr="1" isrem="0" isplat="0" iscad="0" cls="Config" desc="数据中心数据库连接串配制" dir="Config" />
+  <item name="Kf-EMS.exe.config" issvr="0" isrem="0" isplat="0" iscad="0" cls="" desc="" dir="" />
   <item name="KfLiCt.dll" issvr="1" isrem="0" isplat="0" iscad="0" cls="Core" desc="试用次数加密组件" dir="Core" />
+  <item name="KfPath.kcg" issvr="0" isrem="0" isplat="1" iscad="0" cls="Config" desc="版本发布信息配制" dir="Config" />
   <item name="KfServerInstall.dll" issvr="1" isrem="0" isplat="0" iscad="0" cls="Core" desc="" dir="Core" />
+  <item name="KfUpdateOnLine.kcg" issvr="1" isrem="1" isplat="0" iscad="0" cls="Config" desc="升级服务地址配制" dir="Config" />
   <item name="KS.Gantt.dll" issvr="0" isrem="0" isplat="0" iscad="0" cls="System" desc="第三方甘特图控件" dir="System" />
+  <item name="lic.ico" issvr="0" isrem="0" isplat="0" iscad="0" cls="UI" desc="" dir="UI" />
+  <item name="log4net.dll" issvr="1" isrem="1" isplat="1" iscad="1" cls="System" desc="日志神器" dir="System" />
+  <item name="log4net.kcg" issvr="0" isrem="1" isplat="1" iscad="1" cls="Config" desc="Log4Net Config 配制文件" dir="Config" />
+  <item name="logo16.png" issvr="0" isrem="1" isplat="0" iscad="0" cls="UI" desc="16*16Logo图标" dir="UI" />
+  <item name="logo32.png" issvr="0" isrem="1" isplat="0" iscad="0" cls="UI" desc="32*32Logo图标" dir="UI" />
+  <item name="logo64.png" issvr="0" isrem="1" isplat="0" iscad="0" cls="UI" desc="64*64Logo图标" dir="UI" />
+  <item name="MenuUi.kcg" issvr="0" isrem="1" isplat="0" iscad="0" cls="Config" desc="定制版界面配制" dir="Config" />
+  <item name="MHJJ.exe" issvr="0" isrem="0" isplat="0" iscad="0" cls="" desc="敏华家具运行文件" dir="" />
+  <item name="MHJJ.exe.Config" issvr="0" isrem="0" isplat="0" iscad="0" cls="" desc="敏华家具运行配制文件" dir="" />
   <item name="Microsoft.Ink.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="System" desc="" dir="System" />
   <item name="Microsoft.mshtml.dll" issvr="0" isrem="1" isplat="0" iscad="0" cls="System" desc="" dir="System" />
   <item name="Microsoft.Practices.Unity.Configuration.dll" issvr="0" isrem="0" isplat="0" iscad="0" cls="System" desc="" dir="System" />
   <item name="Microsoft.Practices.Unity.dll" issvr="0" isrem="0" isplat="0" iscad="0" cls="System" desc="" dir="System" />
   <item name="MonthCalendar.DLL" issvr="0" isrem="1" isplat="0" iscad="0" cls="System" desc="" dir="System" />
-  <item name="Newtonsoft.Json.Net20.DLL" issvr="1" isrem="1" isplat="0" iscad="0" cls="System" desc="JSON类" dir="System" />
-  <item name="TopSdk.dll" issvr="0" isrem="0" isplat="0" iscad="0" cls="System" desc="第三方淘宝SDK" dir="System" />
-  <item name="Kf.BOS.exe" issvr="0" isrem="1" isplat="0" iscad="0" cls="" desc="单据自定义外壳" dir="" />
-  <item name="Kf.CheckDataIntegrality.exe" issvr="0" isrem="0" isplat="0" iscad="1" cls="" desc="检查数据完整性工具(服务端待清InsUI）" dir="" />
-  <item name="Kf.ConfigTool.exe" issvr="0" isrem="0" isplat="1" iscad="0" cls="" desc="版本发布工具" dir="" />
-  <item name="Kf.DBCenter.exe" issvr="1" isrem="0" isplat="0" iscad="0" cls="" desc="数据中心外壳" dir="" />
-  <item name="Kf.DefineReport.exe" issvr="0" isrem="0" isplat="0" iscad="0" cls="" desc="自定义报表外壳" dir="" />
-  <item name="Kf.Devenv.exe" issvr="0" isrem="0" isplat="1" iscad="0" cls="" desc="开发平台外壳" dir="" />
-  <item name="Kf.DogDriver.exe" issvr="0" isrem="0" isplat="0" iscad="1" cls="" desc="加密狗Kf.EncrypDog.dll外壳" dir="" />
-  <item name="Kf.Entity.exe" issvr="0" isrem="0" isplat="0" iscad="1" cls="" desc="实体工具外壳" dir="" />
-  <item name="Kf.ExtensionApp.exe" issvr="0" isrem="0" isplat="0" iscad="0" cls="" desc="[未用]" dir="" />
-  <item name="Kf.Fuscator.exe" issvr="0" isrem="0" isplat="0" iscad="1" cls="" desc="混淆工具" dir="" />
-  <item name="Kf.GenLicense.exe" issvr="0" isrem="0" isplat="0" iscad="0" cls="" desc="[移除]已失效" dir="" />
-  <item name="Kf.GenLicenseX.exe" issvr="0" isrem="0" isplat="0" iscad="0" cls="" desc="[待验证]" dir="" />
-  <item name="Kf.ImportData.exe" issvr="0" isrem="1" isplat="0" iscad="0" cls="" desc="数据导入外壳" dir="" />
-  <item name="Kf.InstallIIS.exe" issvr="1" isrem="0" isplat="0" iscad="0" cls="" desc="安装配置IIS" dir="" />
-  <item name="Kf.InstallSQL.exe" issvr="1" isrem="0" isplat="0" iscad="0" cls="" desc="安装SQL MSDE 新建数据库" dir="" />
-  <item name="Kf.Jeez2Kinfar.exe" issvr="0" isrem="0" isplat="0" iscad="0" cls="" desc="" dir="" />
-  <item name="Kf.License.exe" issvr="1" isrem="0" isplat="0" iscad="0" cls="" desc="申请许可外壳" dir="" />
-  <item name="Kf.MeterRead.Service.exe" issvr="0" isrem="0" isplat="0" iscad="0" cls="Core" desc="[移除]读表" dir="Core" />
-  <item name="Kf.Runtime.exe" issvr="0" isrem="1" isplat="0" iscad="0" cls="" desc="执行文件" dir="" />
-  <item name="Kf.Service.exe" issvr="1" isrem="0" isplat="0" iscad="0" cls="" desc="Windows服务" dir="" />
-  <item name="Kf.SetForderRight.exe" issvr="1" isrem="0" isplat="0" iscad="0" cls="" desc="设置文件目录权限安装时用" dir="" />
-  <item name="Kf.SMS.Services.exe" issvr="0" isrem="0" isplat="0" iscad="0" cls="Core" desc="" dir="Core" />
-  <item name="Kf.SMSConfig.exe" issvr="0" isrem="0" isplat="0" iscad="0" cls="Core" desc="" dir="Core" />
-  <item name="Kf.SMSService.exe" issvr="0" isrem="0" isplat="0" iscad="0" cls="Core" desc="Windows服务" dir="Core" />
-  <item name="Kf.StartService.exe" issvr="1" isrem="0" isplat="0" iscad="0" cls="" desc="部署Windows服务" dir="" />
-  <item name="Kf.Studio.exe" issvr="0" isrem="0" isplat="0" iscad="0" cls="" desc="" dir="" />
-  <item name="Kf.Agent.exe" issvr="1" isrem="0" isplat="0" iscad="0" cls="" desc="服务端定时执行 代理服务" dir="" />
-  <item name="Kf.Tomom.exe" issvr="0" isrem="0" isplat="0" iscad="0" cls="" desc="定制版执行文件" dir="" />
-  <item name="Kf.ToolHelper.exe" issvr="0" isrem="0" isplat="0" iscad="1" cls="" desc="辅助工具外壳" dir="" />
-  <item name="Kf.UpdateCom.exe" issvr="1" isrem="1" isplat="0" iscad="0" cls="Core" desc="升级" dir="" />
-  <item name="Kf.UpdateOnline.exe" issvr="1" isrem="1" isplat="0" iscad="0" cls="Core" desc="在线升级" dir="" />
-  <item name="Kf.UpLoadAutoUpdateCom.exe" issvr="0" isrem="1" isplat="0" iscad="0" cls="Core" desc="升级" dir="" />
-  <item name="Kf.UpLoadCom.exe" issvr="0" isrem="0" isplat="1" iscad="0" cls="" desc="打包升级工具" dir="" />
   <item name="msiexec.exe" issvr="1" isrem="1" isplat="0" iscad="0" cls="" desc="安装所需" dir="" />
+  <item name="Newtonsoft.Json.Net20.DLL" issvr="1" isrem="1" isplat="0" iscad="0" cls="System" desc="JSON类" dir="System" />
+  <item name="OnLine.exe" issvr="0" isrem="1" isplat="0" iscad="0" cls="" desc="百度商桥运行" dir="" />
+  <item name="OnLine.exe.config" issvr="0" isrem="1" isplat="0" iscad="0" cls="" desc="" dir="" />
   <item name="T9.exe" issvr="0" isrem="0" isplat="0" iscad="0" cls="" desc="" dir="" />
-  <item name="UnInstall.exe" issvr="0" isrem="1" isplat="0" iscad="0" cls="" desc="卸载程序" dir="" />
-  <item name="UninstallServer.exe" issvr="1" isrem="0" isplat="0" iscad="0" cls="" desc="卸载服务" dir="" />
-  <item name="天伟表业.exe" issvr="0" isrem="1" isplat="0" iscad="0" cls="" desc="天伟表业第三方" dir="" />
-  <item name="在线云服务.exe" issvr="0" isrem="1" isplat="0" iscad="0" cls="" desc="百度商桥运行" dir="" />
-  <item name="App.ico" issvr="0" isrem="1" isplat="0" iscad="0" cls="UI" desc="" dir="UI" />
-  <item name="App16.ico" issvr="0" isrem="0" isplat="0" iscad="0" cls="UI" desc="" dir="UI" />
-  <item name="App64.ico" issvr="0" isrem="0" isplat="0" iscad="0" cls="UI" desc="" dir="UI" />
-  <item name="DBCenter.ico" issvr="0" isrem="0" isplat="0" iscad="0" cls="UI" desc="" dir="UI" />
-  <item name="DBSys.ico" issvr="0" isrem="0" isplat="0" iscad="0" cls="UI" desc="" dir="UI" />
-  <item name="Dev.ico" issvr="0" isrem="0" isplat="0" iscad="0" cls="UI" desc="" dir="UI" />
-  <item name="Kf.SMS.Serices.ico" issvr="0" isrem="0" isplat="0" iscad="0" cls="UI" desc="" dir="UI" />
-  <item name="lic.ico" issvr="0" isrem="0" isplat="0" iscad="0" cls="UI" desc="" dir="UI" />
-  <item name="uninstall.ico" issvr="0" isrem="0" isplat="0" iscad="0" cls="UI" desc="" dir="UI" />
-  <item name="filedesc.kcg" issvr="0" isrem="1" isplat="1" iscad="1" cls="Config" desc="文件列表说明配制" dir="Config" />
-  <item name="KfData.kcg" issvr="1" isrem="1" isplat="0" iscad="0" cls="Config" desc="核心配制文件" dir="Config" />
-  <item name="KfDbServer.kcg" issvr="1" isrem="0" isplat="0" iscad="0" cls="Config" desc="数据中心数据库连接串配制" dir="Config" />
-  <item name="KfPath.kcg" issvr="0" isrem="0" isplat="1" iscad="0" cls="Config" desc="版本发布信息配制" dir="Config" />
-  <item name="KfUpdateOnLine.kcg" issvr="1" isrem="1" isplat="0" iscad="0" cls="Config" desc="升级服务地址配制" dir="Config" />
-  <item name="MenuUi.kcg" issvr="0" isrem="1" isplat="0" iscad="0" cls="Config" desc="定制版界面配制" dir="Config" />
+  <item name="T9.exe.config" issvr="0" isrem="0" isplat="0" iscad="0" cls="" desc="" dir="" />
   <item name="Timer.kcg" issvr="1" isrem="0" isplat="0" iscad="0" cls="Config" desc="服务端计划执行配置" dir="Config" />
-  <item name="UI.kcg" issvr="0" isrem="1" isplat="0" iscad="0" cls="Config" desc="ico16 img32 img64名称" dir="Config" />
-  <item name="default.kfskin" issvr="0" isrem="1" isplat="0" iscad="0" cls="Skin" desc="默认皮肤配制" dir="Skin" />
-  <item name="ico16.kui" issvr="0" isrem="1" isplat="0" iscad="0" cls="UI" desc="16*16图标工具标菜单图标" dir="UI" />
-  <item name="img32.kui" issvr="0" isrem="1" isplat="0" iscad="0" cls="UI" desc="32*32图标左边菜单图标" dir="UI" />
-  <item name="img64.kui" issvr="0" isrem="1" isplat="0" iscad="0" cls="UI" desc="64*64图标中心流程图标" dir="UI" />
-  <item name="App.png" issvr="0" isrem="0" isplat="0" iscad="0" cls="UI" desc="" dir="UI" />
-  <item name="logo16.png" issvr="0" isrem="1" isplat="0" iscad="0" cls="UI" desc="16*16Logo图标" dir="UI" />
-  <item name="logo32.png" issvr="0" isrem="1" isplat="0" iscad="0" cls="UI" desc="32*32Logo图标" dir="UI" />
-  <item name="logo64.png" issvr="0" isrem="1" isplat="0" iscad="0" cls="UI" desc="64*64Logo图标" dir="UI" />
   <item name="ToolLog.png" issvr="0" isrem="0" isplat="0" iscad="0" cls="UI" desc="" dir="UI" />
-  <item name="Kf.Agent.exe.config" issvr="1" isrem="0" isplat="0" iscad="0" cls="" desc="" dir="" />
+  <item name="TopSdk.dll" issvr="0" isrem="0" isplat="0" iscad="0" cls="System" desc="第三方淘宝SDK" dir="System" />
+  <item name="TWBY.exe" issvr="0" isrem="0" isplat="0" iscad="0" cls="" desc="天伟表业第三方" dir="" />
+  <item name="TWBY.exe.config" issvr="0" isrem="0" isplat="0" iscad="0" cls="" desc="" dir="" />
+  <item name="UI.kcg" issvr="0" isrem="1" isplat="0" iscad="0" cls="Config" desc="ico16 img32 img64名称" dir="Config" />
+  <item name="UnInstall.exe" issvr="0" isrem="1" isplat="0" iscad="0" cls="" desc="卸载程序" dir="" />
+  <item name="uninstall.ico" issvr="0" isrem="0" isplat="0" iscad="0" cls="UI" desc="" dir="UI" />
+  <item name="WebGuide.exe" issvr="0" isrem="0" isplat="0" iscad="0" cls="" desc="网页向导" dir="" />
+  <item name="Kf.MHJJ.dll" issvr="0" isrem="0" isplat="0" iscad="0" cls="" desc="" dir="" />
+  <item name="Kf.MHJJ.Svr.dll" issvr="0" isrem="0" isplat="0" iscad="0" cls="" desc="" dir="" />
 </config>

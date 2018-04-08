@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Timers>
   <!--一个Timer结点表示一个定时器,如果有多个定时器,可以添加多个Timer结点.-->
   <Timer ID="1">
@@ -26,22 +26,21 @@
         表示每隔一小时二十分钟三十秒执行一次.
     -->
     <IntervalFormat>s秒</IntervalFormat>
-    <LastExeTime></LastExeTime>
+    <LastExeTime>2017/11/6 11:02:00</LastExeTime>
   </Timer>
-  
   <!-- <Timer ID="2"> -->
-    <!--启用这个定时器的数据库账套ID,多个数据库用[,]分格-->
-    <!-- <ActsetIDs>345</ActsetIDs> -->
-    <!--实现定时器接口ITimerService的组件名,不用扩展名.-->
-    <!-- <ComponentName>Kf.TomomTimers</ComponentName> -->
-    <!--实现定时器接口ITimerService的类名,要求全限定名,即命名空间+类名-->
-    <!-- <ClassName>Kf.TomomTimers.ExportFinanceTimer</ClassName> -->
-    <!-- <OrgNumber>bj</OrgNumber> -->
-    <!--定时器的开始启用时间-->
-    <!-- <StartTime>2009/10/26 14:45:00</StartTime> -->
-    <!--定时器的时间间隔,从启用时间开始,每过一个时间间隔将执行一次定时器接口ITimerService定义的PayFunction函数-->
-    <!-- <IntervalValue>1天</IntervalValue> -->
-    <!--时间间隔的格式定义,可用的通配符有:Y或y代表年,M代表月,W或w代表周,D或d代表天,H或h代表小时,m代表分钟,s代表秒.
+  <!--启用这个定时器的数据库账套ID,多个数据库用[,]分格-->
+  <!-- <ActsetIDs>345</ActsetIDs> -->
+  <!--实现定时器接口ITimerService的组件名,不用扩展名.-->
+  <!-- <ComponentName>Kf.TomomTimers</ComponentName> -->
+  <!--实现定时器接口ITimerService的类名,要求全限定名,即命名空间+类名-->
+  <!-- <ClassName>Kf.TomomTimers.ExportFinanceTimer</ClassName> -->
+  <!-- <OrgNumber>bj</OrgNumber> -->
+  <!--定时器的开始启用时间-->
+  <!-- <StartTime>2009/10/26 14:45:00</StartTime> -->
+  <!--定时器的时间间隔,从启用时间开始,每过一个时间间隔将执行一次定时器接口ITimerService定义的PayFunction函数-->
+  <!-- <IntervalValue>1天</IntervalValue> -->
+  <!--时间间隔的格式定义,可用的通配符有:Y或y代表年,M代表月,W或w代表周,D或d代表天,H或h代表小时,m代表分钟,s代表秒.
       例如:
         <IntervalValue>1天</IntervalValue>
         <IntervalFormat>D天</IntervalFormat>
@@ -54,23 +53,23 @@
         <IntervalFormat>H小时mm分ss秒</IntervalFormat>
         表示每隔一小时二十分钟三十秒执行一次.
     -->
-    <!-- <IntervalFormat>D天</IntervalFormat> -->
-    <!-- <LastExeTime></LastExeTime> -->
-    <!-- <SchemeName>AK</SchemeName> -->
-    <!-- <FileType>Txt</FileType> -->
+  <!-- <IntervalFormat>D天</IntervalFormat> -->
+  <!-- <LastExeTime></LastExeTime> -->
+  <!-- <SchemeName>AK</SchemeName> -->
+  <!-- <FileType>Txt</FileType> -->
   <!-- </Timer> -->
   <!-- <Timer ID="3"> -->
-    <!--启用这个定时器的数据库账套ID,多个数据库用[,]分格-->
-    <!-- <ActsetIDs>345</ActsetIDs> -->
-    <!--实现定时器接口ITimerService的组件名,不用扩展名.-->
-    <!-- <ComponentName>Kf.TimerPool</ComponentName> -->
-    <!--实现定时器接口ITimerService的类名,要求全限定名,即命名空间+类名-->
-    <!-- <ClassName>Kf.TimerPool.UnDealWorksNotice</ClassName> -->
-    <!--定时器的开始启用时间-->
-    <!-- <StartTime>2011/01/01 08:00:00</StartTime> -->
-    <!--定时器的时间间隔,从启用时间开始,每过一个时间间隔将执行一次定时器接口ITimerService定义的PayFunction函数-->
-    <!-- <IntervalValue>2小时</IntervalValue> -->
-    <!--时间间隔的格式定义,可用的通配符有:Y或y代表年,M代表月,W或w代表周,D或d代表天,H或h代表小时,m代表分钟,s代表秒.
+  <!--启用这个定时器的数据库账套ID,多个数据库用[,]分格-->
+  <!-- <ActsetIDs>345</ActsetIDs> -->
+  <!--实现定时器接口ITimerService的组件名,不用扩展名.-->
+  <!-- <ComponentName>Kf.TimerPool</ComponentName> -->
+  <!--实现定时器接口ITimerService的类名,要求全限定名,即命名空间+类名-->
+  <!-- <ClassName>Kf.TimerPool.UnDealWorksNotice</ClassName> -->
+  <!--定时器的开始启用时间-->
+  <!-- <StartTime>2011/01/01 08:00:00</StartTime> -->
+  <!--定时器的时间间隔,从启用时间开始,每过一个时间间隔将执行一次定时器接口ITimerService定义的PayFunction函数-->
+  <!-- <IntervalValue>2小时</IntervalValue> -->
+  <!--时间间隔的格式定义,可用的通配符有:Y或y代表年,M代表月,W或w代表周,D或d代表天,H或h代表小时,m代表分钟,s代表秒.
       例如:
         <IntervalValue>1天</IntervalValue>
         <IntervalFormat>D天</IntervalFormat>
@@ -83,7 +82,7 @@
         <IntervalFormat>H小时mm分ss秒</IntervalFormat>
         表示每隔一小时二十分钟三十秒执行一次.
     -->
-    <!-- <IntervalFormat>H小时</IntervalFormat> -->
-    <!-- <LastExeTime></LastExeTime>  -->
+  <!-- <IntervalFormat>H小时</IntervalFormat> -->
+  <!-- <LastExeTime></LastExeTime>  -->
   <!-- </Timer> -->
 </Timers>
