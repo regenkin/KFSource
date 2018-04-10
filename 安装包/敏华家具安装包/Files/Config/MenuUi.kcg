@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<config>
+  <menu Id="1022" Name="淘宝" PicIndex="11" OrdID="1" Visible="1" Name_CHT="淘寶" />
+  <menu Id="61f17cd1-1806-4c99-a8c5-5f54af86080a" Name="菜单名称" PicIndex="14" OrdID="1" Visible="1" Name_CHT="菜單名稱" />
+  <menu Id="1000" Name="基础资料" PicIndex="5" OrdID="1" Visible="1" Name_CHT="基礎資料">
+    <flow Id="1000_1" Name="采购计划1" Left="80" Top="36" Width="" Height="" LineWidth="" Direction="" ControlShap="" MenuID="1000" ImageIndex="1" UiId="3000759" Visible="1" Name_CHT="採購計畫1" />
+    <group Id="cda1bed0-9563-48de-8a6b-009d324a1595" Name="adsdf" MenuID="1000" OrdID="1" Visible="1" Name_CHT="adsdf">
+      <ui Id="18dd7b14-53bd-40ff-8072-fc9ccd21c6cd" Name="我的工作台" Type="2" GroupId="cda1bed0-9563-48de-8a6b-009d324a1595" EntityID="0" EmbdUI="True" OrdID="0" UIID="446" Visible="1" Name_CHT="我的工作臺" />
+    </group>
+  </menu>
+</config>

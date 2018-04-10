@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<config>
+  <menu Id="1000" Name="排布系统" PicIndex="146" OrdID="10" Visible="1" Name_CHT="報價系統">
+    <group Id="7c1783d7-0ffc-4328-83ca-3a5132d30c43" Name="业务处理" MenuID="1000" OrdID="20" Visible="1" Name_CHT="業務處理">
+    </group>
+    <group Id="3cd0f80b-fdf9-4ea0-85db-570f5859b8a7" Name="报表分析" MenuID="1000" OrdID="30" Visible="1" Name_CHT="報表分析" />
+    <group Id="095c5c00-0d3f-4493-a7a7-94735e1ba75d" Name="基础设置" MenuID="1000" OrdID="10" Visible="1">
+      <ui Id="32ae034c-f7d7-4684-aa61-74f73c724f10" Name="通用字典" Type="3" GroupId="095c5c00-0d3f-4493-a7a7-94735e1ba75d" EntityID="3000861" EmbdUI="True" OrdID="1" UIID="3004665" Visible="1" />
+      <ui Id="e1a5fa10-3d84-4e66-b513-03d2eccaaae0" Name="初始化排版图" Type="3" GroupId="095c5c00-0d3f-4493-a7a7-94735e1ba75d" EntityID="3000866" EmbdUI="True" OrdID="2" UIID="3004671" Visible="1" />
+      <ui Id="c90529b4-7aba-40ee-b06c-62b631d867ec" Name="初始化版图对应表" Type="3" GroupId="095c5c00-0d3f-4493-a7a7-94735e1ba75d" EntityID="3000874" EmbdUI="True" OrdID="3" UIID="3004695" Visible="1" />
+      <ui Id="30719435-c32c-465d-9ca3-fa796ed76c68" Name="机台信息" Type="3" GroupId="095c5c00-0d3f-4493-a7a7-94735e1ba75d" EntityID="3000863" EmbdUI="True" OrdID="4" UIID="3004667" Visible="1" />
+      <ui Id="0814a12f-fc12-4179-becb-8a914b7cf244" Name="排版图信息" Type="3" GroupId="095c5c00-0d3f-4493-a7a7-94735e1ba75d" EntityID="3000864" EmbdUI="True" OrdID="5" UIID="3004669" Visible="1" />
+      <ui Id="a9ef3528-a4ce-4c58-9124-efc67ddaeed9" Name="产品信息" Type="3" GroupId="095c5c00-0d3f-4493-a7a7-94735e1ba75d" EntityID="3000867" EmbdUI="True" OrdID="6" UIID="3004673" Visible="1" />
+      <ui Id="32955cd6-f4ac-4fe0-ad2d-62d7d2f39398" Name="版图对照表" Type="3" GroupId="095c5c00-0d3f-4493-a7a7-94735e1ba75d" EntityID="3000868" EmbdUI="True" OrdID="7" UIID="3004696" Visible="1" />
+      <ui Id="0f2916af-5d8d-44b7-91c4-6caa6dccffbd" Name="底布颜色对照表" Type="3" GroupId="095c5c00-0d3f-4493-a7a7-94735e1ba75d" EntityID="3000862" EmbdUI="True" OrdID="8" UIID="3004689" Visible="1" />
+    </group>
+    <flow Id="1000_1" Name="面布版图确认" Left="214" Top="192" Width="" Height="" LineWidth="" Direction="" ControlShap="" MenuID="1000" ImageIndex="143" UiId="3004680" Visible="1" />
+    <flow Id="1000_2" Name="底布版图确认" Left="215" Top="72" Width="" Height="" LineWidth="" Direction="" ControlShap="" MenuID="1000" ImageIndex="143" UiId="3004677" Visible="1" />
+    <flow Id="1000_3" Name="计划排版表" Left="41" Top="131" Width="" Height="" LineWidth="" Direction="" ControlShap="" MenuID="1000" ImageIndex="20" UiId="3004676" Visible="1" />
+    <flow Id="1000_4" Name="底布编排单" Left="377" Top="76" Width="" Height="" LineWidth="" Direction="" ControlShap="" MenuID="1000" ImageIndex="232" UiId="3004698" Visible="1" />
+    <flow Id="1000_5" Name="面布编排单" Left="377" Top="195" Width="" Height="" LineWidth="" Direction="" ControlShap="" MenuID="1000" ImageIndex="232" UiId="3004685" Visible="1" />
+    <flow Id="1000_6" Name="" Left="146" Top="207" Width="43" Height="20" LineWidth="3" Direction="LeftToRight" ControlShap="LineArrow" MenuID="1000" ImageIndex="" UiId="0" Visible="1" />
+    <flow Id="1000_7" Name="" Left="135" Top="115" Width="20" Height="104" LineWidth="3" Direction="BottomToTop" ControlShap="Line" MenuID="1000" ImageIndex="" UiId="0" Visible="1" />
+    <flow Id="1000_8" Name="" Left="141" Top="108" Width="45" Height="20" LineWidth="3" Direction="LeftToRight" ControlShap="LineArrow" MenuID="1000" ImageIndex="" UiId="0" Visible="1" />
+    <flow Id="1000_9" Name="" Left="113" Top="155" Width="34" Height="20" LineWidth="3" Direction="LeftToRight" ControlShap="Line" MenuID="1000" ImageIndex="" UiId="0" Visible="1" />
+    <flow Id="1000_10" Name="" Left="318" Top="109" Width="44" Height="20" LineWidth="3" Direction="LeftToRight" ControlShap="LineArrow" MenuID="1000" ImageIndex="" UiId="0" Visible="1" />
+    <flow Id="1000_11" Name="" Left="318" Top="207" Width="45" Height="20" LineWidth="3" Direction="LeftToRight" ControlShap="LineArrow" MenuID="1000" ImageIndex="" UiId="0" Visible="1" />
+  </menu>
+  <menu Id="3000010" Name="系统管理" PicIndex="9" OrdID="80" Visible="1" Name_CHT="系統管理">
+    <flow Id="3000010_1" Name="辅助资料" Left="33" Top="25" Width="" Height="" LineWidth="" Direction="" ControlShap="" MenuID="3000010" ImageIndex="1" UiId="40" Visible="1" />
+    <flow Id="3000010_2" Name="职员" Left="130" Top="26" Width="" Height="" LineWidth="" Direction="" ControlShap="" MenuID="3000010" ImageIndex="175" UiId="23" Visible="1" />
+    <flow Id="3000010_3" Name="部门" Left="232" Top="27" Width="" Height="" LineWidth="" Direction="" ControlShap="" MenuID="3000010" ImageIndex="130" UiId="694" Visible="1" />
+    <flow Id="3000010_4" Name="用户管理" Left="126" Top="129" Width="" Height="" LineWidth="" Direction="" ControlShap="" MenuID="3000010" ImageIndex="78" UiId="1000596" Visible="1" />
+    <flow Id="3000010_5" Name="角色管理" Left="32" Top="128" Width="" Height="" LineWidth="" Direction="" ControlShap="" MenuID="3000010" ImageIndex="17" UiId="1000595" Visible="1" />
+    <flow Id="3000010_6" Name="组织机构" Left="340" Top="22" Width="" Height="" LineWidth="" Direction="" ControlShap="" MenuID="3000010" ImageIndex="104" UiId="11" Visible="1" />
+    <flow Id="3000010_7" Name="职员" Left="130" Top="26" Width="" Height="" LineWidth="" Direction="" ControlShap="" MenuID="3000010" ImageIndex="175" UiId="23" Visible="1" />
+    <flow Id="3000010_8" Name="辅助资料" Left="33" Top="25" Width="" Height="" LineWidth="" Direction="" ControlShap="" MenuID="3000010" ImageIndex="1" UiId="40" Visible="1" />
+  </menu>
+</config>
