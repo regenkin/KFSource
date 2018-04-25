@@ -4,27 +4,25 @@
   <ddir>C:\Users\Administrator\Desktop</ddir>
   <filetype>*.dll;*.kcg</filetype>
   <sel>
-    <item>Kf.MHJJ.dll</item>
-    <item>Kf.General.UI.dll</item>
     <item>Kf.Control.dll</item>
+    <item>Kf.General.UI.dll</item>
     <item>Kf.Runtime.Base.dll</item>
     <item>Kf.UtilObj.dll</item>
     <item>Kf.BOSBase.dll</item>
+    <item>Kf.MHJJ.dll</item>
   </sel>
   <PageName>KF企业版V8.0-补丁包-{yyyyMMdd-HHmm}(MHJJ)</PageName>
   <MaxNO>1000000000</MaxNO>
-  <SqlBefore>IF EXISTS (SELECT * FROM dbo.sysobjects WHERE xtype='U' AND Name='s_mhjjParam')
-	DROP TABLE s_mhjjParam
-select ID,NAME INTO s_mhjjParam FROM mhjjParam WHERE ID IN (24,25)
-
-</SqlBefore>
-  <SqlAfter>delete from kfAccess where [Level]=2 and IsGroup=1 and ID not in (select ParentID from kfAccess)
-
-IF EXISTS (SELECT * FROM dbo.sysobjects WHERE xtype='U' AND Name='s_mhjjParam')
-BEGIN
-UPDATE mhjjParam SET Name=s_mhjjParam.Name FROM mhjjParam INNER JOIN s_mhjjParam ON mhjjParam.ID=s_mhjjParam.ID
-DROP TABLE s_mhjjParam
-END</SqlAfter>
+  <SqlBefore>
+  </SqlBefore>
+  <SqlAfter> SET IDENTITY_INSERT mhjjParam ON 
+ if not exists(select 1 from mhjjParam where ID=26) Insert into mhjjParam([ID],[Name],[Number],[Description],[IsBuiltInData],[Forbidden],[mhjjParamGroupID],[Param1],[Param2])  values (26,'圆角位','E2','',1,0,5,0.00,0.00)
+ if not exists(select 1 from mhjjParam where ID=28) Insert into mhjjParam([ID],[Name],[Number],[Description],[IsBuiltInData],[Forbidden],[mhjjParamGroupID],[Param1],[Param2])  values (28,'扶手位','E3','',1,0,5,0.00,0.00)
+ if not exists(select 1 from mhjjParam where ID=29) Insert into mhjjParam([ID],[Name],[Number],[Description],[IsBuiltInData],[Forbidden],[mhjjParamGroupID],[Param1],[Param2])  values (29,'上裁剪比例','Z3','参数2图裁剪上部分占总图高度的%(参数2*100%)',1,0,6,0.00,0.01)
+ if not exists(select 1 from mhjjParam where ID=31) Insert into mhjjParam([ID],[Name],[Number],[Description],[IsBuiltInData],[Forbidden],[mhjjParamGroupID],[Param1],[Param2])  values (31,'下裁剪比例','Z4','参数2图裁剪下部分占总图高度的%(参数2*100%)',1,0,6,0.00,0.01)
+ if not exists(select 1 from mhjjParam where ID=32) Insert into mhjjParam([ID],[Name],[Number],[Description],[IsBuiltInData],[Forbidden],[mhjjParamGroupID],[Param1],[Param2])  values (32,'左裁剪比例','Z5','参数2图裁剪左部分占总图高度的%(参数2*100%)',1,0,6,0.00,0.00)
+ if not exists(select 1 from mhjjParam where ID=33) Insert into mhjjParam([ID],[Name],[Number],[Description],[IsBuiltInData],[Forbidden],[mhjjParamGroupID],[Param1],[Param2])  values (33,'右裁剪比例','Z6','参数2图裁剪右部分占总图高度的%(参数2*100%)',1,0,6,0.00,0.00)
+ SET IDENTITY_INSERT mhjjParam OFF </SqlAfter>
   <UpdateLog>
   </UpdateLog>
   <EntityIDs>3000859,3000869,3000868,3000867,3000874,3000872,3000870,3000873,3000871,3000862,3000861,3000860,3000866,3000864,3000863,10</EntityIDs>
