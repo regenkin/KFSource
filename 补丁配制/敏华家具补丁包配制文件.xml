@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Config>
-  <sdir>D:\KF\Bin</sdir>
+  <sdir>F:\gary\KF\Bin</sdir>
   <ddir>C:\Users\Administrator\Desktop</ddir>
   <filetype>*.dll;*.kcg</filetype>
   <sel>
     <item>Kf.MHJJ.dll</item>
-    <item>Kf.Runtime.Base.dll</item>
+    <item>Kf.General.UI.dll</item>
     <item>Kf.Control.dll</item>
+    <item>Kf.Runtime.Base.dll</item>
     <item>Kf.UtilObj.dll</item>
     <item>Kf.BOSBase.dll</item>
-    <item>KF-HR_MenuUI.kcg</item>
   </sel>
   <PageName>KF企业版V8.0-补丁包-{yyyyMMdd-HHmm}(MHJJ)</PageName>
   <MaxNO>1000000000</MaxNO>
