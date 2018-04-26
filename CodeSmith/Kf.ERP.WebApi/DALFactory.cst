@@ -1,0 +1,55 @@
+<%@ CodeTemplate Language="C#" TargetLanguage="C#" Debug="False" Description="Create a list of properties from database table." %>
+<%@ Property Name="SourceTable" Type="SchemaExplorer.TableSchema" Category="Context" Description="Table that the object is based on."%>
+<%@ Property Name="ModelName" Type="String" Default="ModelName" Optional="true" Category="String" Description="EntityObject Model Name" %>
+<%@ Property Name="namespacename" Type="String" Default="Pufang.WebApi.Scm" Optional="false" Category="String" Description="Pufang.WebApi.Scm" %>
+<%@ Assembly Name="System.Data" %>
+<%@ Import Namespace="System.Data" %>
+<%@ Map Name="CSharpAlias" Src="System-CSharpAlias" Description="System to C# Type Map" %>
+<%@ Assembly Name="SchemaExplorer" %>
+<%@ Import Namespace="SchemaExplorer" %>
+/*****************
+Name: <%=ModelName%>BLL
+Author: Pufang
+Description: 
+****************/
+using <%=namespacename%>.IDal;
+
+namespace <%=namespacename%>.Factory
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    public class DALFactory<T>
+    {
+        public static I<%=ModelName%>DAL<T> Create<%=ModelName%>DAL()
+        {
+            return new <%=namespacename%>.SQLServerDAL.<%=ModelName%>DAL<T>();
+        }
+		/// <summary>
+        /// 
+        /// </summary>
+        /// <param name="EPNumber">???</param>
+        /// <returns></returns>
+		public static I<%=ModelName%>DAL<T> Create<%=ModelName%>DAL(string EPNumber)
+        {
+            return new <%=namespacename%>.SQLServerDAL.<%=ModelName%>DAL<T>(EPNumber);
+        }
+    }
+
+    public class DALFactory
+    {
+        public static I<%=ModelName%>DAL<<%=namespacename%>.Models.<%=ModelName%>> Create<%=ModelName%>DAL()
+        {
+            return new <%=namespacename%>.SQLServerDAL.<%=ModelName%>DAL<<%=namespacename%>.Models.<%=ModelName%>>();
+        }
+		/// <summary>
+        /// 
+        /// </summary>
+        /// <param name="EPNumber">???</param>
+        /// <returns></returns>
+		public static I<%=ModelName%>DAL<<%=namespacename%>.Models.<%=ModelName%>> Create<%=ModelName%>DAL(string EPNumber)
+        {
+            return new <%=namespacename%>.SQLServerDAL.<%=ModelName%>DAL<<%=namespacename%>.Models.<%=ModelName%>>(EPNumber);
+        }
+    }
+}

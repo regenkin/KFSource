@@ -1,0 +1,160 @@
+<%@ CodeTemplate Language="C#" TargetLanguage="C#" Debug="False" Description="Create a list of properties from database table." %>
+<%@ Property Name="SourceTable" Type="SchemaExplorer.TableSchema" Category="Context" Description="Table that the object is based on."%>
+<%@ Property Name="ModelName" Type="String" Default="ModelName" Optional="true" Category="String" Description="EntityObject Model Name" %>
+<%@ Property Name="DbLinkInfo" Type="DBInfo" Default="" Optional="true" Category="Options" Description="" %>
+<%@ Property Name="namespacename" Type="String" Default="Pufang.WebApi.Scm" Optional="false" Category="String" Description="Pufang.WebApi.Scm" %>
+<%@ Assembly Name="System.Data" %>
+<%@ Import Namespace="System.Data" %>
+<%@ Map Name="CSharpAlias" Src="System-CSharpAlias" Description="System to C# Type Map" %>
+<%@ Assembly Name="SchemaExplorer" %>
+<%@ Import Namespace="SchemaExplorer" %>
+/*****************
+Name: <%=ModelName%>DAL
+Author: pufang
+Description: 
+****************/
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using Dapper;
+using Kf.WebApi.Util.Enum;
+using <%=namespacename%>.Factory;
+using Pufang.WebApi.Scm.IDal;
+
+namespace <%=namespacename%>.SQLServerDAL
+{
+    public class <%=ModelName%>DAL<T> : I<%=ModelName%>DAL<T>
+    {
+		#region Pufang Auto Create
+        private IDbConnection conn;
+        private IDbConnection Conn
+        {
+            get 
+            {
+                if (conn == null || conn.State != ConnectionState.Open)
+                {
+                    conn = ConnectionFactory.CreateSqlConnection(dbLinkEnum.<%=DbLinkInfo.ToString()%>);
+                }
+                return conn;
+            }
+        }
+
+        public int? Insert(T <%=ModelName.ToLower()%>)
+        {
+            using (Conn)
+            {
+                string query = "INSERT INTO <%=SourceTable.Name%>(<%=GetTableColumnString()%>)VALUES(<%=GetTableColumnParantString()%>)";
+                return conn.Execute(query, <%=ModelName.ToLower()%>);
+            }
+        }
+
+        public int? Update(T <%=ModelName.ToLower()%>)
+        {
+            using (Conn)
+            {
+                string query = "UPDATE <%=SourceTable.Name%> SET <%=GetUpdateTableColumnParantString()%>  WHERE <%=SourceTable.PrimaryKey.MemberColumns[0].Column.Name%> =@<%=SourceTable.PrimaryKey.MemberColumns[0].Column.Name%>";
+                return conn.Execute(query, <%=ModelName.ToLower()%>);
+            }
+        }
+
+        public int? Delete(T <%=ModelName.ToLower()%>)
+        {
+            using (Conn)
+            {
+                string query = "DELETE FROM <%=SourceTable.Name%> WHERE <%=SourceTable.PrimaryKey.MemberColumns[0].Column.Name%> = @<%=SourceTable.PrimaryKey.MemberColumns[0].Column.Name%>";
+                return conn.Execute(query, <%=ModelName.ToLower()%>);
+            }
+        }
+
+        public int? Delete(int? <%=SourceTable.PrimaryKey.MemberColumns[0].Column.Name.ToLower()%>)
+        {
+            using (Conn)
+            {
+                string query = "DELETE FROM <%=SourceTable.Name%> WHERE <%=SourceTable.PrimaryKey.MemberColumns[0].Column.Name%> = @<%=SourceTable.PrimaryKey.MemberColumns[0].Column.Name%>";
+                return conn.Execute(query, new { <%=SourceTable.PrimaryKey.MemberColumns[0].Column.Name%> = <%=SourceTable.PrimaryKey.MemberColumns[0].Column.Name.ToLower()%> });
+            }
+        }
+
+        public IList<T> GetList()
+        {
+            using (Conn)
+            {
+                string query = "SELECT  top 20 * FROM <%=SourceTable.Name%>";
+                return conn.Query<T>(query).ToList();
+            }
+        }
+
+        public T GetEntity(int? <%=SourceTable.PrimaryKey.MemberColumns[0].Column.Name.ToLower()%>)
+        {
+            T entity;
+            string query = "SELECT top 1 * FROM <%=SourceTable.Name%> WHERE <%=SourceTable.PrimaryKey.MemberColumns[0].Column.Name%> = @<%=SourceTable.PrimaryKey.MemberColumns[0].Column.Name%>";
+            using (Conn)
+            {
+                entity = conn.Query<T>(query, new { <%=SourceTable.PrimaryKey.MemberColumns[0].Column.Name%> = <%=SourceTable.PrimaryKey.MemberColumns[0].Column.Name.ToLower()%> }).SingleOrDefault();
+                return entity;
+            }
+        }
+		#endregion
+		
+		#region Customer Define
+		
+		#endregion
+    }
+}
+
+<script runat="template">
+public string GetTableColumnString()
+{
+	string s="";
+    foreach(SchemaExplorer.ColumnSchema col in SourceTable.Columns)
+    {
+        if(col.IsPrimaryKeyMember || col.NativeType.ToLower()=="timestamp")
+        {}
+        else
+        {
+            s+=",["+ col.Name +"]"   ;
+        }
+    }
+    if(s.Length>0)   s=s.Substring(1);
+    return s;
+}
+public string GetTableColumnParantString()
+{
+	string s="";
+    foreach(SchemaExplorer.ColumnSchema col in SourceTable.Columns)
+    {
+        if(col.IsPrimaryKeyMember || col.NativeType.ToLower()=="timestamp")
+        {}
+        else
+        {
+            s+=",@"+ col.Name;
+        }
+    }
+    if(s.Length>0)  s=s.Substring(1);
+    return s;
+}
+
+public string GetUpdateTableColumnParantString()
+{
+	string s="";
+    foreach(SchemaExplorer.ColumnSchema col in SourceTable.Columns)
+    {
+        if(col.IsPrimaryKeyMember || col.NativeType.ToLower()=="timestamp")
+        {}
+        else
+        {
+            s+=",["+ col.Name +"]"+"=@"+ col.Name;
+        }
+    }
+    if(s.Length>0)  s=s.Substring(1);
+    return s;
+}
+
+public enum DBInfo
+{
+  Saas=0,
+  SaasImplementation=1, 
+  SaasEnterprise=2,
+  JeezSystem=3
+} 
+</script>

@@ -1,0 +1,92 @@
+<%@ CodeTemplate Language="C#" TargetLanguage="C#" Debug="False" Description="Create a list of properties from database table." %>
+<%@ Property Name="SourceTable" Type="SchemaExplorer.TableSchema" Category="Context" Description="Table that the object is based on."%>
+<%@ Property Name="ModelName" Type="String" Default="ModelName" Optional="true" Category="String" Description="EntityObject Model Name" %>
+<%@ Property Name="namespacename" Type="String" Default="Pufang.WebApi.Scm" Optional="false" Category="String" Description="Pufang.WebApi.Scm" %>
+<%@ Assembly Name="System.Data" %>
+<%@ Import Namespace="System.Data" %>
+<%@ Map Name="CSharpAlias" Src="System-CSharpAlias" Description="System to C# Type Map" %>
+<%@ Assembly Name="SchemaExplorer" %>
+<%@ Import Namespace="SchemaExplorer" %>
+/*****************
+Name: <%=ModelName%>BLL
+Author: Pufang
+Description: 
+****************/
+using System.Collections.Generic;
+using <%=namespacename%>.Factory;
+using <%=namespacename%>.Models;
+using <%=namespacename%>.IDal;
+
+
+namespace <%=namespacename%>.BLL
+{
+    public class <%=ModelName%>BLL<T> : BaseBLL<T>
+    {
+        #region Auto By Pufang Auto Creater
+        private static <%=ModelName%>BLL<T> _<%=ModelName%>BLL;
+        public static <%=ModelName%>BLL<T> Instance() 
+        {
+            Dal = DALFactory.Create<%=ModelName%>DAL();
+            if (_<%=ModelName%>BLL == null)
+            {
+                _<%=ModelName%>BLL = new <%=ModelName%>BLL<T>();
+            }
+            return _<%=ModelName%>BLL;
+        }
+
+        private static I<%=ModelName%>DAL<T> dal = DALFactory<T>.Create<%=ModelName%>DAL();
+        #endregion
+
+        #region Customer Define
+
+        #endregion
+    }
+}
+<script runat="template">
+public string GetTableColumnString()
+{
+	string s="";
+    foreach(SchemaExplorer.ColumnSchema col in SourceTable.Columns)
+    {
+        if(col.IsPrimaryKeyMember || col.NativeType.ToLower()=="timestamp")
+        {}
+        else
+        {
+            s+=",["+ col.Name +"]"   ;
+        }
+    }
+    if(s.Length>0)   s=s.Substring(1);
+    return s;
+}
+public string GetTableColumnParantString()
+{
+	string s="";
+    foreach(SchemaExplorer.ColumnSchema col in SourceTable.Columns)
+    {
+        if(col.IsPrimaryKeyMember || col.NativeType.ToLower()=="timestamp")
+        {}
+        else
+        {
+            s+=",@"+ col.Name;
+        }
+    }
+    if(s.Length>0)  s=s.Substring(1);
+    return s;
+}
+
+public string GetUpdateTableColumnParantString()
+{
+	string s="";
+    foreach(SchemaExplorer.ColumnSchema col in SourceTable.Columns)
+    {
+        if(col.IsPrimaryKeyMember || col.NativeType.ToLower()=="timestamp")
+        {}
+        else
+        {
+            s+=",["+ col.Name +"]"+"=,@"+ col.Name;
+        }
+    }
+    if(s.Length>0)  s=s.Substring(1);
+    return s;
+}
+</script>

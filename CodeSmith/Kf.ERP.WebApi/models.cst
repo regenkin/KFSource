@@ -1,0 +1,34 @@
+<%@ CodeTemplate Language="C#" TargetLanguage="C#" Debug="False" Description="Create a list of properties from database table." %>
+<%@ Property Name="SourceTable" Type="SchemaExplorer.TableSchema" Category="Context" Description="Table that the object is based on."%>
+<%@ Property Name="namespacename" Type="String" Default="Pufang.WebApi.Scm" Optional="false" Category="String" Description="Pufang.WebApi.Scm" %>
+<%@ Property Name="ModelName" Type="String"  Optional="true" Category="String" Description="Model Name" %>
+<%@ Property Name="Description" Type="String"  Optional="true" Category="String" Description="" %>
+<%@ Map Name="CSharpAlias" Src="System-CSharpAlias" Description="System to C# Type Map" %>
+<%@ Assembly Name="SchemaExplorer" %>
+<%@ Import Namespace="SchemaExplorer" %>
+/*
+Name: Pufang
+Author: Pufang
+Description:<%=Description%>
+*/
+using System.Runtime.Serialization;
+
+namespace <%=namespacename%>.Models
+{
+	/// <summary>
+    /// <%=Description%>
+    /// </summary>
+    [DataContract]
+    public class <%=ModelName%>
+    {
+<% foreach (ColumnSchema column in this.SourceTable.Columns) {  %>
+		private <%= CSharpAlias[column.SystemType.FullName] %> _<%= StringUtil.ToCamelCase(column.Name) %>;
+		[DataMember]
+		public <%= CSharpAlias[column.SystemType.FullName] %> <%= StringUtil.ToPascalCase(column.Name) %>
+		{
+			get { return _<%= StringUtil.ToCamelCase(column.Name) %>; }
+			set { _<%= StringUtil.ToCamelCase(column.Name) %> = value; }
+		}
+<% } %>
+    }
+}
