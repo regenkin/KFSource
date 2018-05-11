@@ -15,60 +15,8 @@
   <MaxNO>1000000000</MaxNO>
   <SqlBefore>
   </SqlBefore>
-  <SqlAfter>delete from mhjjParam where mhjjParamGroupID=5
- SET IDENTITY_INSERT mhjjParam ON 
- if not exists(select 1 from mhjjParam where id=10) Insert into mhjjParam([ID],[Name],[Number],[Description],[IsBuiltInData],[Forbidden],[mhjjParamGroupID],[Param1],[Param2])  values (10,'主料','E11','',1,0,5,0.00,0.00)
- if not exists(select 1 from mhjjParam where id=11) Insert into mhjjParam([ID],[Name],[Number],[Description],[IsBuiltInData],[Forbidden],[mhjjParamGroupID],[Param1],[Param2])  values (11,'配料','E12','',1,0,5,0.00,0.00)
- if not exists(select 1 from mhjjParam where id=12) Insert into mhjjParam([ID],[Name],[Number],[Description],[IsBuiltInData],[Forbidden],[mhjjParamGroupID],[Param1],[Param2])  values (12,'主料/A','E11A','',1,0,5,0.00,0.00)
- if not exists(select 1 from mhjjParam where id=13) Insert into mhjjParam([ID],[Name],[Number],[Description],[IsBuiltInData],[Forbidden],[mhjjParamGroupID],[Param1],[Param2])  values (13,'主料/B','E11B','',1,0,5,0.00,0.00)
- if not exists(select 1 from mhjjParam where id=14) Insert into mhjjParam([ID],[Name],[Number],[Description],[IsBuiltInData],[Forbidden],[mhjjParamGroupID],[Param1],[Param2])  values (14,'配料/A','E12A','',1,0,5,0.00,0.00)
- if not exists(select 1 from mhjjParam where id=15) Insert into mhjjParam([ID],[Name],[Number],[Description],[IsBuiltInData],[Forbidden],[mhjjParamGroupID],[Param1],[Param2])  values (15,'配料/B','E12B','',1,0,5,0.00,0.00)
- if not exists(select 1 from mhjjParam where id=18) Insert into mhjjParam([ID],[Name],[Number],[Description],[IsBuiltInData],[Forbidden],[mhjjParamGroupID],[Param1],[Param2])  values (18,'圆角位/主料','E21','',1,0,5,0.00,0.00)
- if not exists(select 1 from mhjjParam where id=19) Insert into mhjjParam([ID],[Name],[Number],[Description],[IsBuiltInData],[Forbidden],[mhjjParamGroupID],[Param1],[Param2])  values (19,'圆角位/主料/A','E21A','',1,0,5,0.00,0.00)
- if not exists(select 1 from mhjjParam where id=20) Insert into mhjjParam([ID],[Name],[Number],[Description],[IsBuiltInData],[Forbidden],[mhjjParamGroupID],[Param1],[Param2])  values (20,'圆角位/主料/B','E21B','',1,0,5,0.00,0.00)
- if not exists(select 1 from mhjjParam where id=21) Insert into mhjjParam([ID],[Name],[Number],[Description],[IsBuiltInData],[Forbidden],[mhjjParamGroupID],[Param1],[Param2])  values (21,'圆角位/配料','E22','',1,0,5,0.00,0.00)
- if not exists(select 1 from mhjjParam where id=22) Insert into mhjjParam([ID],[Name],[Number],[Description],[IsBuiltInData],[Forbidden],[mhjjParamGroupID],[Param1],[Param2])  values (22,'圆角位/配料/A','E22A','',1,0,5,0.00,0.00)
- if not exists(select 1 from mhjjParam where id=23) Insert into mhjjParam([ID],[Name],[Number],[Description],[IsBuiltInData],[Forbidden],[mhjjParamGroupID],[Param1],[Param2])  values (23,'圆角位/配料/B','E22B','',1,0,5,0.00,0.00)
- if not exists(select 1 from mhjjParam where id=26) Insert into mhjjParam([ID],[Name],[Number],[Description],[IsBuiltInData],[Forbidden],[mhjjParamGroupID],[Param1],[Param2])  values (26,'圆角位','E2','',1,0,5,0.00,0.00)
- if not exists(select 1 from mhjjParam where id=28) Insert into mhjjParam([ID],[Name],[Number],[Description],[IsBuiltInData],[Forbidden],[mhjjParamGroupID],[Param1],[Param2])  values (28,'扶手位','E3','',1,0,5,0.00,0.00)
- if not exists(select 1 from mhjjParam where id=34) Insert into mhjjParam([ID],[Name],[Number],[Description],[IsBuiltInData],[Forbidden],[mhjjParamGroupID],[Param1],[Param2])  values (34,'扶手位/主料','E31','',1,0,5,0.00,0.00)
- if not exists(select 1 from mhjjParam where id=35) Insert into mhjjParam([ID],[Name],[Number],[Description],[IsBuiltInData],[Forbidden],[mhjjParamGroupID],[Param1],[Param2])  values (35,'扶手位/主料/A','E31A','',1,0,5,0.00,0.00)
- if not exists(select 1 from mhjjParam where id=36) Insert into mhjjParam([ID],[Name],[Number],[Description],[IsBuiltInData],[Forbidden],[mhjjParamGroupID],[Param1],[Param2])  values (36,'扶手位/主料/B','E31B','',1,0,5,0.00,0.00)
- if not exists(select 1 from mhjjParam where id=37) Insert into mhjjParam([ID],[Name],[Number],[Description],[IsBuiltInData],[Forbidden],[mhjjParamGroupID],[Param1],[Param2])  values (37,'扶手位/配料','E32','',1,0,5,0.00,0.00)
- if not exists(select 1 from mhjjParam where id=38) Insert into mhjjParam([ID],[Name],[Number],[Description],[IsBuiltInData],[Forbidden],[mhjjParamGroupID],[Param1],[Param2])  values (38,'扶手位/配料/A','E32A','',1,0,5,0.00,0.00)
- if not exists(select 1 from mhjjParam where id=39) Insert into mhjjParam([ID],[Name],[Number],[Description],[IsBuiltInData],[Forbidden],[mhjjParamGroupID],[Param1],[Param2])  values (39,'扶手位/配料/B','E32B','',1,0,5,0.00,0.00)
- if not exists(select 1 from mhjjParam where id=40) Insert into mhjjParam([ID],[Name],[Number],[Description],[IsBuiltInData],[Forbidden],[mhjjParamGroupID],[Param1],[Param2])  values (40,'边位','E4','',1,0,5,0.00,0.00)
- if not exists(select 1 from mhjjParam where id=41) Insert into mhjjParam([ID],[Name],[Number],[Description],[IsBuiltInData],[Forbidden],[mhjjParamGroupID],[Param1],[Param2])  values (41,'边位/主料','E41','',1,0,5,0.00,0.00)
- if not exists(select 1 from mhjjParam where id=42) Insert into mhjjParam([ID],[Name],[Number],[Description],[IsBuiltInData],[Forbidden],[mhjjParamGroupID],[Param1],[Param2])  values (42,'边位/主料/A','E41A','',1,0,5,0.00,0.00)
- if not exists(select 1 from mhjjParam where id=43) Insert into mhjjParam([ID],[Name],[Number],[Description],[IsBuiltInData],[Forbidden],[mhjjParamGroupID],[Param1],[Param2])  values (43,'边位/主料/B','E41B','',1,0,5,0.00,0.00)
- if not exists(select 1 from mhjjParam where id=44) Insert into mhjjParam([ID],[Name],[Number],[Description],[IsBuiltInData],[Forbidden],[mhjjParamGroupID],[Param1],[Param2])  values (44,'边位/配料','E42','',1,0,5,0.00,0.00)
- if not exists(select 1 from mhjjParam where id=45) Insert into mhjjParam([ID],[Name],[Number],[Description],[IsBuiltInData],[Forbidden],[mhjjParamGroupID],[Param1],[Param2])  values (45,'边位/配料/A','E42A','',1,0,5,0.00,0.00)
- if not exists(select 1 from mhjjParam where id=46) Insert into mhjjParam([ID],[Name],[Number],[Description],[IsBuiltInData],[Forbidden],[mhjjParamGroupID],[Param1],[Param2])  values (46,'边位/配料/B','E42B','',1,0,5,0.00,0.00)
- if not exists(select 1 from mhjjParam where id=47) Insert into mhjjParam([ID],[Name],[Number],[Description],[IsBuiltInData],[Forbidden],[mhjjParamGroupID],[Param1],[Param2])  values (47,'HC','E5','',1,0,5,0.00,0.00)
- if not exists(select 1 from mhjjParam where id=48) Insert into mhjjParam([ID],[Name],[Number],[Description],[IsBuiltInData],[Forbidden],[mhjjParamGroupID],[Param1],[Param2])  values (48,'HC/主料','E51','',1,0,5,0.00,0.00)
- if not exists(select 1 from mhjjParam where id=49) Insert into mhjjParam([ID],[Name],[Number],[Description],[IsBuiltInData],[Forbidden],[mhjjParamGroupID],[Param1],[Param2])  values (49,'HC/主料/A','E51A','',1,0,5,0.00,0.00)
- if not exists(select 1 from mhjjParam where id=51) Insert into mhjjParam([ID],[Name],[Number],[Description],[IsBuiltInData],[Forbidden],[mhjjParamGroupID],[Param1],[Param2])  values (51,'HC/主料/B','E51B','',1,0,5,0.00,0.00)
- if not exists(select 1 from mhjjParam where id=52) Insert into mhjjParam([ID],[Name],[Number],[Description],[IsBuiltInData],[Forbidden],[mhjjParamGroupID],[Param1],[Param2])  values (52,'HC/配料','E52','',1,0,5,0.00,0.00)
- if not exists(select 1 from mhjjParam where id=53) Insert into mhjjParam([ID],[Name],[Number],[Description],[IsBuiltInData],[Forbidden],[mhjjParamGroupID],[Param1],[Param2])  values (53,'HC/配料/A','E52A','',1,0,5,0.00,0.00)
- if not exists(select 1 from mhjjParam where id=54) Insert into mhjjParam([ID],[Name],[Number],[Description],[IsBuiltInData],[Forbidden],[mhjjParamGroupID],[Param1],[Param2])  values (54,'HC/配料/B','E52B','',1,0,5,0.00,0.00)
- if not exists(select 1 from mhjjParam where id=55) Insert into mhjjParam([ID],[Name],[Number],[Description],[IsBuiltInData],[Forbidden],[mhjjParamGroupID],[Param1],[Param2])  values (55,'中位','E6','',1,0,5,0.00,0.00)
- if not exists(select 1 from mhjjParam where id=56) Insert into mhjjParam([ID],[Name],[Number],[Description],[IsBuiltInData],[Forbidden],[mhjjParamGroupID],[Param1],[Param2])  values (56,'中位/主料','E61','',1,0,5,0.00,0.00)
- if not exists(select 1 from mhjjParam where id=57) Insert into mhjjParam([ID],[Name],[Number],[Description],[IsBuiltInData],[Forbidden],[mhjjParamGroupID],[Param1],[Param2])  values (57,'中位/主料/A','E61A','',1,0,5,0.00,0.00)
- if not exists(select 1 from mhjjParam where id=58) Insert into mhjjParam([ID],[Name],[Number],[Description],[IsBuiltInData],[Forbidden],[mhjjParamGroupID],[Param1],[Param2])  values (58,'中位/主料/B','E61B','',1,0,5,0.00,0.00)
- if not exists(select 1 from mhjjParam where id=59) Insert into mhjjParam([ID],[Name],[Number],[Description],[IsBuiltInData],[Forbidden],[mhjjParamGroupID],[Param1],[Param2])  values (59,'中位/配料','E62','',1,0,5,0.00,0.00)
- if not exists(select 1 from mhjjParam where id=60) Insert into mhjjParam([ID],[Name],[Number],[Description],[IsBuiltInData],[Forbidden],[mhjjParamGroupID],[Param1],[Param2])  values (60,'中位/配料/A','E62A','',1,0,5,0.00,0.00)
- if not exists(select 1 from mhjjParam where id=61) Insert into mhjjParam([ID],[Name],[Number],[Description],[IsBuiltInData],[Forbidden],[mhjjParamGroupID],[Param1],[Param2])  values (61,'中位/配料/B','E62B','',1,0,5,0.00,0.00)
- if not exists(select 1 from mhjjParam where id=62) Insert into mhjjParam([ID],[Name],[Number],[Description],[IsBuiltInData],[Forbidden],[mhjjParamGroupID],[Param1],[Param2])  values (62,'拆边','E7','',1,0,5,0.00,0.00)
- if not exists(select 1 from mhjjParam where id=63) Insert into mhjjParam([ID],[Name],[Number],[Description],[IsBuiltInData],[Forbidden],[mhjjParamGroupID],[Param1],[Param2])  values (63,'拆边/主料','E71','',1,0,5,0.00,0.00)
- if not exists(select 1 from mhjjParam where id=64) Insert into mhjjParam([ID],[Name],[Number],[Description],[IsBuiltInData],[Forbidden],[mhjjParamGroupID],[Param1],[Param2])  values (64,'拆边/主料/A','E71A','',1,0,5,0.00,0.00)
- if not exists(select 1 from mhjjParam where id=65) Insert into mhjjParam([ID],[Name],[Number],[Description],[IsBuiltInData],[Forbidden],[mhjjParamGroupID],[Param1],[Param2])  values (65,'拆边/主料/B','E71B','',1,0,5,0.00,0.00)
- if not exists(select 1 from mhjjParam where id=66) Insert into mhjjParam([ID],[Name],[Number],[Description],[IsBuiltInData],[Forbidden],[mhjjParamGroupID],[Param1],[Param2])  values (66,'拆边/配料','E72','',1,0,5,0.00,0.00)
- if not exists(select 1 from mhjjParam where id=67) Insert into mhjjParam([ID],[Name],[Number],[Description],[IsBuiltInData],[Forbidden],[mhjjParamGroupID],[Param1],[Param2])  values (67,'拆边/配料/A','E72A','',1,0,5,0.00,0.00)
- if not exists(select 1 from mhjjParam where id=68) Insert into mhjjParam([ID],[Name],[Number],[Description],[IsBuiltInData],[Forbidden],[mhjjParamGroupID],[Param1],[Param2])  values (68,'拆边/配料/B','E72B','',1,0,5,0.00,0.00)
- SET IDENTITY_INSERT mhjjParam OFF 
-
-
-</SqlAfter>
+  <SqlAfter>
+  </SqlAfter>
   <UpdateLog>
   </UpdateLog>
   <EntityIDs>3000859,3000869,3000868,3000867,3000875,3000874,3000872,3000870,3000873,3000871,3000862,3000861,3000860,3000866,3000864,3000863,10</EntityIDs>
