@@ -10,7 +10,7 @@
 <%@ Import Namespace="SchemaExplorer" %>
 /*****************
 Name: <%=ModelName%>DAL
-Author: pufang
+Author: Kinfar
 Description: 
 ****************/
 using System;

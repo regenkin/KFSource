@@ -9,7 +9,7 @@
 <%@ Import Namespace="SchemaExplorer" %>
 /*****************
 Name: <%=ModelName%>BLL
-Author: Pufang
+Author: kinfar
 Description: 
 ****************/
 using System.Collections.Generic;

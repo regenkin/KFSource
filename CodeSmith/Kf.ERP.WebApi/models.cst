@@ -7,8 +7,8 @@
 <%@ Assembly Name="SchemaExplorer" %>
 <%@ Import Namespace="SchemaExplorer" %>
 /*
-Name: Pufang
-Author: Pufang
+Name: Kinfar
+Author: Kinfar
 Description:<%=Description%>
 */
 using System.Runtime.Serialization;
