@@ -3,6 +3,7 @@
 <%@ Property Name="ModelName" Type="String" Default="ModelName" Optional="true" Category="String" Description="EntityObject Model Name" %>
 <%@ Property Name="DbLinkInfo" Type="DBInfo" Default="" Optional="true" Category="Options" Description="" %>
 <%@ Property Name="namespacename" Type="String" Default="Pufang.WebApi.Scm" Optional="false" Category="String" Description="Pufang.WebApi.Scm" %>
+<%@ Property Name="Description" Type="String"  Optional="true" Category="String" Description="SqlDal????" %>
 <%@ Assembly Name="System.Data" %>
 <%@ Import Namespace="System.Data" %>
 <%@ Map Name="CSharpAlias" Src="System-CSharpAlias" Description="System to C# Type Map" %>
@@ -11,7 +12,7 @@
 /*****************
 Name: <%=ModelName%>DAL
 Author: Kinfar
-Description: 
+Description:<%=Description%>
 ****************/
 using System.Collections.Generic;
 using System.Data;
@@ -19,7 +20,7 @@ using System.Linq;
 using Dapper;
 using Kf.WebApi.Util.Enum;
 using <%=namespacename%>.Factory;
-using Pufang.WebApi.Scm.IDal;
+using <%=namespacename%>.IDal;
 
 namespace <%=namespacename%>.SQLServerDAL
 {

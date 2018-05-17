@@ -2,6 +2,7 @@
 <%@ Property Name="SourceTable" Type="SchemaExplorer.TableSchema" Category="Context" Description="Table that the object is based on."%>
 <%@ Property Name="ModelName" Type="String" Default="ModelName" Optional="true" Category="String" Description="EntityObject Model Name" %>
 <%@ Property Name="namespacename" Type="String" Default="Pufang.WebApi.Scm" Optional="false" Category="String" Description="Pufang.WebApi.Scm" %>
+<%@ Property Name="Description" Type="String"  Optional="true" Category="String" Description="???" %>
 <%@ Assembly Name="System.Data" %>
 <%@ Import Namespace="System.Data" %>
 <%@ Map Name="CSharpAlias" Src="System-CSharpAlias" Description="System to C# Type Map" %>
@@ -10,7 +11,7 @@
 /*****************
 Name: <%=ModelName%>BLL
 Author: kinfar
-Description: 
+Description:<%=Description%>
 ****************/
 using System.Collections.Generic;
 using <%=namespacename%>.Factory;
