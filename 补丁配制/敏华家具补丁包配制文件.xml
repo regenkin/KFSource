@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Config>
-  <sdir>F:\gary\KF\Bin</sdir>
+  <sdir>D:\KF\Bin</sdir>
   <ddir>C:\Users\Administrator\Desktop</ddir>
   <filetype>*.dll;*.kcg</filetype>
   <sel>
