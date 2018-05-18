@@ -39,13 +39,23 @@ namespace <%=namespacename%>.SQLServerDAL
                 return conn;
             }
         }
+        
+        public int? Exist(int? <%=SourceTable.PrimaryKey.MemberColumns[0].Column.Name.ToLower()%>)
+        {
+            string query = "SELECT count(1) FROM <%=SourceTable.Name%> WHERE <%=SourceTable.PrimaryKey.MemberColumns[0].Column.Name%> = @<%=SourceTable.PrimaryKey.MemberColumns[0].Column.Name%>";
+            using (Conn)
+            {
+                return conn.Query<int>(query, new { <%=SourceTable.PrimaryKey.MemberColumns[0].Column.Name%> = <%=SourceTable.PrimaryKey.MemberColumns[0].Column.Name.ToLower()%> }).FirstOrDefault();
+            }
+        }
 
         public int? Insert(T <%=ModelName.ToLower()%>)
         {
             using (Conn)
             {
                 string query = "INSERT INTO <%=SourceTable.Name%>(<%=GetTableColumnString()%>)VALUES(<%=GetTableColumnParantString()%>)";
-                return conn.Execute(query, <%=ModelName.ToLower()%>);
+                query += " SELECT CAST(SCOPE_IDENTITY() as int)";
+                return conn.Query<int>(query, <%=ModelName.ToLower()%>).FirstOrDefault();
             }
         }
 
