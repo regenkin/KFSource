@@ -22,7 +22,7 @@ namespace <%=namespacename%>.Models
     public class <%=ModelName%>
     {
 <% foreach (ColumnSchema column in this.SourceTable.Columns) {  %>
-		private <%= CSharpAlias[column.SystemType.FullName] %> _<%= StringUtil.ToCamelCase(column.Name) %>;
+		private <%= CSharpAlias[column.SystemType.FullName] %> _<%= StringUtil.ToCamelCase(column.Name)%> = <%=GetDefault(CSharpAlias[column.SystemType.FullName])%>;
 		[DataMember]
 		public <%= CSharpAlias[column.SystemType.FullName] %> <%= StringUtil.ToPascalCase(column.Name) %>
 		{
@@ -32,3 +32,36 @@ namespace <%=namespacename%>.Models
 <% } %>
     }
 }
+<script runat="template">
+public string GetDefault(string type)
+{
+	string s="";
+    switch(type.ToLower())
+    {
+        case "datetime":
+        case "system.datetime":
+            s="new System.DateTime(1799,1,2)";
+            break;
+        case "int":
+        case "int?":
+            s="0";
+            break;
+        case "decimal":
+            s="0m";
+            break;
+        case "string":
+            s="\"\"";
+            break;
+        case "bool":
+            s="false";
+            break;
+        case "byte":
+        case "byte[]":
+            s="new byte[0]";
+            break;
+        default:
+            break;
+     }
+    return s;
+}
+</script>
