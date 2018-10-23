@@ -1,0 +1,8 @@
+P, bin\kf.dbcenter.exe, 天尊软件\中间件服务, , 数据中心.lnk, 
+P, bin\Kf.License.exe, 天尊软件\中间件服务, , 许可申请.lnk, 
+P, bin\UnInstallServer.exe, 天尊软件\中间件服务, , 卸载中间件服务.lnk, 
+P, bin\Kf.StartService.exe Kf.Service.exe KfService, 天尊软件\中间件服务\TCPHTTP服务 , , 安装TCPHTTP服务.lnk, 
+P, bin\Kf.StartService.exe -u Kf.Service.exe, 天尊软件\中间件服务\TCPHTTP服务 , , 卸载TCPHTTP服务.lnk, 
+P, bin\Kf.StartService.exe Kf.Agent.exe KFAgent, 天尊软件\中间件服务\代理服务 , , 安装TCPHTTP服务.lnk, 
+P, bin\Kf.StartService.exe -u Kf.Agent.exe, 天尊软件\中间件服务\代理服务 , , 卸载TCPHTTP服务.lnk, 
+D, bin\kf.dbcenter.exe, , , 数据中心.lnk, 
