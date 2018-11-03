@@ -1,5 +1,7 @@
 ;下面的注释包含自解压脚本命令
 
+Path=天尊软件\客户端
+Setup=Kf.SetForderRight.exe
 Title=天尊软件
 License=天尊许可协议
 {

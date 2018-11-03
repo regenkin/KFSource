@@ -1,5 +1,6 @@
 ;下面的注释包含自解压脚本命令
 
+Path=天尊软件\中间件服务
 Setup=bin\install.exe
 Title=天尊软件
 License=天尊许可协议
