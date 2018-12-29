@@ -31,5 +31,5 @@ License=天尊许可协议
 
 深圳市天尊软件有限公司
 }
-Shortcut=P, "KF.Menu.exe KF-PriceMgr", 天尊软件\客户端, 深圳市天尊软件有限公司, 天尊客户端, ui\supremesoft.ico
-Shortcut=D, "KF.Menu.exe KF-PriceMgr", , 深圳市天尊软件有限公司, 天尊软件, ui\supremesoft.ico
+Shortcut=P, "KF.Runtime.exe", 天尊软件\客户端, 深圳市天尊软件有限公司, 天尊客户端, ui\supresoft.ico
+Shortcut=D, "KF.Runtime.exe", , 深圳市天尊软件有限公司, 天尊软件, ui\supresoft.ico
