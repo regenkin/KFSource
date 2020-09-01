@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <txtWinrar>C:\Program Files\WinRAR\Rar.exe</txtWinrar>
+  <txtDllPath>D:\KF\Bin</txtDllPath>
+  <txtWebapiPath>D:\君飞Webapi</txtWebapiPath>
+  <txtAppIco>D:\KF\KfSource\trunk\资源包\SupremeSoft\supremesoft.ico</txtAppIco>
+  <txtCreatePath>C:\Users\Administrator\Desktop\安</txtCreatePath>
+  <txtServerName>服务端安装包</txtServerName>
+  <txtClientName>客户端安装包</txtClientName>
+  <txtSingleName>
+  </txtSingleName>
+  <cboMenuType>3004765</cboMenuType>
+  <chkAccess>0</chkAccess>
+</root>
