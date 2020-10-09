@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Config>
+  <DataSource>
+    <Server>119.29.91.240,50362</Server>
+    <DB>KFDEV</DB>
+    <User>kinfar</User>
+    <Pwd>kinfar123</Pwd>
+    <IncludeData>True</IncludeData>
+    <IsNew>True</IsNew>
+  </DataSource>
+  <DataPackage>
+    <DBSets>天尊OEM供应链生产^</DBSets>
+    <OrgSet>1</OrgSet>
+  </DataPackage>
+  <UploadOption>
+    <DLL>False</DLL>
+    <APP>False</APP>
+    <Kf>False</Kf>
+    <Child>True</Child>
+    <Other>False</Other>
+    <TimeSame>False</TimeSame>
+  </UploadOption>
+  <Path>
+    <DataPath>C:\Users\Administrator\Desktop</DataPath>
+    <DllPath>D:\KF\Bin\</DllPath>
+  </Path>
+  <SelectedDLL>ClientDll.dll^HttpHelper.dll^Kf.AccessBase.dll^Kf.BillMap.dll^Kf.BllObj.dll^Kf.BllPicControl.dll^Kf.Control.dll^Kf.Core.dll^Kf.DefineReport.dll^Kf.DevUI.dll^Kf.EncrypDog.dll^Kf.Entity.Base.dll^Kf.EntityUI.dll^Kf.FlowUI.dll^Kf.FormulaCal.dll^Kf.Gateway.Interface.dll^Kf.General.UI.dll^Kf.GridAttribute.dll^Kf.HttpClient.dll^Kf.ICSharpCode.SharpZLib.dll^Kf.IRemoteCall.dll^Kf.LanguageHelper.dll^Kf.log4net.dll^Kf.Login.DLL^Kf.MailMan.dll^Kf.MenuUI.dll^Kf.Print.ReportDefine.dll^Kf.PrintSet.dll^Kf.PropertyBase.dll^Kf.ReportSystem.dll^Kf.RptBase.dll^Kf.Runtime.Base.dll^Kf.Runtime.Data.dll^Kf.Runtime.MiniUI.dll^Kf.Runtime.UI.dll^Kf.Tools.dll^Kf.Util.dll^Kf.UtilEntityUI.dll^Kf.UtilObj.dll^Kf.WorkflowActivity.dll^Kf.WorkflowDesigner.dll^Kf.WorkflowRuntime.dll^Kf.WorkflowSMS.dll^Kf.ArAp.dll^Kf.ArApFormula.dll^Kf.BllBase.dll^Kf.BOSBase.dll^Kf.Cost.dll^Kf.EMS.dll^Kf.FA.dll^Kf.FinancePort.dll^Kf.GL.Base.dll^Kf.GL.dll^Kf.GLFormula.dll^Kf.HR.dll^Kf.Inst.dll^Kf.Mes.dll^Kf.MHJJ.dll^Kf.OA.dll^Kf.QC.dll^Kf.Scm.Base.dll^Kf.Scm.dll^Kf.ScmFormula.dll^Kf.Shop.dll^Kf.TWBY.dll^</SelectedDLL>
+</Config>
