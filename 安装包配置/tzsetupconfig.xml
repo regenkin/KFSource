@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <root>
   <txtWinrar>C:\Program Files\WinRAR\Rar.exe</txtWinrar>
-  <txtDllPath>D:\KF\Bin</txtDllPath>
+  <txtDllPath>D:\KFDev\Bin</txtDllPath>
   <txtWebapiPath>D:\君飞Webapi</txtWebapiPath>
   <txtAppIco>D:\KF\KfSource\trunk\资源包\SupremeSoft\supremesoft.ico</txtAppIco>
   <txtCreatePath>C:\Users\Administrator\Desktop\安</txtCreatePath>
