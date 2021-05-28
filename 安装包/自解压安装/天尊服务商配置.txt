@@ -31,5 +31,5 @@ License=天尊许可协议
 
 深圳市天尊软件有限公司
 }
-Shortcut=D, bin\Kf.License.exe, , 君飞产品许可授权, 许可申请, bin\UI\supremesoft.ico
-Shortcut=D, bin\kf.dbcenter.exe, , 君飞产品数据中心, 数据中心,bin\UI\supremesoft.ico
+Shortcut=D, bin\Kf.License.exe, , 产品许可授权, 许可申请, bin\UI\supremesoft.ico
+Shortcut=D, bin\kf.dbcenter.exe, , 产品数据中心, 数据中心,bin\UI\supremesoft.ico
